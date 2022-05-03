@@ -10,7 +10,7 @@ import main.DrawingSurface;
 import sprites.Player;
 import sprites.Sprite;
 
-public class GameScreen {
+public class GameScreen extends Screen {
 
 	private DrawingSurface surface;
 	private Rectangle screenRect;
