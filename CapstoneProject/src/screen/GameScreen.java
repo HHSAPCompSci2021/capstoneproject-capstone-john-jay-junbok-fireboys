@@ -6,6 +6,7 @@ import java.awt.event.*;
 import java.util.ArrayList;
 import java.util.List;
 
+import level.Level;
 import main.DrawingSurface;
 import sprites.Player;
 import sprites.Sprite;
