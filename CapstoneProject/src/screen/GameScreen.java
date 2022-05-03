@@ -22,12 +22,7 @@ public class GameScreen {
 		super(800,600);
 		this.surface = surface;
 		screenRect = new Rectangle(0,0, DRAWING_WIDTH, DRAWING_HEIGHT);
-		obstacles = new ArrayList<Sprite>();
-		obstacles.add(new Sprite(0,250,100,50));
-		obstacles.add(new Sprite(700,250,100,50));
-		obstacles.add(new Sprite(200,400,400,50));
-		obstacles.add(new Sprite(375,300,50,100));
-		obstacles.add(new Sprite(300,250,200,50));
+		obstacles = a.getObstacles();
 	}
 
 }
