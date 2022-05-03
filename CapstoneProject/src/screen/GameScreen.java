@@ -6,6 +6,8 @@ import java.awt.event.*;
 import java.util.ArrayList;
 import java.util.List;
 
+import level.Level;
+import level.Obstacle;
 import main.DrawingSurface;
 import sprites.Player;
 import sprites.Sprite;
@@ -15,7 +17,7 @@ public class GameScreen extends Screen {
 	private DrawingSurface surface;
 	private Rectangle screenRect;
 	private Player player;
-	private List<Sprite> obstacles;
+	private ArrayList<Obstacle> obstacles;
 	
 
 	public GameScreen(DrawingSurface surface, Level a) {
