@@ -1,8 +1,11 @@
 package screen;
 
-public class EscapeScreen {
+import main.DrawingSurface;
+
+public class EscapeScreen extends Screen {
 	
-	public EscapeScreen() {
+	public EscapeScreen(DrawingSurface s) {
+		super(0, 0);
 		
 	}
 

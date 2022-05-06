@@ -20,11 +20,10 @@ public class GameScreen extends Screen {
 	private ArrayList<Obstacle> obstacles;
 	
 
-	public GameScreen(DrawingSurface surface, Level a) {
+	public GameScreen(DrawingSurface surface) {
 		super(800,600);
 		this.surface = surface;
 		screenRect = new Rectangle(0,0, DRAWING_WIDTH, DRAWING_HEIGHT);
-		obstacles = a.getObstacles();
 	}
 
 }
