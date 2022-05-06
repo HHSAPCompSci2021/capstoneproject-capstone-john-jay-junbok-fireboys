@@ -2,15 +2,11 @@ package level;
 
 import java.util.ArrayList;
 
-public class Level {
+interface Level {
 	
 	ArrayList<Obstacle> obstacles = new ArrayList<>();
-	
-	public Level() {
-		
-	}
 
-	public ArrayList<Obstacle> getObstacles() {
+	public default ArrayList<Obstacle> getObstacles() {
 		return obstacles;
 	}
 }

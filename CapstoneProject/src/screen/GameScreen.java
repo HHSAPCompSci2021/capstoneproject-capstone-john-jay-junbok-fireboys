@@ -1,12 +1,11 @@
 package screen;
 
 import java.awt.Rectangle;
+
 import java.awt.Shape;
 import java.awt.event.*;
 import java.util.ArrayList;
 import java.util.List;
-
-import level.Level;
 import level.Obstacle;
 import main.DrawingSurface;
 import sprites.Player;
