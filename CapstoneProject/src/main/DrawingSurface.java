@@ -10,7 +10,7 @@ import screen.StartingScreen;
 
 public class DrawingSurface extends PApplet implements ScreenSwitcher {
 
-	public double x, y;
+	public float x, y;
 	private ArrayList<Integer> keys;
 	private Screen current;
 	private ArrayList<Screen> screens;
@@ -31,6 +31,19 @@ public class DrawingSurface extends PApplet implements ScreenSwitcher {
 		current = screens.get(0);
 		
 		
+	}
+	
+	public void draw() {
+		x = (float) width / current.DRAWING_WIDTH;
+		y = (float) height / current.DRAWING_HEIGHT;
+		
+		push();
+		
+		scale(x, y);
+		
+		current.draw();
+		
+		pop();
 	}
 
 	@Override
