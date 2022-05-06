@@ -1,20 +1,37 @@
 package sprites;
-
-public class Enemy extends Sprite{
-	
+/**
+ * This class extends Sprite and represents an enemy which will attack the player until specific circumstances.
+ * 
+ * @author junbok lee
+ * @version 05/06/2022
+ */
+public abstract class Enemy extends Sprite{
+	/**
+	 * Constructs an Enemy with given x and y coordinates.
+	 * 
+	 * @param x x coordinate of the Enemy
+	 * @param y y coordinate of the Enemy
+	 */
 	public Enemy (double x, double y) {
 		super(x, y, 0, 0);
 	}
 	
-	public void moveTo() {
+	/**
+	 * Moves the Enemy to the given coordinates.
+	 */
+	public void moveTo(double x, double y) {
 		
 	}
 	
-	public void moveBy() {
+	/**
+	 * Moves the Enemy by the given lengths.
+	 */
+	public void moveBy(double x, double y) {
 		
 	}
 	
-	public void attack() {
-		
-	}
+	/**
+	 * Attacks the player under specific circumstances.
+	 */
+	public abstract void attack();
 }
