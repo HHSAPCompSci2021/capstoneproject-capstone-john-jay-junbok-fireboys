@@ -8,8 +8,18 @@ import javax.swing.JFrame;
 import processing.awt.PSurfaceAWT;
 import processing.core.PApplet;
 
+/**
+ * This class implements the DrawingSurface to display the Screens
+ * @author jaydalal
+ * @verison 05/06/2022
+ *
+ */
 public class Main {
 	
+	/**
+	 * Displays the screens
+	 * @param args
+	 */
 	public static void main(String args[]) {
 		
 		DrawingSurface drawing = new DrawingSurface();
