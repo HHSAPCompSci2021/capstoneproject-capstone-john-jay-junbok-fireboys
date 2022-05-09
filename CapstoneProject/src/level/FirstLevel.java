@@ -9,7 +9,7 @@ import sprites.Player;
  * @author John Tahk
  * @version 05/06/2022
  */
-public class FirstLevel implements Level {
+public class FirstLevel extends Level {
 	
 	private Enemy e; private InvisCloak i; private Obstacle wall;
 	private Player p; //etc
