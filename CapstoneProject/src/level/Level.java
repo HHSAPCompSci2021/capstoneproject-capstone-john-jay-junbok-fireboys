@@ -8,7 +8,7 @@ import java.util.ArrayList;
  * @version 05/06/2022
  *
  */
-interface Level {
+public abstract class Level {
 	
 	ArrayList<Obstacle> obstacles = new ArrayList<>();
 
@@ -16,7 +16,7 @@ interface Level {
 	 * This class returns an arraylist containing the obstacles of the class.
 	 * @return arraylist containing the obstacles of the class.
 	 */
-	public default ArrayList<Obstacle> getObstacles() {
+	public ArrayList<Obstacle> getObstacles() {
 		return obstacles;
 	}
 }
