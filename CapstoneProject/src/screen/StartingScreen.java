@@ -1,9 +1,11 @@
 package screen;
 
 import java.awt.Point;
+import processing.core.PFont;
 import java.awt.Rectangle;
 
 import main.DrawingSurface;
+import processing.core.PFont;
 
 /**
  * This class represents the starting screen, which is the first screen that prompts the user to play the game.
@@ -31,8 +33,20 @@ public class StartingScreen extends Screen {
 	 * Illustrates the Screen by setting the background to sky blue and noting that this is the staritng screen.
 	 */
 	public void draw() {
+		
 		s.background(0, 126, 107);
-		s.text("This is the Starting Screen!", 300, 100);
+		
+		PFont font = s.createFont("Herculanum", 55);
+		s.textFont(font);
+
+		
+		s.text("MONSTERS and MAZES", 100, 150);
+		
+		
+		
+		font = s.createFont("Herculanum", 20);
+		s.textFont(font);
+		
 		s.fill(0, 126, 107);
 		s.rect(button.x, button.y, button.width, button.height, 10, 10, 10, 10);
 		String buttonString = "start";
