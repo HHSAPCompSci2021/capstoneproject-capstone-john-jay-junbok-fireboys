@@ -23,6 +23,7 @@ public class GameScreen extends Screen {
 	private Rectangle screenRect;
 	private Player player;
 	private ArrayList<Obstacle> obstacles;
+	private int r, g, b;
 	
 
 	/**
@@ -32,13 +33,18 @@ public class GameScreen extends Screen {
 	public GameScreen(DrawingSurface s) {
 		super(800,600);
 		this.s = s;
+		r = (int) (Math.random() * 255);
+		g = (int) (Math.random() * 255);
+		b = (int) (Math.random() * 255);
 	}
 	
 	public void draw() {
 		
-		s.background(0, 255, 255);
+		s.background(r, g, b);
 		
 		s.text("This is the game screen!!", 300, 100);
+		
+		
 	}
 
 }
