@@ -33,5 +33,12 @@ public class GameScreen extends Screen {
 		super(800,600);
 		this.s = s;
 	}
+	
+	public void draw() {
+		
+		s.background(0, 255, 255);
+		
+		s.text("This is the game screen!!", 300, 100);
+	}
 
 }

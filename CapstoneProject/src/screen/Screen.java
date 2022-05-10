@@ -29,5 +29,9 @@ public abstract class Screen {
 	public void draw() {
 		
 	}
+	
+	public void mousePressed() {
+		
+	}
 
 }

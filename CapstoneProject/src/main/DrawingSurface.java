@@ -1,4 +1,5 @@
 package main;
+import java.awt.Point;
 import java.util.ArrayList;
 
 import processing.core.PApplet;
@@ -56,6 +57,7 @@ public class DrawingSurface extends PApplet implements ScreenSwitcher {
 		
 		current.draw();
 		
+		
 		pop();
 	}
 
@@ -67,5 +69,13 @@ public class DrawingSurface extends PApplet implements ScreenSwitcher {
 	public void switchScreen(int i) {
 		current = screens.get(i);
 		
+	}
+	
+	public void mousePressed() {
+		current.mousePressed();
+	}
+	
+	public Point actualCoordinatesToAssumed(Point actual) {
+		return new Point((int)(actual.getX()/x) , (int)(actual.getY()/y));
 	}
 }

@@ -22,5 +22,9 @@ public class EscapeScreen extends Screen {
 		this.s = s;
 		
 	}
+	
+	public void draw() {
+		s.background(0, 126, 127);
+	}
 
 }
