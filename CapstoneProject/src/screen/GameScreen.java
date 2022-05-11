@@ -35,11 +35,29 @@ public class GameScreen extends Screen {
 	public GameScreen(DrawingSurface s) {
 		super(800,600);
 		this.s = s;
+		player = new Player(750, 550);
 	}
 	
 	public void draw(Level a) {
 		
 		s.background(255);
+		
+		player.draw(s);
+		
+		if (s.isPressed(KeyEvent.VK_LEFT)) {
+			player.moveBy(-1, 0);
+		}	
+		if (s.isPressed(KeyEvent.VK_RIGHT)) {
+			player.moveBy(1, 0);
+		}
+		if (s.isPressed(KeyEvent.VK_UP)) {
+			player.moveBy(0, -1);
+		}
+		if (s.isPressed(KeyEvent.VK_DOWN)) {
+			player.moveBy(0, 1);
+		}	
+		
+		
 		
 		char[][] blueprint = a.getWalls();
 		

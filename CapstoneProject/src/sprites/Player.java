@@ -1,5 +1,7 @@
 package sprites;
 
+import main.DrawingSurface;
+
 /**
  * This class represent the player will the user will controll.
  * 
@@ -22,6 +24,11 @@ public class Player extends Sprite {
 		super(x, y, 25, 25);
 		isInvis = false;
 		hasKey = false;
+	}
+	
+	public void draw(DrawingSurface s) {
+		s.fill(0, 120, 30);
+		s.ellipse((float)super.getX(), (float)super.getY(), (float)25, (float)25);
 	}
 	
 	public void pickUpObject(Sprite obj) {
