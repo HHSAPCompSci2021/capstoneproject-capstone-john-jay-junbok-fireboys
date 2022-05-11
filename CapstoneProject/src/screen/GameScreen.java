@@ -6,6 +6,9 @@ import java.awt.Shape;
 import java.awt.event.*;
 import java.util.ArrayList;
 import java.util.List;
+
+import level.FirstLevel;
+import level.Level;
 import level.Obstacle;
 import main.DrawingSurface;
 import sprites.Player;
@@ -38,11 +41,26 @@ public class GameScreen extends Screen {
 		b = (int) (Math.random() * 255);
 	}
 	
-	public void draw() {
+	public void draw(Level a) {
 		
 		s.background(r, g, b);
 		
-		s.text("This is the game screen!!", 300, 100);
+		char[][] blueprint = a.getWalls();
+		
+		float boxHeight = 600 / blueprint.length;
+		float boxWidth = 800 / blueprint[0].length;
+		
+		for (int i = 0; i < blueprint.length; i++) {
+			for (int j = 0; j < blueprint[i].length; j++) {
+				if (blueprint[i][j] == '.') {
+					s.fill(255);
+				} else if (blueprint[i][j] == '#') {
+					s.fill(0);
+				} 
+				s.rect(boxWidth * j, boxHeight * i, boxWidth, boxHeight);
+			}
+		}
+
 		
 		
 	}

@@ -3,6 +3,7 @@ package screen;
 import java.awt.Point;
 import java.awt.Rectangle;
 
+import level.Level;
 import main.DrawingSurface;
 import processing.core.PFont;
 
@@ -32,7 +33,7 @@ public class EscapeScreen extends Screen {
 		
 	}
 	
-	public void draw() {
+	public void draw(Level a) {
 		s.background(0, 126, 127);
 		s.fill(0, 126, 127);
 		

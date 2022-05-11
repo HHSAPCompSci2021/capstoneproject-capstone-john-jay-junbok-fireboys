@@ -18,7 +18,8 @@ public class FirstLevel extends Level {
 	/**
 	 * Constructs a First Level classm by creating the obstacles and materials of the Level.
 	 */
-	public FirstLevel () {
+	public FirstLevel (String filename) {
+		super(filename, 600, 800);
 //		p = new Player(0, 0); e = new Enemy(0, 0); i = new InvisCloak(0, 0);
 		wall = new Obstacle(10,10);
 	}

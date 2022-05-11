@@ -2,6 +2,8 @@ package main;
 import java.awt.Point;
 import java.util.ArrayList;
 
+import level.FirstLevel;
+import level.Level;
 import processing.core.PApplet;
 import screen.EscapeScreen;
 import screen.GameScreen;
@@ -23,6 +25,7 @@ public class DrawingSurface extends PApplet implements ScreenSwitcher {
 	public float x, y;
 	private Screen current;
 	public ArrayList<Screen> screens;
+	private Level a;
 	
 	/**
 	 * Constructs a DrawingSurface by creating the StartingScreen, GameScreen, and EscapeScreen for this game and stroing them in an ArrayList of Screens.
@@ -41,6 +44,8 @@ public class DrawingSurface extends PApplet implements ScreenSwitcher {
 		
 		current = screens.get(0);
 		
+		a = new FirstLevel("mazefiles/level1.txt");
+		
 		
 	}
 	
@@ -55,7 +60,8 @@ public class DrawingSurface extends PApplet implements ScreenSwitcher {
 		
 		scale(x, y);
 		
-		current.draw();
+		current.draw(a);
+
 		
 		
 		pop();

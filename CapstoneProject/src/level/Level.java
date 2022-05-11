@@ -1,6 +1,10 @@
 package level;
 
+import java.io.File;
+import java.io.FileReader;
+import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Scanner;
 
 /**
  * This interface represents a Level in the game
@@ -11,7 +15,19 @@ import java.util.ArrayList;
 public abstract class Level {
 	
 	ArrayList<Obstacle> obstacles = new ArrayList<>();
+	char[][] walls;
 
+	
+	public Level(String filename, int width, int height) {
+		walls = new char[24][32];
+		readData(filename, walls);
+	}
+	
+	public char[][] getWalls() {
+		return walls;
+	}
+	
+	
 	/**
 	 * This class returns an arraylist containing the obstacles of the class.
 	 * @return arraylist containing the obstacles of the class.
@@ -19,4 +35,40 @@ public abstract class Level {
 	public ArrayList<Obstacle> getObstacles() {
 		return obstacles;
 	}
+	
+	
+	public void readData (String filename, char[][] gameData) {
+		File dataFile = new File(filename);
+
+		if (dataFile.exists()) {
+			int count = 0;
+
+			FileReader reader = null;
+			Scanner in = null;
+			try {
+					reader = new FileReader(dataFile);
+					in = new Scanner(reader);
+					
+					while (in.hasNext()) {
+						String line = in.nextLine();
+						for(int i = 0; i < line.length(); i++)
+							if (count < gameData.length && i < gameData[count].length)
+								gameData[count][i] = line.charAt(i);
+
+						count++;
+					}
+
+			} catch (IOException ex) {
+				throw new IllegalArgumentException("Data file " + filename + " cannot be read.");
+			} finally {
+				if (in != null)
+					in.close();
+			}
+			
+		} else {
+			throw new IllegalArgumentException("Data file " + filename + " does not exist.");
+		}
+	}
+	
+	
 }
