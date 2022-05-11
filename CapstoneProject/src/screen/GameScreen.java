@@ -26,7 +26,6 @@ public class GameScreen extends Screen {
 	private Rectangle screenRect;
 	private Player player;
 	private ArrayList<Obstacle> obstacles;
-	private int r, g, b;
 	
 
 	/**
@@ -36,20 +35,11 @@ public class GameScreen extends Screen {
 	public GameScreen(DrawingSurface s) {
 		super(800,600);
 		this.s = s;
-		r = (int) (Math.random() * 255);
-		g = (int) (Math.random() * 255);
-		b = (int) (Math.random() * 255);
 	}
 	
 	public void draw(Level a) {
-		s.background(r, g, b);
-
 		
-		
-		
-		
-		
-		
+		s.background(255);
 		
 		char[][] blueprint = a.getWalls();
 		
@@ -61,11 +51,18 @@ public class GameScreen extends Screen {
 				if (blueprint[i][j] == '.') {
 					s.fill(255);
 					s.stroke(255);
+					s.rect(boxWidth * j, boxHeight * i, boxWidth, boxHeight);
 				} else if (blueprint[i][j] == '#') {
 					s.fill(0);
 					s.stroke(0);
-				} 
-				s.rect(boxWidth * j, boxHeight * i, boxWidth, boxHeight);
+					s.rect(boxWidth * j, boxHeight * i, boxWidth, boxHeight);
+				} else if (blueprint[i][j] == '!') {
+					s.fill(0);
+					if (blueprint[i + 1][j] == '!' && blueprint[i][j + 1] == '!' && blueprint[i + 1][j + 1] == '!') {
+						s.circle(boxWidth * (j + 1), boxHeight * (i + 1), boxWidth * 2);
+					}
+				}
+				
 			}
 		}
 
