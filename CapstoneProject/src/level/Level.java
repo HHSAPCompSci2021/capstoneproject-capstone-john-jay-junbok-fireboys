@@ -6,6 +6,8 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Scanner;
 
+import sprites.Enemy;
+
 /**
  * This interface represents a Level in the game
  * @author John Tahk
@@ -13,6 +15,8 @@ import java.util.Scanner;
  *
  */
 public abstract class Level {
+	
+	ArrayList<Enemy> monsters = new ArrayList<Enemy>(); 
 	
 	ArrayList<Obstacle> obstacles = new ArrayList<>();
 	char[][] walls;
@@ -29,13 +33,19 @@ public abstract class Level {
 	
 	
 	/**
-	 * This class returns an arraylist containing the obstacles of the class.
+	 * This method returns an arraylist containing the obstacles of the class.
 	 * @return arraylist containing the obstacles of the class.
 	 */
 	public ArrayList<Obstacle> getObstacles() {
 		return obstacles;
 	}
-	
+	/**
+	 * This returns the monsters arraylist
+	 * @return monsters ArrayList of type enemy
+	 */
+	public ArrayList<Enemy> getMonsters() {
+		return monsters;
+	}
 	
 	public void readData (String filename, char[][] gameData) {
 		File dataFile = new File(filename);
