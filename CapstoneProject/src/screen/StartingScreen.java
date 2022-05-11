@@ -36,16 +36,9 @@ public class StartingScreen extends Screen {
 		
 		s.background(0, 126, 107);
 		
-		PFont font = s.createFont("Herculanum", 55);
-		s.textFont(font);
-
 		
 		s.text("MONSTERS and MAZES", 100, 150);
 		
-		
-		
-		font = s.createFont("Herculanum", 20);
-		s.textFont(font);
 		
 		s.fill(0, 126, 107);
 		s.rect(button.x, button.y, button.width, button.height, 10, 10, 10, 10);

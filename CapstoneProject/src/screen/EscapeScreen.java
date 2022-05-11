@@ -36,8 +36,6 @@ public class EscapeScreen extends Screen {
 		s.background(0, 126, 127);
 		s.fill(0, 126, 127);
 		
-		PFont font = s.createFont("Herculanum", 30);
-		s.textFont(font);
 		String buttonString;
 		float x;
 		
