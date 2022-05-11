@@ -63,4 +63,14 @@ public class Sprite {
 	public Rectangle getHitbox() {
 		return new Rectangle((int)x, (int)y, (int)width, (int)height);
 	}
+	
+	public void setCoords(double x, double y) {
+		this.x = x;
+		this.y = y;
+	}
+	
+	public void moveBy(double x, double y) {
+		this.x += x;
+		this.y += y;
+	}
 }

@@ -8,6 +8,10 @@ package sprites;
  *
  */
 public class Player extends Sprite {
+	
+	private boolean isInvis;
+	private boolean hasKey;
+	
 	/**
 	 * Constructs the Player with given coordinates.
 	 * 
@@ -15,6 +19,25 @@ public class Player extends Sprite {
 	 * @param y y coordinate of the player
 	 */
 	public Player(double x, double y) {
-		super(x, y, 0, 0);
+		super(x, y, 25, 25);
+		isInvis = false;
+		hasKey = false;
+	}
+	
+	public void moveBy(double x, double y) {
+		super.moveBy(x, y);
+	}
+	
+	public void pickUpObject(Sprite obj) {
+		// turns player invisible for 5 sec if they pick up the invis cloak
+		// sets hasKey to true if the player picks up the key
+	}
+	
+	public boolean isInvis() {
+		return isInvis;
+	}
+	
+	public boolean hasKey() {
+		return hasKey;
 	}
 }
