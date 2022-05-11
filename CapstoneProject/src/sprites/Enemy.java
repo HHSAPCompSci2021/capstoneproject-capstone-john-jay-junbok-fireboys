@@ -5,7 +5,7 @@ package sprites;
  * @author junbok lee
  * @version 05/06/2022
  */
-public abstract class Enemy extends Sprite{
+public abstract class Enemy extends Sprite {
 	/**
 	 * Constructs an Enemy with given x and y coordinates.
 	 * 
