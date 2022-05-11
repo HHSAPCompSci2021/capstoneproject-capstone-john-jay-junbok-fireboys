@@ -24,10 +24,6 @@ public class Player extends Sprite {
 		hasKey = false;
 	}
 	
-	public void moveBy(double x, double y) {
-		super.moveBy(x, y);
-	}
-	
 	public void pickUpObject(Sprite obj) {
 		// turns player invisible for 5 sec if they pick up the invis cloak
 		// sets hasKey to true if the player picks up the key

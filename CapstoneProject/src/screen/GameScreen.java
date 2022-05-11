@@ -42,8 +42,14 @@ public class GameScreen extends Screen {
 	}
 	
 	public void draw(Level a) {
-		
 		s.background(r, g, b);
+
+		
+		
+		
+		
+		
+		
 		
 		char[][] blueprint = a.getWalls();
 		
