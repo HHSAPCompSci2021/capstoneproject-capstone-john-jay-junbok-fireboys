@@ -25,12 +25,15 @@ public class DrawingSurface extends PApplet implements ScreenSwitcher {
 	public float x, y;
 	private Screen current;
 	public ArrayList<Screen> screens;
-	private Level a;
+	private Level a; 
+	private ArrayList<Integer> keys;
 	
 	/**
 	 * Constructs a DrawingSurface by creating the StartingScreen, GameScreen, and EscapeScreen for this game and stroing them in an ArrayList of Screens.
 	 */
 	public DrawingSurface() {
+		
+		keys = new ArrayList<Integer>();
 		screens = new ArrayList<Screen>();
 		
 		StartingScreen screen1 = new StartingScreen(this);
@@ -77,10 +80,20 @@ public class DrawingSurface extends PApplet implements ScreenSwitcher {
 	}
 	
 	public void keyPressed() {
+		keys.add(keyCode);
 		if (key == ESC) {
 			current = screens.get(ScreenSwitcher.ESCAPE_SCREEN);
 			key = 0;
 		}
+	}
+	
+	public void keyReleased() {
+		while(keys.contains(keyCode))
+			keys.remove(new Integer(keyCode));
+	}
+	
+	public boolean isPressed(Integer code) {
+		return keys.contains(code);
 	}
 	
 	public void mousePressed() {
