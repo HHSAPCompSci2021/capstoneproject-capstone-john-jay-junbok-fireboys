@@ -27,7 +27,7 @@ public class Player extends Sprite {
 	}
 	
 	public void draw(DrawingSurface s) {
-		s.fill(0, 120, 30);
+		s.fill(0, 0, 255);
 		s.ellipse((float)super.getX(), (float)super.getY(), (float)25, (float)25);
 	}
 	

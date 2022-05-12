@@ -42,7 +42,7 @@ public class GameScreen extends Screen {
 		
 		s.background(255);
 		
-		player.draw(s);
+		
 		
 		if (s.isPressed(KeyEvent.VK_LEFT)) {
 			player.moveBy(-1, 0);
@@ -83,6 +83,8 @@ public class GameScreen extends Screen {
 				
 			}
 		}
+		
+		player.draw(s);
 
 		
 		
