@@ -35,6 +35,9 @@ public class EscapeScreen extends Screen {
 		
 	}
 	
+	/**
+	 * Draws the EscapeScreen (upon prompting by the pressing of ESC key) by setting a turoquoise background and creating buttons (graphical rectangles) that prompt the user to resume the game, restart, or go to the starting screen
+	 */
 	public void draw() {
 		s.background(0, 126, 127);
 		s.fill(0, 126, 127);
@@ -67,6 +70,9 @@ public class EscapeScreen extends Screen {
 		s.text(buttonString, buttonStart.x + buttonStart.width / 2 - x / 2, buttonStart.y + buttonStart.height / 2);
 	}
 	
+	/**
+	 * 
+	 */
 	public void mousePressed() {
 		Point p = s.actualCoordinatesToAssumed(new Point(s.mouseX,s.mouseY));
 		if (buttonResume.contains(p.x, p.y)) {
