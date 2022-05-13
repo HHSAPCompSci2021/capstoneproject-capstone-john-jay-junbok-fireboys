@@ -13,26 +13,25 @@ import sprites.Player;
  */
 public class FirstLevel extends Level {
 	
+	private Enemy e; private InvisCloak i; private Obstacle wall;
+	private Player p; //etc
+	private boolean nextLevel = false;
 	/**
 	 * Constructs a First Level class by creating the obstacles and materials of the Level.
 	 * @param filename string with the filename.
 	 */
-	public FirstLevel () {
-		super("mazefiles/level1.txt", 600, 800);
-		addInvisCloak(new InvisCloak(130,50)); 
-		addInvisCloak(new InvisCloak(185,400));
-		addInvisCloak(new InvisCloak(300,375)); 
-		addInvisCloak(new InvisCloak(750,375));
-		addInvisCloak(new InvisCloak(750, 100));
-		addMonster(new Enemy(275,75)); 
-		addMonster(new Enemy(175,150));
-		addMonster(new Enemy(500,75)); 
-		addMonster(new Enemy(600,160));
-		addMonster(new Enemy(750,300)); 
-		addMonster(new Enemy(50,325));
-		addMonster(new Enemy (150,350)); 
-		addMonster(new Enemy(300,130));
-		
+	public FirstLevel (String filename) {
+		super(filename, 600, 800);
+		ArrayList<InvisCloak> invisC = getInvisCloaks();
+		invisC.add(new InvisCloak(130,50)); invisC.add(new InvisCloak(175,400));
+		invisC.add(new InvisCloak(300,375)); invisC.add(new InvisCloak(750,375));
+//		p = new Player(0, 0); e = new Enemy(0, 0); i = new InvisCloak(0, 0);
+		ArrayList<Enemy> enem = getMonsters();
+		enem.add(new Enemy(275,75)); enem.add(new Enemy(175,150));
+		enem.add(new Enemy(525,75)); enem.add(new Enemy(600,200));
+		enem.add(new Enemy(750,300)); enem.add(new Enemy(50,325));
+		enem.add(new Enemy (150,350)); enem.add(new Enemy(300,13));
+		wall = new Obstacle(10,10);
 	}
 	/**
 	 * Getter method
@@ -41,7 +40,13 @@ public class FirstLevel extends Level {
 	public char[][] getWalls() {
 		return super.getWalls();
 	}
-	
+	/**
+	 *Getter method that gets the obstacles
+	 * @return super.getObstacles() an arraylist of type obstacles that locates obstacles
+	 */
+	public ArrayList<Obstacle> getObstacles() {
+		return super.getObstacles();
+	}
 	/**
 	 * Getter method that gets the monsters
 	 * @return ArrayList<Enemy> ArrayList that contains the monsters

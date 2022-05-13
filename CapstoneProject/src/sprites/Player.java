@@ -1,24 +1,18 @@
 package sprites;
 
-import java.util.ArrayList;
-
-import jdalal464.shapes.*;
-import level.Level;
-import level.Obstacle;
 import main.DrawingSurface;
 
 /**
  * This class represent the player will the user will controll.
  * 
  * @author junbok lee
- * @version 05/13/2022
+ * @version 05/06/2022
  *
  */
 public class Player extends Sprite {
 	
 	private boolean isInvis;
-	private boolean isAlive;
-	private Level a;
+	private boolean hasKey;
 	
 	/**
 	 * Constructs the Player with given coordinates.
@@ -26,123 +20,27 @@ public class Player extends Sprite {
 	 * @param x x coordinate of the player
 	 * @param y y coordinate of the player
 	 */
-	public Player(double x, double y, Level a) {
+	public Player(double x, double y) {
 		super(x, y, 25, 25);
 		isInvis = false;
-		isAlive = true;
-		this.a = a;
+		hasKey = false;
 	}
 	
-	/**
-	 * Draws the player on the screen.
-	 * 
-	 * @param s PApplet which the Player will be drawn on
-	 */
 	public void draw(DrawingSurface s) {
-		if (!isAlive) {
-			System.out.println("dead");
-		}
-		
-		
-		if (!isInvis) {
-			s.fill(0, 0, 255);
-		} else {
-			s.fill(255, 0, 255);
-		}
-		
-		
-		s.rect((float)super.getX(), (float)super.getY(), (float)25, (float)25);
+		s.fill(0, 0, 255);
+		s.ellipse((float)super.getX(), (float)super.getY(), (float)25, (float)25);
 	}
 	
-	/**
-	 * Determines the behavior of the Player based on interactions with other objects on the screen.
-	 */
-	public void act() {
-		
-		int invisCloakIndex = -1;
-		int monsterIndex = -1;
-
-		for (InvisCloak s : a.getInvisCloaks()) {
-			if (super.getHitbox().isTouching(s.getHitbox())) {
-				s.pickUp();
-				isInvis = true;
-				invisCloakIndex = a.getInvisCloaks().indexOf(s);
-				break;
-			}
-		}
-		
-		if (invisCloakIndex >= 0) {
-			a.removeInvisCloak(invisCloakIndex);
-		}
-		
-		
-		for (Enemy m : a.getMonsters()) {
-			if (super.getHitbox().isTouching(m.getHitbox())) {
-				if (!isInvis) {
-					isAlive = false;
-				} else {
-					monsterIndex = a.getMonsters().indexOf(m);
-				}
-				break;
-			}
-		}
-		
-		if (monsterIndex >= 0) {
-			a.removeMonster(monsterIndex);
-		}
-		
+	public void pickUpObject(Sprite obj) {
+		// turns player invisible for 5 sec if they pick up the invis cloak
+		// sets hasKey to true if the player picks up the key
 	}
 	
-	/**
-	 * Moves the player by the x and y values specified.
-	 * 
-	 * @param x value to change the x coordinate by
-	 * @param y value to change the y coordinate by
-	 */
-	public void move(double x, double y) {		
-		int counter = 0;
-		Rectangle r = this.getHitbox();
-		for (Rectangle o : a.getObstacles()) {
-			if (super.getHitbox().isTouching(o)) {
-				counter++;
-				if (r.getY() >= o.getY() + 25) {
-					if (y < 0) {
-						y = 0;
-					}
-				} else if (r.getY() + 25 <= o.getY()) {
-					if (y > 0) {
-						y = 0;
-					}
-				} 
-				
-				if (r.getX() >= o.getX() +25) {
-					if (x < 0) {
-						x = 0;
-					}
-				} else if (r.getX() + 25 <= o.getX()) {
-					if (x > 0) {
-						x = 0;
-					}
-				}
-				
-
-			}
-			
-		}
-		System.out.println(counter);
-		this.x += x;
-		this.y += y;
-
+	public boolean isInvis() {
+		return isInvis;
 	}
 	
-	/**
-	 * Returns if the player is alive.
-	 * 
-	 * @return true if the player is alive, false otherwise
-	 */
-	public boolean isAlive() {
-		return isAlive;
+	public boolean hasKey() {
+		return hasKey;
 	}
-	
-	
 }

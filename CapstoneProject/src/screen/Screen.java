@@ -28,7 +28,7 @@ public abstract class Screen {
 	/** 
 	 * Illustrates the screen to desired graphical properties of the game
 	 */
-	public void draw() {
+	public void draw(Level a) {
 		
 	}
 	

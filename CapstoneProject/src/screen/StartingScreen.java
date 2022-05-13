@@ -33,7 +33,7 @@ public class StartingScreen extends Screen {
 	/**
 	 * Illustrates the Screen by setting the background to sky blue and noting that this is the staritng screen.
 	 */
-	public void draw() {
+	public void draw(Level a) {
 		
 		s.background(0, 126, 107);
 		
