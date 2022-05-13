@@ -104,7 +104,11 @@ public class GameScreen extends Screen {
 			s.fill(0, 255, 0);
 			s.circle((float) n.getX(), (float) n.getY(), radius);
 		}
-		
+		for (Enemy x : a.getMonsters()) {
+			s.fill(255, 0, 0);
+			s.circle((float) x.getX(), (float) x.getY(), radius);
+
+		}
 		
 	}
 

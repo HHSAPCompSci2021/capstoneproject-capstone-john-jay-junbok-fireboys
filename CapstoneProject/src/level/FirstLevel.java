@@ -23,14 +23,21 @@ public class FirstLevel extends Level {
 	public FirstLevel (String filename) {
 		super(filename, 600, 800);
 		ArrayList<InvisCloak> invisC = getInvisCloaks();
-		invisC.add(new InvisCloak(130,50)); invisC.add(new InvisCloak(175,400));
-		invisC.add(new InvisCloak(300,375)); invisC.add(new InvisCloak(750,375));
+		invisC.add(new InvisCloak(130,50)); 
+		invisC.add(new InvisCloak(185,400));
+		invisC.add(new InvisCloak(300,375)); 
+		invisC.add(new InvisCloak(750,375));
+		invisC.add(new InvisCloak(750, 100));
 //		p = new Player(0, 0); e = new Enemy(0, 0); i = new InvisCloak(0, 0);
 		ArrayList<Enemy> enem = getMonsters();
-		enem.add(new Enemy(275,75)); enem.add(new Enemy(175,150));
-		enem.add(new Enemy(525,75)); enem.add(new Enemy(600,200));
-		enem.add(new Enemy(750,300)); enem.add(new Enemy(50,325));
-		enem.add(new Enemy (150,350)); enem.add(new Enemy(300,13));
+		enem.add(new Enemy(275,75)); 
+		enem.add(new Enemy(175,150));
+		enem.add(new Enemy(500,75)); 
+		enem.add(new Enemy(600,160));
+		enem.add(new Enemy(750,300)); 
+		enem.add(new Enemy(50,325));
+		enem.add(new Enemy (150,350)); 
+		enem.add(new Enemy(300,130));
 		wall = new Obstacle(10,10);
 	}
 	/**
