@@ -7,18 +7,20 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 import sprites.Enemy;
+import sprites.InvisCloak;
 
 /**
- * This interface represents a Level in the game
+ * This class represents a Level in the game
  * @author John Tahk
  * @version 05/06/2022
  *
  */
 public abstract class Level {
 	
-	ArrayList<Enemy> monsters = new ArrayList<Enemy>(); 
+	private ArrayList<Enemy> monsters = new ArrayList<Enemy>(); 
 	
-	ArrayList<Obstacle> obstacles = new ArrayList<>();
+	ArrayList<InvisCloak> inviscloak = new ArrayList<InvisCloak>();
+	ArrayList<Obstacle> obstacles = new ArrayList<Obstacle>();
 	char[][] walls;
 
 	
