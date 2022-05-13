@@ -26,7 +26,6 @@ public class GameScreen extends Screen {
 	private DrawingSurface s;
 	private Rectangle screenRect;
 	private Player player;
-	private InvisCloak invis;
 	
 
 	/**
@@ -37,7 +36,6 @@ public class GameScreen extends Screen {
 		super(800,600);
 		this.s = s;
 		player = new Player(750, 550);
-		invis = new InvisCloak(500, 500);
 	}
 	
 	public void draw(Level a) {
@@ -72,8 +70,9 @@ public class GameScreen extends Screen {
 		
 		
 		
+		addStuff(a);
+		
 		player.draw(s);
-		invis.draw(s);
 
 		
 	}
@@ -94,6 +93,9 @@ public class GameScreen extends Screen {
 	}
 	
 	private void addStuff(Level a) {
+		
+		
+		
 		
 	}
 
