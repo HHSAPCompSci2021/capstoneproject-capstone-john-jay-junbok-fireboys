@@ -92,24 +92,20 @@ public class Player extends Sprite {
 			if (super.getHitbox().isTouching(o)) {
 				counter++;
 				if (r.getY() >= o.getY() + 25) {
-					System.out.print("a");
 					if (y < 0) {
 						y = 0;
 					}
 				} else if (r.getY() + 25 <= o.getY()) {
-					System.out.print("b");
 					if (y > 0) {
 						y = 0;
 					}
 				} 
 				
 				if (r.getX() >= o.getX() +25) {
-					System.out.print("c");
 					if (x < 0) {
 						x = 0;
 					}
 				} else if (r.getX() + 25 <= o.getX()) {
-					System.out.print("d");
 					if (x > 0) {
 						x = 0;
 					}

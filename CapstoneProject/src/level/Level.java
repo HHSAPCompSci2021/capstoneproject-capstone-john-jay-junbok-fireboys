@@ -41,8 +41,8 @@ public abstract class Level {
 			for (int j = 0; j < walls[i].length; j++) {
 				if (walls[i][j] == '#') {
 					obstacles.add(new Rectangle(j * 25, i * 25, 25, 25, 0, 0, 0));
-				} else if (walls[i][j] == '!') {
-					obstacles.add(new Rectangle(i * 25 + 5, j * 25 + 5, 20, 20, 0, 0, 0));
+				} else if (walls[i][j] == '!' && walls[i + 1][j] == '!' && walls[i][j + 1] == '!' && walls[i + 1][j + 1] == '!') {
+					obstacles.add(new Rectangle(j * 25 + 25 / 2, i * 25 + 25 / 2, 25, 25, 0, 0, 0));
 				}
 			}
 		}
