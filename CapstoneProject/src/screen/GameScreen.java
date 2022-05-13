@@ -58,7 +58,7 @@ public class GameScreen extends Screen {
 					s.stroke(255);
 					s.rect(boxWidth * j, boxHeight * i, boxWidth, boxHeight);
 				} else if (blueprint[i][j] == '#') {
-					s.fill(0);
+					s.fill(255);
 					s.stroke(0);
 					s.rect(boxWidth * j, boxHeight * i, boxWidth, boxHeight);
 				} else if (blueprint[i][j] == '!') {
