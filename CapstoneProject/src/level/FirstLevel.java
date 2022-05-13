@@ -26,15 +26,7 @@ public class FirstLevel extends Level {
 		addMonster(new Enemy(750,300)); addMonster(new Enemy(50,325));
 		addMonster(new Enemy (150,350)); addMonster(new Enemy(300,130));
 		
-	}
-	/**
-	 * Getter method
-	 * @return super.getWalls() with the locations of walls
-	 */
-	public char[][] getWalls() {
-		return super.getWalls();
-	}
-	
+	}	
 	/**
 	 * Getter method that gets the monsters
 	 * @return ArrayList<Enemy> ArrayList that contains the monsters

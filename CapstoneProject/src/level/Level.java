@@ -92,16 +92,26 @@ public abstract class Level {
 	public ArrayList<Enemy> getMonsters() {
 		return monsters;
 	}
-	
+	/**
+	 * Method to remove monsters in the level
+	 * @param i index of the object to remove within the monster arraylist
+	 */
 	public void removeMonster(int i) {
 		monsters.remove(i);
 	}
-	
+	/**
+	 * Add an Enemy object to the monster list in the level
+	 * @param a Enemy to add to the level
+	 */
 	public void addMonster(Enemy a) {
 		monsters.add(a);
 	}
 	
-
+	/**
+	 * Method that reads in data in order to build the level
+	 * @param filename name of the file
+	 * @param gameData Char array that represents the aspects of the level
+	 */
 	public void readData (String filename, char[][] gameData) {
 		File dataFile = new File(filename);
 
