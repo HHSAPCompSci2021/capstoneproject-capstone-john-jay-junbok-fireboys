@@ -18,7 +18,6 @@ public class Player extends Sprite {
 	
 	private boolean isInvis;
 	private boolean isAlive;
-	private boolean canMove;
 	private Level a;
 	
 	/**
@@ -32,7 +31,6 @@ public class Player extends Sprite {
 		isInvis = false;
 		isAlive = true;
 		this.a = a;
-		canMove = true;
 	}
 	
 	public void draw(DrawingSurface s) {
@@ -87,23 +85,39 @@ public class Player extends Sprite {
 		
 	}
 	
-	public void move(double x, double y) {
-		if (canMove(x, y)) {
-			this.x += x;
-			this.y += y;
-		} 
-		
-	
-	}
-	
-	public boolean canMove(double x, double y) {		
+	public void move(double x, double y) {		
+		Rectangle r = this.getHitbox();
 		for (Rectangle o : a.getObstacles()) {
 			if (super.getHitbox().isTouching(o)) {
-				return false;
+				if (r.getY() < o.getY() + 25) {
+					System.out.println("a");
+					if (y < 0) {
+						y = 0;
+					}
+				} 
+				if (r.getY() + 25 > o.getY()) {
+					System.out.println("b");
+					if (y > 0) {
+						y = 0;
+					}
+				}
+				if (r.getX() < o.getX() +25) {
+					System.out.println("c");
+					if (x < 0) {
+						x = 0;
+					}
+				}
+				if (r.getX() + 25 > o.getX()) {
+					System.out.println("d");
+					if (x > 0) {
+						x = 0;
+					}
+				}
 			}
 		}
-		
-		return true;
+		this.x += x;
+		this.y += y;
+
 	}
 	
 	
