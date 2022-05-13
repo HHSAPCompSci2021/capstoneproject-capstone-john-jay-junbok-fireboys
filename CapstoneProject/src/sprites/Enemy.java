@@ -5,7 +5,7 @@ package sprites;
  * @author junbok lee
  * @version 05/06/2022
  */
-public abstract class Enemy extends Sprite {
+public class Enemy extends Sprite {
 	/**
 	 * Constructs an Enemy with given x and y coordinates.
 	 * 
@@ -33,5 +33,7 @@ public abstract class Enemy extends Sprite {
 	/**
 	 * Attacks the player under specific circumstances.
 	 */
-	public abstract void attack();
+	public void attack() {
+		
+	}
 }
