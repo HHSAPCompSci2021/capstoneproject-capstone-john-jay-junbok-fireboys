@@ -42,7 +42,7 @@ public abstract class Level {
 				if (walls[i][j] == '#') {
 					obstacles.add(new Rectangle(i * 25, j * 25, 25, 25, 0, 0, 0));
 				} else if (walls[i][j] == '!') {
-					obstacles.add(new Circle(i + 25/2, j + 25/2, 25, 0, 0, 0));
+					obstacles.add(new Rectangle(i + 25/4, j + 25/4, 20, 20, 0, 0, 0));
 				}
 			}
 		}

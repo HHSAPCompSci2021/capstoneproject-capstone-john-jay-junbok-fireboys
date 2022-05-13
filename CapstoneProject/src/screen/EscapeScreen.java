@@ -35,7 +35,7 @@ public class EscapeScreen extends Screen {
 		
 	}
 	
-	public void draw(Level a) {
+	public void draw() {
 		s.background(0, 126, 127);
 		s.fill(0, 126, 127);
 		

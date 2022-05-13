@@ -61,9 +61,7 @@ public class DrawingSurface extends PApplet implements ScreenSwitcher {
 		
 		scale(x, y);
 		
-		current.draw(a);
-
-		
+		current.draw();
 		
 		pop();
 	}
