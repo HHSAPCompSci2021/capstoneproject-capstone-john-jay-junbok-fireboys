@@ -32,6 +32,7 @@ public class GameScreen extends Screen {
 	private ArrayList<InvisCloak> invisC = new ArrayList<InvisCloak>();
 	private ArrayList<Obstacle> obst = new ArrayList<Obstacle>();
 	private char[][] walls;
+	private ArrayList<Sprite> sprites = new ArrayList<Sprite>();
 	
 	/**
 	 * Constructs a GameScreen by setting the width to 600 and height to 800 and assigning the Drawing that uses this Screen to s.
