@@ -35,7 +35,7 @@ public abstract class Level {
 	
 	private void makeObstacles() {
 		for (int i = 0; i < walls.length; i++) {
-			for (int j = 0; i < walls[i].length; j++) {
+			for (int j = 0; j < walls[i].length; j++) {
 				if (walls[i][j] == '#') {
 					obstacles.add(new Rectangle(i * 25, j * 25, 25, 25, 0, 0, 0));
 				} else if (walls[i][j] == '!') {
