@@ -36,15 +36,10 @@ public class Player extends Sprite {
 		s.ellipse((float)super.getX(), (float)super.getY(), (float)25, (float)25);
 	}
 	
-	public void pickUpObject(Sprite obj) {
-		// turns player invisible for 5 sec if they pick up the invis cloak
-		// sets hasKey to true if the player picks up the key
-	}
-	
 	public void act(ArrayList<Sprite> sprites, ArrayList<Shape> obstacles) {
 		for (Sprite s : sprites) {
 			if (s instanceof InvisCloak) {
-				pickUpObject(s);
+				((InvisCloak) s).pickUp();
 				isInvis = true;
 			}
 		}

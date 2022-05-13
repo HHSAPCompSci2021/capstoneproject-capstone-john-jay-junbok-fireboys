@@ -11,20 +11,35 @@ import processing.core.PApplet;
 public class InvisCloak extends Sprite {
 	
 	private final static float SIDE_LENGTH = 25;
-	
+	private boolean isPickedUp;
 	/**
-	 * Constructs a InvisCloak with the given x and y coordinates.
+	 * Constructs a InvisCloak with the given x and y coordi	wnates.
 	 * 
 	 * @param x x coordinate of the InvisCloak
 	 * @param y y coordinate of the InvisCloak
 	 */
 	public InvisCloak(double x, double y) {
 		super(x, y, SIDE_LENGTH, SIDE_LENGTH);
+		isPickedUp = false;
 	}
 	
 	public void draw(PApplet s) {
-		s.fill(52, 168, 50);
+		if (isPickedUp == false) {
+			s.fill(52, 168, 50);
+		} else {
+			s.fill(255);
+		}
 		s.ellipse(SIDE_LENGTH, SIDE_LENGTH, SIDE_LENGTH, SIDE_LENGTH);
+	}
+	
+	public void pickUp() {
+		if (isPickedUp == false) {
+			isPickedUp = true;	
+		}
+	}
+	
+	public boolean isPickedUp() {
+		return isPickedUp;
 	}
 	
 }
