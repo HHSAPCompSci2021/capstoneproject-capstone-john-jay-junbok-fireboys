@@ -7,11 +7,7 @@ import sprites.InvisCloak;
 import sprites.Player;
 
 /**
-<<<<<<< HEAD
  * This class represents the first level the the player must undergo in the game
-=======
- * This class repreents the first level the the player must undergo in the game
->>>>>>> branch 'main' of https://github.com/HHSAPCompSci2021/capstoneproject-capstone-john-jay-junbok-fireboys.git
  * @author John Tahk
  * @version 05/06/2022
  */
