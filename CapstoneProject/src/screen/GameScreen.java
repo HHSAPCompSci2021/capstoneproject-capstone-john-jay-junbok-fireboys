@@ -71,6 +71,9 @@ public class GameScreen extends Screen {
 			}
 		}
 		
+		System.out.println("hello");
+
+		
 		
 		
 		addStuff(a, boxWidth);

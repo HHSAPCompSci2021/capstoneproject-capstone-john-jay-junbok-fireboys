@@ -32,6 +32,7 @@ public class EscapeScreen extends Screen {
 		buttonRestart = new Rectangle(800 /2 - 100, 600 / 2 - 50, 200, 100);
 		buttonStart = new Rectangle(800 /2 - 100, 3 * 600 / 4 - 50, 200, 100);
 		
+		
 	}
 	
 	public void draw(Level a) {

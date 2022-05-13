@@ -47,7 +47,7 @@ public class DrawingSurface extends PApplet implements ScreenSwitcher {
 		EscapeScreen screen3 = new EscapeScreen(this);
 		screens.add(screen3);
 		
-		current = screens.get(1);
+		current = screens.get(0);
 	}
 	
 	/**

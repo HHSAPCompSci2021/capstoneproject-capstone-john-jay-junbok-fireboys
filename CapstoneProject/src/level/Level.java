@@ -20,16 +20,19 @@ import sprites.InvisCloak;
  */
 public abstract class Level {
 	
-	private ArrayList<Enemy> monsters = new ArrayList<Enemy>(); 
+	private ArrayList<Enemy> monsters;
 	
-	private ArrayList<InvisCloak> inviscloak = new ArrayList<InvisCloak>();
-	private ArrayList<Shape> obstacles = new ArrayList<Shape>();
+	private ArrayList<InvisCloak> inviscloak;
+	private ArrayList<Shape> obstacles;
 	private char[][] walls;
 
 	
 	public Level(String filename, int width, int height) {
 		walls = new char[24][32];
 		readData(filename, walls);
+		inviscloak = new ArrayList<InvisCloak>();
+		monsters = new ArrayList<Enemy>(); 
+		obstacles = new ArrayList<Shape>();
 		makeObstacles();
 	}
 	
@@ -60,6 +63,10 @@ public abstract class Level {
 		return inviscloak;
 	}
 	
+	public void addInvisCloak(InvisCloak a) {
+		inviscloak.add(a);
+	}
+	
 	/**
 	 * This method returns an arraylist containing the obstacles of the class.
 	 * @return arraylist containing the obstacles of the class.
@@ -73,6 +80,10 @@ public abstract class Level {
 	 */
 	public ArrayList<Enemy> getMonsters() {
 		return monsters;
+	}
+	
+	public void addMonster(Enemy a) {
+		monsters.add(a);
 	}
 	
 
@@ -107,7 +118,10 @@ public abstract class Level {
 		} else {
 			throw new IllegalArgumentException("Data file " + filename + " does not exist.");
 		}
+		
 	}
+	
+	
 	
 	
 }
