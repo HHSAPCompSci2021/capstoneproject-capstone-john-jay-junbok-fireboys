@@ -13,7 +13,7 @@ public class Enemy extends Sprite {
 	 * @param y y coordinate of the Enemy
 	 */
 	public Enemy (double x, double y) {
-		super(x, y, 0, 0);
+		super(x, y, 25, 25);
 	}
 	
 	/**

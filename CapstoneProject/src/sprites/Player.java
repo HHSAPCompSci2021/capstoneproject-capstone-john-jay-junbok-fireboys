@@ -36,13 +36,25 @@ public class Player extends Sprite {
 	}
 	
 	public void draw(DrawingSurface s) {
-		s.fill(0, 0, 255);
+		if (!isAlive) {
+			System.out.println("dead");
+		}
+		
+		
+		if (!isInvis) {
+			s.fill(0, 0, 255);
+		} else {
+			s.fill(255, 0, 255);
+		}
+		
+		
 		s.rect((float)super.getX(), (float)super.getY(), (float)25, (float)25);
 	}
 	
 	public void act() {
 		
 		int invisCloakIndex = -1;
+		int monsterIndex = -1;
 
 		for (InvisCloak s : a.getInvisCloaks()) {
 			if (super.getHitbox().isTouching(s.getHitbox())) {
@@ -58,14 +70,19 @@ public class Player extends Sprite {
 		}
 		
 		
-		for (Enemy s : a.getMonsters()) {
-			if (super.getHitbox().isTouching(s.getHitbox())) {
+		for (Enemy m : a.getMonsters()) {
+			if (super.getHitbox().isTouching(m.getHitbox())) {
 				if (!isInvis) {
 					isAlive = false;
 				} else {
-					a.removeMonster(a.getMonsters().indexOf(s));
+					monsterIndex = a.getMonsters().indexOf(m);
 				}
+				break;
 			}
+		}
+		
+		if (monsterIndex >= 0) {
+			a.removeMonster(monsterIndex);
 		}
 		
 	}
