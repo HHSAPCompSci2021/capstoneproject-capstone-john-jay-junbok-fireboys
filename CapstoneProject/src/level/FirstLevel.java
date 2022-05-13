@@ -13,8 +13,6 @@ import sprites.Player;
  */
 public class FirstLevel extends Level {
 	
-	private Player p; //etc
-	private boolean nextLevel = false;
 	/**
 	 * Constructs a First Level class by creating the obstacles and materials of the Level.
 	 * @param filename string with the filename.
