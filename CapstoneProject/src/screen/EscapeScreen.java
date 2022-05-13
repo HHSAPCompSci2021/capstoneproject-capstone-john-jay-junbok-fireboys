@@ -3,6 +3,7 @@ package screen;
 import java.awt.Point;
 import java.awt.Rectangle;
 
+import level.FirstLevel;
 import level.Level;
 import main.DrawingSurface;
 import processing.core.PFont;
@@ -31,8 +32,12 @@ public class EscapeScreen extends Screen {
 		buttonRestart = new Rectangle(800 /2 - 100, 600 / 2 - 50, 200, 100);
 		buttonStart = new Rectangle(800 /2 - 100, 3 * 600 / 4 - 50, 200, 100);
 		
+		
 	}
 	
+	/**
+	 * Draws the EscapeScreen (upon prompting by the pressing of ESC key) by setting a turoquoise background and creating buttons (graphical rectangles) that prompt the user to resume the game, restart, or go to the starting screen
+	 */
 	public void draw() {
 		s.background(0, 126, 127);
 		s.fill(0, 126, 127);
@@ -65,12 +70,15 @@ public class EscapeScreen extends Screen {
 		s.text(buttonString, buttonStart.x + buttonStart.width / 2 - x / 2, buttonStart.y + buttonStart.height / 2);
 	}
 	
+	/**
+	 * 
+	 */
 	public void mousePressed() {
 		Point p = s.actualCoordinatesToAssumed(new Point(s.mouseX,s.mouseY));
 		if (buttonResume.contains(p.x, p.y)) {
 			s.switchScreen(ScreenSwitcher.GAME_SCREEN);
 		} else if (buttonRestart.contains(p.x, p.y)) {
-			s.screens.set(1, new GameScreen(s));
+			s.screens.set(1, new GameScreen(s, new FirstLevel()));
 			s.switchScreen(ScreenSwitcher.GAME_SCREEN);
 		} else if (buttonStart.contains(p.x, p.y)) {
 			s.switchScreen(ScreenSwitcher.STARTING_SCREEN);
