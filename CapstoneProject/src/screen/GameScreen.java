@@ -77,7 +77,7 @@ public class GameScreen extends Screen {
 		
 		
 		addStuff(a, boxWidth);
-		player.act(a.getInvisCloaks(), a.getObstacles());
+		player.act();
 		player.draw(s);
 
 		

@@ -67,6 +67,10 @@ public abstract class Level {
 		inviscloak.add(a);
 	}
 	
+	public void removeInvisCloak(int i) {
+		inviscloak.remove(i);
+	}
+	
 	/**
 	 * This method returns an arraylist containing the obstacles of the class.
 	 * @return arraylist containing the obstacles of the class.
@@ -80,6 +84,10 @@ public abstract class Level {
 	 */
 	public ArrayList<Enemy> getMonsters() {
 		return monsters;
+	}
+	
+	public void removeMonster(int i) {
+		monsters.remove(i);
 	}
 	
 	public void addMonster(Enemy a) {

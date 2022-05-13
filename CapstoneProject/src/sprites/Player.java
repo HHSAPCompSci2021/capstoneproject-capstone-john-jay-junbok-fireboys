@@ -17,7 +17,7 @@ import main.DrawingSurface;
 public class Player extends Sprite {
 	
 	private boolean isInvis;
-	private boolean hasKey;
+	private boolean isAlive;
 	private boolean canMove;
 	private Level a;
 	
@@ -30,7 +30,7 @@ public class Player extends Sprite {
 	public Player(double x, double y, Level a) {
 		super(x, y, 25, 25);
 		isInvis = false;
-		hasKey = false;
+		isAlive = true;
 		this.a = a;
 		canMove = true;
 	}
@@ -40,18 +40,32 @@ public class Player extends Sprite {
 		s.rect((float)super.getX(), (float)super.getY(), (float)25, (float)25);
 	}
 	
-	public void act(ArrayList<InvisCloak> cloaks, ArrayList<Rectangle> obstacles) {
-//		for (Rectangle o : obstacles) {
-//			if (super.getHitbox().isTouching(o)) {
-//				canMove = false;
-//			}
-//		}
-		for (InvisCloak s : cloaks) {
+	public void act() {
+		
+		int invisCloakIndex = -1;
+
+		for (InvisCloak s : a.getInvisCloaks()) {
 			if (super.getHitbox().isTouching(s.getHitbox())) {
 				s.pickUp();
 				isInvis = true;
+				invisCloakIndex = a.getInvisCloaks().indexOf(s);
+				break;
 			}
-			
+		}
+		
+		if (invisCloakIndex >= 0) {
+			a.removeInvisCloak(invisCloakIndex);
+		}
+		
+		
+		for (Enemy s : a.getMonsters()) {
+			if (super.getHitbox().isTouching(s.getHitbox())) {
+				if (!isInvis) {
+					isAlive = false;
+				} else {
+					a.removeMonster(a.getMonsters().indexOf(s));
+				}
+			}
 		}
 		
 	}
