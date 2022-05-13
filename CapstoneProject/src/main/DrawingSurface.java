@@ -81,6 +81,14 @@ public class DrawingSurface extends PApplet implements ScreenSwitcher {
 	}
 	
 	/**
+	 * This method ensures that the Player doesn't when the key is released
+	 */
+	public void keyReleased() {
+		while(keys.contains(keyCode))
+			keys.remove(new Integer(keyCode));
+	}
+	
+	/**
 	 * Switches the screen to the exit screen when the ESC key is pressed
 	 */
 	public void keyPressed() {
