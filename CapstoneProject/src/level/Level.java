@@ -6,6 +6,9 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Scanner;
 
+import jdalal464.shapes.Circle;
+import jdalal464.shapes.Rectangle;
+import jdalal464.shapes.Shape;
 import sprites.Enemy;
 import sprites.InvisCloak;
 
@@ -20,13 +23,26 @@ public abstract class Level {
 	private ArrayList<Enemy> monsters = new ArrayList<Enemy>(); 
 	
 	private ArrayList<InvisCloak> inviscloak = new ArrayList<InvisCloak>();
-	private ArrayList<Obstacle> obstacles = new ArrayList<Obstacle>();
+	private ArrayList<Shape> obstacles = new ArrayList<Shape>();
 	private char[][] walls;
 
 	
 	public Level(String filename, int width, int height) {
 		walls = new char[24][32];
 		readData(filename, walls);
+		makeObstacles();
+	}
+	
+	private void makeObstacles() {
+		for (int i = 0; i < walls.length; i++) {
+			for (int j = 0; i < walls[i].length; j++) {
+				if (walls[i][j] == '#') {
+					obstacles.add(new Rectangle(i * 25, j * 25, 25, 25, 0, 0, 0));
+				} else if (walls[i][j] == '!') {
+					obstacles.add(new Circle(i + 25/2, j + 25/2, 25, 0, 0, 0));
+				}
+			}
+		}
 	}
 	
 	/**
@@ -48,7 +64,7 @@ public abstract class Level {
 	 * This method returns an arraylist containing the obstacles of the class.
 	 * @return arraylist containing the obstacles of the class.
 	 */
-	public ArrayList<Obstacle> getObstacles() {
+	public ArrayList<Shape> getObstacles() {
 		return obstacles;
 	}
 	/**
