@@ -3,6 +3,7 @@ package sprites;
 import java.util.ArrayList;
 
 import jdalal464.shapes.*;
+import level.Level;
 import level.Obstacle;
 import main.DrawingSurface;
 
@@ -18,6 +19,8 @@ public class Player extends Sprite {
 	private boolean isInvis;
 	private boolean hasKey;
 	private boolean canMove;
+	private Level a;
+	private double xVel, yVel;
 	
 	/**
 	 * Constructs the Player with given coordinates.
@@ -25,25 +28,32 @@ public class Player extends Sprite {
 	 * @param x x coordinate of the player
 	 * @param y y coordinate of the player
 	 */
-	public Player(double x, double y) {
+	public Player(double x, double y, Level a) {
 		super(x, y, 25, 25);
 		isInvis = false;
 		hasKey = false;
+		this.a = a;
 	}
 	
 	public void draw(DrawingSurface s) {
 		s.fill(0, 0, 255);
-		s.ellipse((float)super.getX(), (float)super.getY(), (float)25, (float)25);
+		s.rect((float)super.getX(), (float)super.getY(), (float)25, (float)25);
 	}
 	
-	public void act(ArrayList<InvisCloak> cloaks, ArrayList<Shape> obstacles) {
+	public void act(ArrayList<InvisCloak> cloaks, ArrayList<Rectangle> obstacles) {
+		yVel += 0.3;
+		x += xVel;
+		y += yVel;
+		
 		for (InvisCloak s : cloaks) {
 			s.pickUp();
 			isInvis = true;
 		}
-		for (Shape o : obstacles) {
-			if (!super.getHitbox().isTouching(o)) {
-				canMove = true;
+		for (Rectangle o : obstacles) {
+			if (super.getHitbox().isTouching(o)) {
+				canMove = false;
+				yVel = 0;
+				xVel = 0;
 			}
 		}
 	}
@@ -54,4 +64,6 @@ public class Player extends Sprite {
 			this.y += y;
 		}
 	}
+	
+	
 }

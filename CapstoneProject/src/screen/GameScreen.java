@@ -37,7 +37,7 @@ public class GameScreen extends Screen {
 	public GameScreen(DrawingSurface s, Level level) {
 		super(800,600);
 		this.s = s;
-		player = new Player(750, 550);
+		player = new Player(750, 550, level);
 		this.a = level;
 	}
 	
@@ -69,7 +69,9 @@ public class GameScreen extends Screen {
 				}
 				
 			}
-		} 
+		}
+		
+		
 
 		
 		

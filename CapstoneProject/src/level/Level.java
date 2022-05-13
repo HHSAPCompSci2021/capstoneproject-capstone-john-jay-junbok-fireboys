@@ -23,7 +23,7 @@ public abstract class Level {
 	private ArrayList<Enemy> monsters;
 	
 	private ArrayList<InvisCloak> inviscloak;
-	private ArrayList<Shape> obstacles;
+	private ArrayList<Rectangle> obstacles;
 	private char[][] walls;
 
 	
@@ -32,7 +32,7 @@ public abstract class Level {
 		readData(filename, walls);
 		inviscloak = new ArrayList<InvisCloak>();
 		monsters = new ArrayList<Enemy>(); 
-		obstacles = new ArrayList<Shape>();
+		obstacles = new ArrayList<Rectangle>();
 		makeObstacles();
 	}
 	
@@ -71,7 +71,7 @@ public abstract class Level {
 	 * This method returns an arraylist containing the obstacles of the class.
 	 * @return arraylist containing the obstacles of the class.
 	 */
-	public ArrayList<Shape> getObstacles() {
+	public ArrayList<Rectangle> getObstacles() {
 		return obstacles;
 	}
 	/**
