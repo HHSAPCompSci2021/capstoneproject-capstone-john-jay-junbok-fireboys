@@ -5,7 +5,7 @@ import jdalal464.shapes.*;
  * This class represents the objects which will have interactions while the game is running. 
  * 
  * @author junbok lee
- * @version 05/06/2022
+ * @version 05/13/2022
  */
 public class Sprite {
 	
@@ -64,6 +64,12 @@ public class Sprite {
 		return new Rectangle(x, y, width, height, 0, 0, 0);
 	}
 	
+	/**
+	 * Sets the coordinates of the sprite to the specified coordinates.
+	 * 
+	 * @param x new x coordinate of the sprite
+	 * @param y new y coordinate of the sprite
+	 */
 	public void setCoords(double x, double y) {
 		this.x = x;
 		this.y = y;

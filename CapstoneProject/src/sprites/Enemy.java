@@ -3,7 +3,7 @@ package sprites;
  * This class extends Sprite and represents an enemy which will attack the player until specific circumstances.
  * 
  * @author junbok lee
- * @version 05/06/2022
+ * @version 05/13/2022
  */
 public class Enemy extends Sprite {
 	/**
