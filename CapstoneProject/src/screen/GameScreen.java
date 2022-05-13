@@ -42,8 +42,7 @@ public class GameScreen extends Screen {
 	}
 	
 	public void draw() {
-
-
+		
 		s.background(255);
 		
 		movePlayer();
@@ -108,14 +107,6 @@ public class GameScreen extends Screen {
 
 		}
 		
-	}
-	
-	public Player getPlayer() {
-		return player;
-	}
-
-	public Level getLevel() {
-		return a;
 	}
 
 }
