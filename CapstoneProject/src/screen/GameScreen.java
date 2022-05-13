@@ -25,7 +25,6 @@ public class GameScreen extends Screen {
 	private DrawingSurface s;
 	private Rectangle screenRect;
 	private Player player;
-	private ArrayList<Obstacle> obstacles;
 	
 
 	/**
@@ -42,23 +41,7 @@ public class GameScreen extends Screen {
 		
 		s.background(255);
 		
-		
-		
-		if (s.isPressed(KeyEvent.VK_LEFT)) {
-			player.moveBy(-1, 0);
-		}	
-		if (s.isPressed(KeyEvent.VK_RIGHT)) {
-			player.moveBy(1, 0);
-		}
-		if (s.isPressed(KeyEvent.VK_UP)) {
-			player.moveBy(0, -1);
-		}
-		if (s.isPressed(KeyEvent.VK_DOWN)) {
-			player.moveBy(0, 1);
-		}	
-		
-		
-		
+		movePlayer();
 		char[][] blueprint = a.getWalls();
 		
 		float boxHeight = 600 / blueprint.length;
@@ -84,10 +67,26 @@ public class GameScreen extends Screen {
 			}
 		}
 		
+		
+		
 		player.draw(s);
 
 		
-		
+	}
+	
+	private void movePlayer() {
+		if (s.isPressed(KeyEvent.VK_LEFT)) {
+			player.moveBy(-1, 0);
+		}	
+		if (s.isPressed(KeyEvent.VK_RIGHT)) {
+			player.moveBy(1, 0);
+		}
+		if (s.isPressed(KeyEvent.VK_UP)) {
+			player.moveBy(0, -1);
+		}
+		if (s.isPressed(KeyEvent.VK_DOWN)) {
+			player.moveBy(0, 1);
+		}	
 	}
 
 }
