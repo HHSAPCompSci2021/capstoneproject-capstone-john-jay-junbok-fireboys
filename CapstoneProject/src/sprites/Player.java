@@ -1,5 +1,9 @@
 package sprites;
 
+import java.util.ArrayList;
+
+import jdalal464.shapes.*;
+import level.Obstacle;
 import main.DrawingSurface;
 
 /**
@@ -13,6 +17,7 @@ public class Player extends Sprite {
 	
 	private boolean isInvis;
 	private boolean hasKey;
+	private boolean canMove;
 	
 	/**
 	 * Constructs the Player with given coordinates.
@@ -36,11 +41,24 @@ public class Player extends Sprite {
 		// sets hasKey to true if the player picks up the key
 	}
 	
-	public boolean isInvis() {
-		return isInvis;
+	public void act(ArrayList<Sprite> sprites, ArrayList<Shape> obstacles) {
+		for (Sprite s : sprites) {
+			if (s instanceof InvisCloak) {
+				pickUpObject(s);
+				isInvis = true;
+			}
+		}
+		for (Shape o : obstacles) {
+			if (!super.getHitbox().isTouching(o)) {
+				canMove = true;
+			}
+		}
 	}
 	
-	public boolean hasKey() {
-		return hasKey;
+	public void move(double x, double y) {
+		if (canMove) {
+			this.x += x;
+			this.y += y;
+		}
 	}
 }

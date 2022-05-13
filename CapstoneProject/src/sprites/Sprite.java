@@ -1,6 +1,6 @@
 package sprites;
 
-import java.awt.Rectangle;
+import jdalal464.shapes.*;
 /**
  * This class represents the objects which will have interactions while the game is running. 
  * 
@@ -60,8 +60,8 @@ public class Sprite {
 	 * 
 	 * @return a Rectangle which represents the hitbox of the sprite.
 	 */
-	public Rectangle getHitbox() {
-		return new Rectangle((int)x, (int)y, (int)width, (int)height);
+	public Shape getHitbox() {
+		return new Rectangle(x, y, width, height, 0, 0, 0);
 	}
 	
 	public void setCoords(double x, double y) {
