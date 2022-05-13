@@ -11,6 +11,7 @@ import level.FirstLevel;
 import level.Level;
 import level.Obstacle;
 import main.DrawingSurface;
+import sprites.InvisCloak;
 import sprites.Player;
 import sprites.Sprite;
 
@@ -25,6 +26,7 @@ public class GameScreen extends Screen {
 	private DrawingSurface s;
 	private Rectangle screenRect;
 	private Player player;
+	private InvisCloak invis;
 	
 
 	/**
@@ -35,6 +37,7 @@ public class GameScreen extends Screen {
 		super(800,600);
 		this.s = s;
 		player = new Player(750, 550);
+		invis = new InvisCloak(500, 500);
 	}
 	
 	public void draw(Level a) {
@@ -70,6 +73,7 @@ public class GameScreen extends Screen {
 		
 		
 		player.draw(s);
+		invis.draw(s);
 
 		
 	}
