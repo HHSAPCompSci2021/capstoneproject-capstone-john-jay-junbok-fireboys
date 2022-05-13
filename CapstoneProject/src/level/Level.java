@@ -6,6 +6,9 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Scanner;
 
+import jdalal464.shapes.Circle;
+import jdalal464.shapes.Rectangle;
+import jdalal464.shapes.Shape;
 import sprites.Enemy;
 import sprites.InvisCloak;
 
@@ -17,10 +20,10 @@ import sprites.InvisCloak;
  */
 public abstract class Level {
 	
-	private ArrayList<Enemy> monsters = new ArrayList<Enemy>(); 
+	private ArrayList<Enemy> monsters;
 	
-	private ArrayList<InvisCloak> inviscloak = new ArrayList<InvisCloak>();
-	private ArrayList<Obstacle> obstacles = new ArrayList<Obstacle>();
+	private ArrayList<InvisCloak> inviscloak;
+	private ArrayList<Rectangle> obstacles;
 	private char[][] walls;
 
 	/**
@@ -32,6 +35,25 @@ public abstract class Level {
 	public Level(String filename, int width, int height) {
 		walls = new char[24][32];
 		readData(filename, walls);
+		inviscloak = new ArrayList<InvisCloak>();
+		monsters = new ArrayList<Enemy>(); 
+		obstacles = new ArrayList<Rectangle>();
+		makeObstacles();
+	}
+	
+	/**
+	 * Makes the obstacles within the level
+	 */
+	private void makeObstacles() {
+		for (int i = 0; i < walls.length; i++) {
+			for (int j = 0; j < walls[i].length; j++) {
+				if (walls[i][j] == '#') {
+					obstacles.add(new Rectangle(j * 25, i * 25, 25, 25, 0, 0, 0));
+				} else if (walls[i][j] == '!' && walls[i + 1][j] == '!' && walls[i][j + 1] == '!' && walls[i + 1][j + 1] == '!') {
+					obstacles.add(new Rectangle(j * 25 + 25 / 2, i * 25 + 25 / 2, 25, 25, 0, 0, 0));
+				}
+			}
+		}
 	}
 	
 	/**
@@ -49,11 +71,19 @@ public abstract class Level {
 		return inviscloak;
 	}
 	
+	public void addInvisCloak(InvisCloak a) {
+		inviscloak.add(a);
+	}
+	
+	public void removeInvisCloak(int i) {
+		inviscloak.remove(i);
+	}
+	
 	/**
 	 * This method returns an arraylist containing the obstacles of the class.
 	 * @return arraylist containing the obstacles of the class.
 	 */
-	public ArrayList<Obstacle> getObstacles() {
+	public ArrayList<Rectangle> getObstacles() {
 		return obstacles;
 	}
 	/**
@@ -63,6 +93,21 @@ public abstract class Level {
 	public ArrayList<Enemy> getMonsters() {
 		return monsters;
 	}
+	/**
+	 * Method that removes the specified monster
+	 * @param i index of monster to be removed
+	 */
+	public void removeMonster(int i) {
+		monsters.remove(i);
+	}
+	/**
+	 * Allows for adding of a monster into the level
+	 * @param a adds the monster to the end of the monsters arraylist
+	 */
+	public void addMonster(Enemy a) {
+		monsters.add(a);
+	}
+	
 	/**
 	 * Reads in data and builds the level
 	 * @param filename name of the file
@@ -83,10 +128,8 @@ public abstract class Level {
 					while (in.hasNext()) {
 						String line = in.nextLine();
 						for(int i = 0; i < line.length(); i++)
-							if (count < gameData.length && i < gameData[count].length) {
+							if (count < gameData.length && i < gameData[count].length)
 								gameData[count][i] = line.charAt(i);
-								
-							}
 
 						count++;
 					}
@@ -101,7 +144,10 @@ public abstract class Level {
 		} else {
 			throw new IllegalArgumentException("Data file " + filename + " does not exist.");
 		}
+		
 	}
+	
+	
 	
 	
 }
