@@ -36,12 +36,10 @@ public class Player extends Sprite {
 		s.ellipse((float)super.getX(), (float)super.getY(), (float)25, (float)25);
 	}
 	
-	public void act(ArrayList<Sprite> sprites, ArrayList<Shape> obstacles) {
-		for (Sprite s : sprites) {
-			if (s instanceof InvisCloak) {
-				((InvisCloak) s).pickUp();
-				isInvis = true;
-			}
+	public void act(ArrayList<InvisCloak> cloaks, ArrayList<Shape> obstacles) {
+		for (InvisCloak s : cloaks) {
+			s.pickUp();
+			isInvis = true;
 		}
 		for (Shape o : obstacles) {
 			if (!super.getHitbox().isTouching(o)) {

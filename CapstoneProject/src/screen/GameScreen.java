@@ -2,10 +2,10 @@ package screen;
 
 import java.awt.Rectangle;
 
-import java.awt.Shape;
 import java.awt.event.*;
 import java.util.ArrayList;
 import java.util.List;
+import jdalal464.shapes.*;
 
 import level.FirstLevel;
 import level.Level;
@@ -27,10 +27,11 @@ public class GameScreen extends Screen {
 	private DrawingSurface s;
 	private Rectangle screenRect;
 	private Player player;
+	private Level a;
 	
 	private ArrayList<Enemy> monst = new ArrayList<Enemy>(); 
 	private ArrayList<InvisCloak> invisC = new ArrayList<InvisCloak>();
-	private ArrayList<Obstacle> obst = new ArrayList<Obstacle>();
+	private ArrayList<Shape> obst = new ArrayList<>();
 	private char[][] walls;
 	private ArrayList<Sprite> sprites = new ArrayList<Sprite>();
 	
@@ -38,13 +39,15 @@ public class GameScreen extends Screen {
 	 * Constructs a GameScreen by setting the width to 600 and height to 800 and assigning the Drawing that uses this Screen to s.
 	 * @param s The DrawingSurface that utilizes the screen
 	 */
-	public GameScreen(DrawingSurface s) {
+	public GameScreen(DrawingSurface s, Level level) {
 		super(800,600);
 		this.s = s;
 		player = new Player(750, 550);
+		this.a = level;
+		invisC = a.getInvisCloaks();
 	}
 	
-	public void draw(Level a) {
+	public void draw() {
 		
 		s.background(255);
 		
@@ -77,7 +80,7 @@ public class GameScreen extends Screen {
 		
 		
 		addStuff(a, boxWidth);
-		
+		player.act(invisC, obst);
 		player.draw(s);
 
 		

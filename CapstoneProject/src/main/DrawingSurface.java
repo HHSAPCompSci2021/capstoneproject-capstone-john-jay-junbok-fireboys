@@ -33,23 +33,21 @@ public class DrawingSurface extends PApplet implements ScreenSwitcher {
 	 */
 	public DrawingSurface() {
 		
+		a = new FirstLevel("mazefiles/level1.txt");
+		
 		keys = new ArrayList<Integer>();
 		screens = new ArrayList<Screen>();
 		
 		StartingScreen screen1 = new StartingScreen(this);
 		screens.add(screen1);
 		
-		GameScreen screen2 = new GameScreen(this);
+		GameScreen screen2 = new GameScreen(this, a);
 		screens.add(screen2);
 		
 		EscapeScreen screen3 = new EscapeScreen(this);
 		screens.add(screen3);
 		
-		current = screens.get(0);
-		
-		a = new FirstLevel("mazefiles/level1.txt");
-		
-		
+		current = screens.get(1);
 	}
 	
 	/**
