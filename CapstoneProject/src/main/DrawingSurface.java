@@ -56,6 +56,13 @@ public class DrawingSurface extends PApplet implements ScreenSwitcher {
 	 * Draws the DrawingSurface by illustrating the screen and needs to be currently displayed.
 	 */
 	public void draw() {
+		
+		if (!((GameScreen) screens.get(1)).getPlayer().isAlive()) {
+			current = screens.get(0);
+			screens.set(1, new GameScreen(this, ((GameScreen) screens.get(1)).getLevel()));
+		}
+		
+		
 		x = (float) width / current.DRAWING_WIDTH;
 		y = (float) height / current.DRAWING_HEIGHT;
 		
