@@ -69,7 +69,7 @@ public class GameScreen extends Screen {
 				}
 				
 			}
-		} s
+		} 
 
 		
 		
