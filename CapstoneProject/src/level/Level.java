@@ -23,7 +23,12 @@ public abstract class Level {
 	private ArrayList<Obstacle> obstacles = new ArrayList<Obstacle>();
 	private char[][] walls;
 
-	
+	/**
+	 * Default Constructor that constructs the level
+	 * @param filename name of the file
+	 * @param width width of the level/screen
+	 * @param height height of the level/screen
+	 */
 	public Level(String filename, int width, int height) {
 		walls = new char[24][32];
 		readData(filename, walls);
@@ -58,7 +63,11 @@ public abstract class Level {
 	public ArrayList<Enemy> getMonsters() {
 		return monsters;
 	}
-	
+	/**
+	 * Reads in data and builds the level
+	 * @param filename name of the file
+	 * @param gameData char 2-d array that represents the different elements of the level grid-ly
+	 */
 	public void readData (String filename, char[][] gameData) {
 		File dataFile = new File(filename);
 
