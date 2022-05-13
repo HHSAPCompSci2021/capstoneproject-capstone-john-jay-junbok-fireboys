@@ -33,36 +33,27 @@ public class DrawingSurface extends PApplet implements ScreenSwitcher {
 	 */
 	public DrawingSurface() {
 		
+		a = new FirstLevel();
+		
 		keys = new ArrayList<Integer>();
 		screens = new ArrayList<Screen>();
 		
 		StartingScreen screen1 = new StartingScreen(this);
 		screens.add(screen1);
 		
-		GameScreen screen2 = new GameScreen(this);
+		GameScreen screen2 = new GameScreen(this, a);
 		screens.add(screen2);
 		
 		EscapeScreen screen3 = new EscapeScreen(this);
 		screens.add(screen3);
 		
 		current = screens.get(0);
-		
-		a = new FirstLevel("mazefiles/level1.txt");
-		
-		
 	}
 	
 	/**
 	 * Draws the DrawingSurface by illustrating the screen and needs to be currently displayed.
 	 */
 	public void draw() {
-		
-		if (!((GameScreen) screens.get(1)).getPlayer().isAlive()) {
-			current = screens.get(0);
-			screens.set(1, new GameScreen(this, ((GameScreen) screens.get(1)).getLevel()));
-		}
-		
-		
 		x = (float) width / current.DRAWING_WIDTH;
 		y = (float) height / current.DRAWING_HEIGHT;
 		
@@ -70,9 +61,7 @@ public class DrawingSurface extends PApplet implements ScreenSwitcher {
 		
 		scale(x, y);
 		
-		current.draw(a);
-
-		
+		current.draw();
 		
 		pop();
 	}

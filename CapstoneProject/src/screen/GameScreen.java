@@ -2,10 +2,10 @@ package screen;
 
 import java.awt.Rectangle;
 
-import java.awt.Shape;
 import java.awt.event.*;
 import java.util.ArrayList;
 import java.util.List;
+import jdalal464.shapes.*;
 
 import level.FirstLevel;
 import level.Level;
@@ -27,29 +27,27 @@ public class GameScreen extends Screen {
 	private DrawingSurface s;
 	private Rectangle screenRect;
 	private Player player;
+	private Level a;
 	
-	private ArrayList<Enemy> monst = new ArrayList<Enemy>(); 
-	private ArrayList<InvisCloak> invisC = new ArrayList<InvisCloak>();
-	private ArrayList<Obstacle> obst = new ArrayList<Obstacle>();
-	private char[][] walls;
-	private ArrayList<Sprite> sprites = new ArrayList<Sprite>();
 	
 	/**
 	 * Constructs a GameScreen by setting the width to 600 and height to 800 and assigning the Drawing that uses this Screen to s.
 	 * @param s The DrawingSurface that utilizes the screen
 	 */
-	public GameScreen(DrawingSurface s) {
+	public GameScreen(DrawingSurface s, Level level) {
 		super(800,600);
 		this.s = s;
-		player = new Player(750, 550);
+		player = new Player(700, 550, level);
+		this.a = level;
 	}
 	
-	public void draw(Level a) {
+	public void draw() {
 		
 		s.background(255);
 		
 		movePlayer();
 		char[][] blueprint = a.getWalls();
+
 		
 		float boxHeight = 600 / blueprint.length;
 		float boxWidth = 800 / blueprint[0].length;
@@ -75,9 +73,8 @@ public class GameScreen extends Screen {
 		}
 		
 		
-		
 		addStuff(a, boxWidth);
-		
+		player.act();
 		player.draw(s);
 
 		
@@ -85,16 +82,16 @@ public class GameScreen extends Screen {
 	
 	private void movePlayer() {
 		if (s.isPressed(KeyEvent.VK_LEFT)) {
-			player.moveBy(-1, 0);
+			player.move(-1, 0);
 		}	
 		if (s.isPressed(KeyEvent.VK_RIGHT)) {
-			player.moveBy(1, 0);
+			player.move(1, 0);
 		}
 		if (s.isPressed(KeyEvent.VK_UP)) {
-			player.moveBy(0, -1);
+			player.move(0, -1);
 		}
 		if (s.isPressed(KeyEvent.VK_DOWN)) {
-			player.moveBy(0, 1);
+			player.move(0, 1);
 		}	
 	}
 	
@@ -102,14 +99,13 @@ public class GameScreen extends Screen {
 		
 		for (InvisCloak n : a.getInvisCloaks()) {
 			s.fill(0, 255, 0);
-			s.circle((float) n.getX(), (float) n.getY(), radius);
+			s.rect((float) n.getX(), (float) n.getY(), radius, radius);
 		}
-		
-		
-	}
-	
-		
-		
+		for (Enemy x : a.getMonsters()) {
+			s.fill(255, 0, 0);
+			s.rect((float) x.getX(), (float) x.getY(), radius, radius);
+
+		}
 		
 	}
 

@@ -28,7 +28,7 @@ public abstract class Screen {
 	/** 
 	 * Illustrates the screen to desired graphical properties of the game
 	 */
-	public void draw(Level a) {
+	public void draw() {
 		
 	}
 	
@@ -39,6 +39,5 @@ public abstract class Screen {
 	public void keyPressed() {
 		
 	}
-
 
 }
