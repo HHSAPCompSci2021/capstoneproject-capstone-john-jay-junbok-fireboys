@@ -60,7 +60,7 @@ public class Sprite {
 	 * 
 	 * @return a Rectangle which represents the hitbox of the sprite.
 	 */
-	public Shape getHitbox() {
+	public Rectangle getHitbox() {
 		return new Rectangle(x, y, width, height, 0, 0, 0);
 	}
 	
@@ -69,8 +69,4 @@ public class Sprite {
 		this.y = y;
 	}
 	
-	public void moveBy(double x, double y) {
-		this.x += x;
-		this.y += y;
-	}
 }

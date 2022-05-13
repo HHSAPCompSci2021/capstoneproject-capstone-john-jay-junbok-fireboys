@@ -41,11 +41,11 @@ public class Player extends Sprite {
 	}
 	
 	public void act(ArrayList<InvisCloak> cloaks, ArrayList<Rectangle> obstacles) {
-		for (Rectangle o : obstacles) {
-			if (super.getHitbox().isTouching(o)) {
-				canMove = false;
-			}
-		}
+//		for (Rectangle o : obstacles) {
+//			if (super.getHitbox().isTouching(o)) {
+//				canMove = false;
+//			}
+//		}
 		for (InvisCloak s : cloaks) {
 			if (super.getHitbox().isTouching(s.getHitbox())) {
 				s.pickUp();
@@ -57,11 +57,24 @@ public class Player extends Sprite {
 	}
 	
 	public void move(double x, double y) {
-		if (canMove) {
+		if (canMove(x, y)) {
 			this.x += x;
 			this.y += y;
-		}
+		} 
+		
 	
+	}
+	
+	public boolean canMove(double x, double y) {
+		Rectangle b = super.getHitbox();
+		b.moveBy(x, y);
+		for (Rectangle o : a.getObstacles()) {
+			if (b.isTouching(o)) {
+				return false;
+			}
+		}
+		
+		return true;
 	}
 	
 	
