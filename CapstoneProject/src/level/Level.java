@@ -40,7 +40,7 @@ public abstract class Level {
 		for (int i = 0; i < walls.length; i++) {
 			for (int j = 0; j < walls[i].length; j++) {
 				if (walls[i][j] == '#') {
-					obstacles.add(new Rectangle(i * 25, j * 25, 25, 25, 0, 0, 0));
+					obstacles.add(new Rectangle(j * 25, i * 25, 25, 25, 0, 0, 0));
 				} else if (walls[i][j] == '!') {
 					obstacles.add(new Rectangle(i * 25 + 5, j * 25 + 5, 20, 20, 0, 0, 0));
 				}
