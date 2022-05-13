@@ -49,6 +49,9 @@ public class StartingScreen extends Screen {
 		s.text(buttonString, button.x + button.width / 2 - x / 2, button.y + button.height / 2);
 	}
 	
+	/**
+	 * Swtiches the screen of the game screen with the location of the mouse press is inside the button that prompts the user to play
+	 */
 	public void mousePressed() {
 		Point p = s.actualCoordinatesToAssumed(new Point(s.mouseX,s.mouseY));
 		if (button.contains(p.x, p.y)) {
