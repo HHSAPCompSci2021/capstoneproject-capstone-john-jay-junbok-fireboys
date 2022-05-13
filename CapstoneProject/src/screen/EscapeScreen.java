@@ -3,6 +3,7 @@ package screen;
 import java.awt.Point;
 import java.awt.Rectangle;
 
+import level.FirstLevel;
 import level.Level;
 import main.DrawingSurface;
 import processing.core.PFont;
@@ -70,7 +71,7 @@ public class EscapeScreen extends Screen {
 		if (buttonResume.contains(p.x, p.y)) {
 			s.switchScreen(ScreenSwitcher.GAME_SCREEN);
 		} else if (buttonRestart.contains(p.x, p.y)) {
-			s.screens.set(1, new GameScreen(s));
+			s.screens.set(1, new GameScreen(s, new FirstLevel()));
 			s.switchScreen(ScreenSwitcher.GAME_SCREEN);
 		} else if (buttonStart.contains(p.x, p.y)) {
 			s.switchScreen(ScreenSwitcher.STARTING_SCREEN);

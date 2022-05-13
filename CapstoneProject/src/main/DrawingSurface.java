@@ -33,7 +33,7 @@ public class DrawingSurface extends PApplet implements ScreenSwitcher {
 	 */
 	public DrawingSurface() {
 		
-		a = new FirstLevel("mazefiles/level1.txt");
+		a = new FirstLevel();
 		
 		keys = new ArrayList<Integer>();
 		screens = new ArrayList<Screen>();

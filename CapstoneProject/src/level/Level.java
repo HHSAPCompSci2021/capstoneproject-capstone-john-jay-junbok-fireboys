@@ -75,6 +75,7 @@ public abstract class Level {
 		return monsters;
 	}
 	
+
 	public void readData (String filename, char[][] gameData) {
 		File dataFile = new File(filename);
 
@@ -90,10 +91,8 @@ public abstract class Level {
 					while (in.hasNext()) {
 						String line = in.nextLine();
 						for(int i = 0; i < line.length(); i++)
-							if (count < gameData.length && i < gameData[count].length) {
+							if (count < gameData.length && i < gameData[count].length)
 								gameData[count][i] = line.charAt(i);
-								
-							}
 
 						count++;
 					}

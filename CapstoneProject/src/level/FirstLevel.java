@@ -20,8 +20,8 @@ public class FirstLevel extends Level {
 	 * Constructs a First Level class by creating the obstacles and materials of the Level.
 	 * @param filename string with the filename.
 	 */
-	public FirstLevel (String filename) {
-		super(filename, 600, 800);
+	public FirstLevel () {
+		super("mazefiles/level1.txt", 600, 800);
 		ArrayList<InvisCloak> invisC = getInvisCloaks();
 		invisC.add(new InvisCloak(130,50)); 
 		invisC.add(new InvisCloak(185,400));

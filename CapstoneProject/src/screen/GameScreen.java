@@ -29,11 +29,6 @@ public class GameScreen extends Screen {
 	private Player player;
 	private Level a;
 	
-	private ArrayList<Enemy> monst = new ArrayList<Enemy>(); 
-	private ArrayList<InvisCloak> invisC = new ArrayList<InvisCloak>();
-	private ArrayList<Shape> obst = new ArrayList<>();
-	private char[][] walls;
-	private ArrayList<Sprite> sprites = new ArrayList<Sprite>();
 	
 	/**
 	 * Constructs a GameScreen by setting the width to 600 and height to 800 and assigning the Drawing that uses this Screen to s.
@@ -44,7 +39,6 @@ public class GameScreen extends Screen {
 		this.s = s;
 		player = new Player(750, 550);
 		this.a = level;
-		invisC = a.getInvisCloaks();
 	}
 	
 	public void draw() {
@@ -80,7 +74,7 @@ public class GameScreen extends Screen {
 		
 		
 		addStuff(a, boxWidth);
-		player.act(invisC, obst);
+		player.act(a.getInvisCloaks(), a.getObstacles());
 		player.draw(s);
 
 		
