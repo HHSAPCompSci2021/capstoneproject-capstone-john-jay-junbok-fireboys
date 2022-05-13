@@ -2,6 +2,7 @@ package level;
 
 import java.util.ArrayList;
 
+import jdalal464.shapes.Rectangle;
 import sprites.Enemy;
 import sprites.InvisCloak;
 import sprites.Player;
@@ -44,7 +45,7 @@ public class FirstLevel extends Level {
 	 *Getter method that gets the obstacles
 	 * @return super.getObstacles() an arraylist of type obstacles that locates obstacles
 	 */
-	public ArrayList<Obstacle> getObstacles() {
+	public ArrayList<Rectangle> getObstacles() {
 		return super.getObstacles();
 	}
 	/**
