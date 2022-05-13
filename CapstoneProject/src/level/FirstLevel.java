@@ -18,7 +18,7 @@ public class FirstLevel extends Level {
 	private boolean nextLevel = false;
 	
 	/**
-	 * Constructs a First Level classm by creating the obstacles and materials of the Level.
+	 * Constructs a First Level class by creating the obstacles and materials of the Level.
 	 * @param filename string with the filename.
 	 */
 	public FirstLevel (String filename) {

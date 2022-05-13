@@ -19,9 +19,9 @@ public abstract class Level {
 	
 	private ArrayList<Enemy> monsters = new ArrayList<Enemy>(); 
 	
-	ArrayList<InvisCloak> inviscloak = new ArrayList<InvisCloak>();
-	ArrayList<Obstacle> obstacles = new ArrayList<Obstacle>();
-	char[][] walls;
+	private ArrayList<InvisCloak> inviscloak = new ArrayList<InvisCloak>();
+	private ArrayList<Obstacle> obstacles = new ArrayList<Obstacle>();
+	private char[][] walls;
 
 	
 	public Level(String filename, int width, int height) {
@@ -29,10 +29,20 @@ public abstract class Level {
 		readData(filename, walls);
 	}
 	
+	/**
+	 * Getter method for walls
+	 * @return walls 2-d character array representing wall positions
+	 */
 	public char[][] getWalls() {
 		return walls;
 	}
-	
+	/**
+	 * Getter method for inviscloaks
+	 * @return inviscloak ArrayList of invisCloaks
+	 */
+	private ArrayList<InvisCloak> getInvisCloaks() {
+		return inviscloak;
+	}
 	
 	/**
 	 * This method returns an arraylist containing the obstacles of the class.

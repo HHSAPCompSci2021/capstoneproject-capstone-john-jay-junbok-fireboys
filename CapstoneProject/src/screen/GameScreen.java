@@ -11,6 +11,7 @@ import level.FirstLevel;
 import level.Level;
 import level.Obstacle;
 import main.DrawingSurface;
+import sprites.Enemy;
 import sprites.InvisCloak;
 import sprites.Player;
 import sprites.Sprite;
@@ -28,7 +29,11 @@ public class GameScreen extends Screen {
 	private Player player;
 	private InvisCloak invis;
 	
-
+	private ArrayList<Enemy> monst = new ArrayList<Enemy>(); 
+	private ArrayList<InvisCloak> invisC = new ArrayList<InvisCloak>();
+	private ArrayList<Obstacle> obst = new ArrayList<Obstacle>();
+	private char[][] walls;
+	
 	/**
 	 * Constructs a GameScreen by setting the width to 600 and height to 800 and assigning the Drawing that uses this Screen to s.
 	 * @param s The DrawingSurface that utilizes the screen
