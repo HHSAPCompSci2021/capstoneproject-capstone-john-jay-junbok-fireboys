@@ -2,6 +2,7 @@ package screen;
 
 import java.awt.Rectangle;
 
+
 import java.awt.event.*;
 import java.util.ArrayList;
 import java.util.List;
@@ -9,7 +10,6 @@ import jdalal464.shapes.*;
 
 import level.FirstLevel;
 import level.Level;
-import level.Obstacle;
 import main.DrawingSurface;
 import sprites.Enemy;
 import sprites.InvisCloak;
@@ -107,6 +107,14 @@ public class GameScreen extends Screen {
 
 		}
 		
+	}
+	
+	public Player getPlayer() {
+		return player;
+	}
+	
+	public Level getLevel() {
+		return a;
 	}
 
 }

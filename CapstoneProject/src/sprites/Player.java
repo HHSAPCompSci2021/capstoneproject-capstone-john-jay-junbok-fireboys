@@ -2,9 +2,9 @@ package sprites;
 
 import java.util.ArrayList;
 
+
 import jdalal464.shapes.*;
 import level.Level;
-import level.Obstacle;
 import main.DrawingSurface;
 
 /**
@@ -100,11 +100,9 @@ public class Player extends Sprite {
 	 * @param y value to change the y coordinate by
 	 */
 	public void move(double x, double y) {		
-		int counter = 0;
 		Rectangle r = this.getHitbox();
 		for (Rectangle o : a.getObstacles()) {
 			if (super.getHitbox().isTouching(o)) {
-				counter++;
 				if (r.getY() >= o.getY() + 25) {
 					if (y < 0) {
 						y = 0;
@@ -129,7 +127,6 @@ public class Player extends Sprite {
 			}
 			
 		}
-		System.out.println(counter);
 		this.x += x;
 		this.y += y;
 
