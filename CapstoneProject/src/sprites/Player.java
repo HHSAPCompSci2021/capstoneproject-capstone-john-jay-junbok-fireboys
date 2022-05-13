@@ -20,7 +20,6 @@ public class Player extends Sprite {
 	private boolean hasKey;
 	private boolean canMove;
 	private Level a;
-	private double xVel, yVel;
 	
 	/**
 	 * Constructs the Player with given coordinates.
@@ -33,6 +32,7 @@ public class Player extends Sprite {
 		isInvis = false;
 		hasKey = false;
 		this.a = a;
+		canMove = true;
 	}
 	
 	public void draw(DrawingSurface s) {
@@ -41,21 +41,19 @@ public class Player extends Sprite {
 	}
 	
 	public void act(ArrayList<InvisCloak> cloaks, ArrayList<Rectangle> obstacles) {
-		yVel += 0.3;
-		x += xVel;
-		y += yVel;
-		
-		for (InvisCloak s : cloaks) {
-			s.pickUp();
-			isInvis = true;
-		}
 		for (Rectangle o : obstacles) {
 			if (super.getHitbox().isTouching(o)) {
 				canMove = false;
-				yVel = 0;
-				xVel = 0;
 			}
 		}
+		for (InvisCloak s : cloaks) {
+			if (super.getHitbox().isTouching(s.getHitbox())) {
+				s.pickUp();
+				isInvis = true;
+			}
+			
+		}
+		
 	}
 	
 	public void move(double x, double y) {
@@ -63,6 +61,7 @@ public class Player extends Sprite {
 			this.x += x;
 			this.y += y;
 		}
+	
 	}
 	
 	

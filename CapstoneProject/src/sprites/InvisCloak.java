@@ -23,6 +23,7 @@ public class InvisCloak extends Sprite {
 		isPickedUp = false;
 	}
 	
+	
 	public void draw(PApplet s) {
 		if (isPickedUp == false) {
 			s.fill(52, 168, 50);

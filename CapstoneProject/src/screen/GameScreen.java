@@ -85,16 +85,16 @@ public class GameScreen extends Screen {
 	
 	private void movePlayer() {
 		if (s.isPressed(KeyEvent.VK_LEFT)) {
-			player.moveBy(-1, 0);
+			player.move(-1, 0);
 		}	
 		if (s.isPressed(KeyEvent.VK_RIGHT)) {
-			player.moveBy(1, 0);
+			player.move(1, 0);
 		}
 		if (s.isPressed(KeyEvent.VK_UP)) {
-			player.moveBy(0, -1);
+			player.move(0, -1);
 		}
 		if (s.isPressed(KeyEvent.VK_DOWN)) {
-			player.moveBy(0, 1);
+			player.move(0, 1);
 		}	
 	}
 	
