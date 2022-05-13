@@ -41,6 +41,9 @@ public class GameScreen extends Screen {
 		this.a = level;
 	}
 	
+	/**
+	 * Draws the game screen by displaying the blueprint (walls and pillars), the obstacles of the game (including the monster), and generating the player
+	 */
 	public void draw() {
 		
 		s.background(255);
@@ -109,10 +112,18 @@ public class GameScreen extends Screen {
 		
 	}
 	
+	/**
+	 * Returns the player of the game screen
+	 * @return the player of the game screen
+	 */
 	public Player getPlayer() {
 		return player;
 	}
 	
+	/**
+	 * Returns the level of the game screen
+	 * @return the level of the game screen
+	 */
 	public Level getLevel() {
 		return a;
 	}

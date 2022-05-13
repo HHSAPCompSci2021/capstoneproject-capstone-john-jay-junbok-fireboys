@@ -63,10 +63,17 @@ public abstract class Level {
 		return inviscloak;
 	}
 	
+	/**
+	 * Adds an invisibility cloak to the arraylist of invisCloaks
+	 * @param a InvisCloak to be added
+	 */
 	public void addInvisCloak(InvisCloak a) {
 		inviscloak.add(a);
 	}
-	
+	/**
+	 * Removes invisCloak from the level
+	 * @param i the index of the invisCloak to be removed
+	 */
 	public void removeInvisCloak(int i) {
 		inviscloak.remove(i);
 	}

@@ -32,10 +32,16 @@ public abstract class Screen {
 		
 	}
 	
+	/**
+	 * Switches screen depending on specific location of mousePressed (in graphically displayed buttons)
+	 */
 	public void mousePressed() {
 		
 	}
 	
+	/*8
+	 * Moves the player depending on the specific key pressed (arrows)
+	 */
 	public void keyPressed() {
 		
 	}
