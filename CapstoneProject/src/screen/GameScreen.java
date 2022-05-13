@@ -75,7 +75,7 @@ public class GameScreen extends Screen {
 		
 		
 		
-		addStuff(a);
+		addStuff(a, boxWidth);
 		
 		player.draw(s);
 
@@ -97,9 +97,12 @@ public class GameScreen extends Screen {
 		}	
 	}
 	
-	private void addStuff(Level a) {
+	private void addStuff(Level a, float radius) {
 		
-		
+		for (InvisCloak n : a.getInvisCloaks()) {
+			s.fill(0, 255, 0);
+			s.circle((float) n.getX(), (float) n.getY(), radius);
+		}
 		
 		
 	}
