@@ -102,11 +102,11 @@ public class GameScreen extends Screen {
 		
 		for (InvisCloak n : a.getInvisCloaks()) {
 			s.fill(0, 255, 0);
-			s.circle((float) n.getX(), (float) n.getY(), radius);
+			s.rect((float) n.getX(), (float) n.getY(), radius, radius);
 		}
 		for (Enemy x : a.getMonsters()) {
 			s.fill(255, 0, 0);
-			s.circle((float) x.getX(), (float) x.getY(), radius);
+			s.rect((float) x.getX(), (float) x.getY(), radius, radius);
 
 		}
 		
