@@ -88,5 +88,9 @@ public class GameScreen extends Screen {
 			player.moveBy(0, 1);
 		}	
 	}
+	
+	private void addStuff(Level a) {
+		
+	}
 
 }
