@@ -96,12 +96,10 @@ public class Player extends Sprite {
 	
 	}
 	
-	public boolean canMove(double x, double y) {
-		Rectangle b = super.getHitbox();
-		b.moveBy(x, y);
-				
+	public boolean canMove(double x, double y) {		
 		for (Rectangle o : a.getObstacles()) {
-			if (b.isTouching(o)) {
+			System.out.println(super.getHitbox().isTouching(o));
+			if (super.getHitbox().isTouching(o)) {
 				return false;
 			}
 		}
