@@ -69,9 +69,7 @@ public class GameScreen extends Screen {
 				}
 				
 			}
-		}
-		
-		System.out.println("hello");
+		} s
 
 		
 		
