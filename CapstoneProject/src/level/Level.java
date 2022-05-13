@@ -40,7 +40,7 @@ public abstract class Level {
 	 * Getter method for inviscloaks
 	 * @return inviscloak ArrayList of invisCloaks
 	 */
-	private ArrayList<InvisCloak> getInvisCloaks() {
+	public ArrayList<InvisCloak> getInvisCloaks() {
 		return inviscloak;
 	}
 	

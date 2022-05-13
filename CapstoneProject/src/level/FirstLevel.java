@@ -23,6 +23,9 @@ public class FirstLevel extends Level {
 	 */
 	public FirstLevel (String filename) {
 		super(filename, 600, 800);
+		ArrayList<InvisCloak> invisC = super.getInvisCloaks();
+		invisC.add(new InvisCloak(130,50)); invisC.add(new InvisCloak(200,400));
+		invisC.add(new InvisCloak(300,375)); invisC.add(new InvisCloak(775,375));
 //		p = new Player(0, 0); e = new Enemy(0, 0); i = new InvisCloak(0, 0);
 		wall = new Obstacle(10,10);
 	}
@@ -46,5 +49,12 @@ public class FirstLevel extends Level {
 	 */
 	public ArrayList<Enemy> getMonsters() {
 		return super.getMonsters();
+	}
+	/**
+	 * Getter method for invisCloaks
+	 * @return inviscloaks ArrayList of invisCloaks
+	 */
+	public ArrayList<InvisCloak> getInvisCloaks() {
+		return super.getInvisCloaks();
 	}
 }
