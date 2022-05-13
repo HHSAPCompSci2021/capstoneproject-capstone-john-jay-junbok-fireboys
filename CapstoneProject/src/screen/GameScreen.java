@@ -47,6 +47,7 @@ public class GameScreen extends Screen {
 		
 		movePlayer();
 		char[][] blueprint = a.getWalls();
+
 		
 		float boxHeight = 600 / blueprint.length;
 		float boxWidth = 800 / blueprint[0].length;
