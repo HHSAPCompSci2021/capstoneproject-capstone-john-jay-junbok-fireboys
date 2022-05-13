@@ -17,7 +17,7 @@ import processing.core.PApplet;
 public class Main {
 	
 	/**
-	 * Displays the screens
+	 * Displays the DrawingSurface
 	 * @param args
 	 */
 	public static void main(String args[]) {

@@ -80,6 +80,9 @@ public class DrawingSurface extends PApplet implements ScreenSwitcher {
 		current = screens.get(i);
 	}
 	
+	/**
+	 * Switches the screen to the exit screen when the ESC key is pressed
+	 */
 	public void keyPressed() {
 		keys.add(keyCode);
 		if (key == ESC) {
@@ -88,11 +91,11 @@ public class DrawingSurface extends PApplet implements ScreenSwitcher {
 		}
 	}
 	
-	public void keyReleased() {
-		while(keys.contains(keyCode))
-			keys.remove(new Integer(keyCode));
-	}
-	
+	/**
+	 * Returns whether the keys contains a specific keyCode to ensure that key related interactions are smooth
+	 * @param code the integer code for keys.
+	 * @return Whther the keys contain the integer code
+	 */ 
 	public boolean isPressed(Integer code) {
 		return keys.contains(code);
 	}
