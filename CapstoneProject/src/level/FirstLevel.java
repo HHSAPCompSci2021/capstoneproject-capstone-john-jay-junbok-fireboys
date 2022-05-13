@@ -47,13 +47,7 @@ public class FirstLevel extends Level {
 	public char[][] getWalls() {
 		return super.getWalls();
 	}
-	/**
-	 *Getter method that gets the obstacles
-	 * @return super.getObstacles() an arraylist of type obstacles that locates obstacles
-	 */
-	public ArrayList<Obstacle> getObstacles() {
-		return super.getObstacles();
-	}
+	
 	/**
 	 * Getter method that gets the monsters
 	 * @return ArrayList<Enemy> ArrayList that contains the monsters
