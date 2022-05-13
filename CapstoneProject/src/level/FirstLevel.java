@@ -7,7 +7,7 @@ import sprites.InvisCloak;
 import sprites.Player;
 
 /**
- * This class repreents the first level the the player must undergo in the game
+ * This class represents the first level the the player must undergo in the game
  * @author John Tahk
  * @version 05/06/2022
  */
