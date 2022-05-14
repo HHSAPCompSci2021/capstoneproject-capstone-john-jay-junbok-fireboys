@@ -99,7 +99,7 @@ public class Player extends Sprite {
 	 * @param x value to change the x coordinate by
 	 * @param y value to change the y coordinate by
 	 */
-	public void move(double x, double y) {		
+	public void move(double x, double y) {
 		Rectangle r = this.getHitbox();
 		for (Rectangle o : a.getObstacles()) {
 			if (super.getHitbox().isTouching(o)) {
@@ -123,14 +123,17 @@ public class Player extends Sprite {
 					}
 				}
 				
+				break;
 
 			}
 			
 		}
-		this.x += 3 * x;
-		this.y += 3 * y;
+		this.x += x;
+		this.y += y;
 
 	}
+	
+
 	
 	/**
 	 * Returns if the player is alive.
