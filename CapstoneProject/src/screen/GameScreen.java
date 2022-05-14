@@ -11,6 +11,7 @@ import jdalal464.shapes.*;
 import level.FirstLevel;
 import level.Level;
 import main.DrawingSurface;
+import processing.core.PGraphics;
 import sprites.Enemy;
 import sprites.InvisCloak;
 import sprites.Player;
@@ -79,8 +80,33 @@ public class GameScreen extends Screen {
 		addStuff(a, boxWidth);
 		player.act();
 		player.draw(s);
+		
+		PGraphics fogMask = createFogMask( (float) player.getX(), (float) player.getY(), 300);
+		s.image(fogMask,0,0);
 
 		
+	}
+	
+public PGraphics createFogMask(float x, float y, int dim) {
+		
+		PGraphics visionMask = s.createGraphics(DRAWING_WIDTH, DRAWING_HEIGHT);
+
+		visionMask.beginDraw();
+		visionMask.background(255);
+		visionMask.noStroke();
+		for (int r = dim; r > 0; r--) {
+			visionMask.fill(r*255/dim);
+			visionMask.ellipse(x, y, r, r);
+		}
+		visionMask.endDraw();
+		
+		PGraphics fogMask = s.createGraphics(DRAWING_WIDTH, DRAWING_HEIGHT);
+		fogMask.beginDraw();
+		fogMask.background(0);
+		fogMask.endDraw();
+		fogMask.mask(visionMask);
+		
+		return fogMask;
 	}
 	
 	private void movePlayer() {

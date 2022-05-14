@@ -127,8 +127,8 @@ public class Player extends Sprite {
 			}
 			
 		}
-		this.x += x;
-		this.y += y;
+		this.x += 3 * x;
+		this.y += 3 * y;
 
 	}
 	
