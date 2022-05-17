@@ -83,8 +83,8 @@ public class GameScreen extends Screen {
 		player.act();
 		player.draw(s);
 		
-//		PGraphics fogMask = createFogMask( (float) player.getX(), (float) player.getY(), 300);
-//		s.image(fogMask,0,0);
+		PGraphics fogMask = createFogMask( (float) player.getX(), (float) player.getY(), 300);
+		s.image(fogMask,0,0);
 
 		
 	}
