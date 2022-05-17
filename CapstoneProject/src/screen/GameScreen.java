@@ -118,16 +118,16 @@ public PGraphics createFogMask(float x, float y, int dim) {
 	
 	private void movePlayer() {
 		if (s.isPressed(KeyEvent.VK_LEFT)) {
-			player.move(-3, 0);
+			player.move(-5, 0);
 		}	
 		if (s.isPressed(KeyEvent.VK_RIGHT)) {
-			player.move(3, 0);
+			player.move(5, 0);
 		}
 		if (s.isPressed(KeyEvent.VK_UP)) {
-			player.move(0, -3);
+			player.move(0, -5);
 		}
 		if (s.isPressed(KeyEvent.VK_DOWN)) {
-			player.move(0, 3);
+			player.move(0, 5);
 		}	
 	}
 	
