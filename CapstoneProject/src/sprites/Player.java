@@ -108,6 +108,7 @@ public class Player extends Sprite {
 				//Lefts
 				if (touchingLine == 0) {
 					if (y < 0) {
+						System.out.println("Left");
 						y = 0;
 					}
 				}
@@ -115,6 +116,7 @@ public class Player extends Sprite {
 				// Right
 				if (touchingLine == 1) {
 					if (y > 0) {
+						System.out.println("Right");
 						y = 0;
 					}
 				}
@@ -122,6 +124,7 @@ public class Player extends Sprite {
 				// Up
 				if (touchingLine == 2) {
 					if (x < 0) {
+						System.out.println("Up");
 						x = 0;
 					}
 				}
@@ -129,6 +132,7 @@ public class Player extends Sprite {
 				// Down
 				if (touchingLine == 3) {
 					if (x > 0) {
+						System.out.println("Down");
 						x = 0;
 					}
 				}
