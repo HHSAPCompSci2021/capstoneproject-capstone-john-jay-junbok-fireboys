@@ -105,10 +105,7 @@ public class Player extends Sprite {
 		
 		Rectangle r = this.getHitbox();
 		for (Rectangle o : a.getObstacles()) {
-			if (super.getHitbox().isTouching(o)) {
-				int touchingLine = super.getHitbox().touchingLine(o)[0];
-				System.out.println(touchingLine);
-				
+			if (super.getHitbox().isTouching(o)) {				
 				this.x -= x;
 				this.y -= y;
 				
