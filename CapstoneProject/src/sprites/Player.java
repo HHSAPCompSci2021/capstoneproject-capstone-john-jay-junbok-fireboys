@@ -105,25 +105,53 @@ public class Player extends Sprite {
 			if (super.getHitbox().isTouching(o)) {
 				int touchingLine = super.getHitbox().touchingLine(o)[0];
 				
-				if (r.getY() >= o.getY() + 25) {
+				//Lefts
+				if (touchingLine == 0) {
 					if (y < 0) {
 						y = 0;
 					}
-				} else if (r.getY() + 25 <= o.getY()) {
+				}
+				
+				// Right
+				if (touchingLine == 1) {
 					if (y > 0) {
 						y = 0;
 					}
-				} 
+				}
 				
-				if (r.getX() >= o.getX() +25) {
+				// Up
+				if (touchingLine == 2) {
 					if (x < 0) {
 						x = 0;
 					}
-				} else if (r.getX() + 25 <= o.getX()) {
+				}
+				
+				// Down
+				if (touchingLine == 3) {
 					if (x > 0) {
 						x = 0;
 					}
 				}
+				
+//				if (r.getY() >= o.getY() + 25) {
+//					if (y < 0) {
+//						y = 0;
+//					}
+//				} else if (r.getY() + 25 <= o.getY()) {
+//					if (y > 0) {
+//						y = 0;
+//					}
+//				} 
+//				
+//				if (r.getX() >= o.getX() +25) {
+//					if (x < 0) {
+//						x = 0;
+//					}
+//				} else if (r.getX() + 25 <= o.getX()) {
+//					if (x > 0) {
+//						x = 0;
+//					}
+//				}
 				
 				break;
 
