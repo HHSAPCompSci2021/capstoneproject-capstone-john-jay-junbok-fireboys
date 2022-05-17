@@ -100,70 +100,24 @@ public class Player extends Sprite {
 	 * @param y value to change the y coordinate by
 	 */
 	public void move(double x, double y) {
+		this.x += x;
+		this.y += y;
+		
 		Rectangle r = this.getHitbox();
 		for (Rectangle o : a.getObstacles()) {
 			if (super.getHitbox().isTouching(o)) {
 				int touchingLine = super.getHitbox().touchingLine(o)[0];
+				System.out.println(touchingLine);
 				
-				//Lefts
-				if (touchingLine == 0) {
-					if (y < 0) {
-						System.out.println("Left");
-						y = 0;
-					}
-				}
-				
-				// Right
-				if (touchingLine == 1) {
-					if (y > 0) {
-						System.out.println("Right");
-						y = 0;
-					}
-				}
-				
-				// Up
-				if (touchingLine == 2) {
-					if (x < 0) {
-						System.out.println("Up");
-						x = 0;
-					}
-				}
-				
-				// Down
-				if (touchingLine == 3) {
-					if (x > 0) {
-						System.out.println("Down");
-						x = 0;
-					}
-				}
-				
-//				if (r.getY() >= o.getY() + 25) {
-//					if (y < 0) {
-//						y = 0;
-//					}
-//				} else if (r.getY() + 25 <= o.getY()) {
-//					if (y > 0) {
-//						y = 0;
-//					}
-//				} 
-//				
-//				if (r.getX() >= o.getX() +25) {
-//					if (x < 0) {
-//						x = 0;
-//					}
-//				} else if (r.getX() + 25 <= o.getX()) {
-//					if (x > 0) {
-//						x = 0;
-//					}
-//				}
+				this.x -= x;
+				this.y -= y;
 				
 				break;
 
 			}
 			
 		}
-		this.x += x;
-		this.y += y;
+		
 
 	}
 	
