@@ -56,24 +56,29 @@ public class GameScreen extends Screen {
 		float boxHeight = 600 / blueprint.length;
 		float boxWidth = 800 / blueprint[0].length;
 		
-		for (int i = 0; i < blueprint.length; i++) {
-			for (int j = 0; j < blueprint[i].length; j++) {
-				if (blueprint[i][j] == '.') {
-					s.fill(255);
-					s.stroke(255);
-					s.rect(boxWidth * j, boxHeight * i, boxWidth, boxHeight);
-				} else if (blueprint[i][j] == '#') {
-					s.fill(0);
-					s.stroke(0);
-					s.rect(boxWidth * j, boxHeight * i, boxWidth, boxHeight);
-				} else if (blueprint[i][j] == '!') {
-					s.fill(0);
-					if (blueprint[i + 1][j] == '!' && blueprint[i][j + 1] == '!' && blueprint[i + 1][j + 1] == '!') {
-						s.circle(boxWidth * (j + 1), boxHeight * (i + 1), boxWidth * 2);
-					}
-				}
-				
-			}
+//		for (int i = 0; i < blueprint.length; i++) {
+//			for (int j = 0; j < blueprint[i].length; j++) {
+//				if (blueprint[i][j] == '.') {
+//					s.fill(255);
+//					s.stroke(255);
+//					s.rect(boxWidth * j, boxHeight * i, boxWidth, boxHeight);
+//				} else if (blueprint[i][j] == '#') {
+//					s.fill(0);
+//					s.stroke(0);
+//					s.rect(boxWidth * j, boxHeight * i, boxWidth, boxHeight);
+//				} else if (blueprint[i][j] == '!') {
+//					s.fill(0);
+//					if (blueprint[i + 1][j] == '!' && blueprint[i][j + 1] == '!' && blueprint[i + 1][j + 1] == '!') {
+//						s.circle(boxWidth * (j + 1), boxHeight * (i + 1), boxWidth * 2);
+//					}
+//				}
+//				
+//			}
+//		}
+		
+		s.fill(0);
+		for (jdalal464.shapes.Rectangle o : a.getObstacles()) {
+			o.draw(s);
 		}
 		
 
