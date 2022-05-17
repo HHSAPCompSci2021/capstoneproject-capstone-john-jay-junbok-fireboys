@@ -103,6 +103,8 @@ public class Player extends Sprite {
 		Rectangle r = this.getHitbox();
 		for (Rectangle o : a.getObstacles()) {
 			if (super.getHitbox().isTouching(o)) {
+				int touchingLine = super.getHitbox().touchingLine(o)[0];
+				
 				if (r.getY() >= o.getY() + 25) {
 					if (y < 0) {
 						y = 0;
