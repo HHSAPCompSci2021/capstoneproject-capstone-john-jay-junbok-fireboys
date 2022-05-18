@@ -2,6 +2,7 @@ package main;
 import java.awt.Point;
 import java.util.ArrayList;
 
+import jay.jaysound.JayLayer;
 import level.FirstLevel;
 import level.Level;
 import processing.core.PApplet;
@@ -27,6 +28,7 @@ public class DrawingSurface extends PApplet implements ScreenSwitcher {
 	public ArrayList<Screen> screens;
 	private Level a; 
 	private ArrayList<Integer> keys;
+	private JayLayer p;
 	
 	/**
 	 * Constructs a DrawingSurface by creating the StartingScreen, GameScreen, and EscapeScreen for this game and stroing them in an ArrayList of Screens.
