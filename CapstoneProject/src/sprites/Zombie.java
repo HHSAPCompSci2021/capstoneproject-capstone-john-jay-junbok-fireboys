@@ -7,4 +7,9 @@ import processing.core.PApplet;
 * @author johntahk
 */
 public class Zombie extends Enemy {
+
+	public Zombie(double x, double y) {
+		super(x, y);
+		// TODO Auto-generated constructor stub
+	}
 }
