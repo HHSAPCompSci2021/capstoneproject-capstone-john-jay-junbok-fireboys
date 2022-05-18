@@ -1,6 +1,10 @@
+package sprites;
+
+import processing.core.PApplet;
+
 /**
 * This class represents a new monster that follows the main character
-* Author: @johntahk
+* @author johntahk
 */
 public class Zombie extends Enemy {
 }
