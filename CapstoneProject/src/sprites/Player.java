@@ -39,11 +39,6 @@ public class Player extends Sprite {
 	 * @param s PApplet which the Player will be drawn on
 	 */
 	public void draw(DrawingSurface s) {
-		if (!isAlive) {
-			System.out.println("dead");
-		}
-		
-		
 		if (!isInvis) {
 			s.fill(0, 0, 255);
 		} else {
