@@ -3,6 +3,7 @@ import java.awt.Point;
 import java.util.ArrayList;
 
 import jay.jaysound.JayLayer;
+import jay.jaysound.JayLayerListener;
 import level.FirstLevel;
 import level.Level;
 import processing.core.PApplet;
@@ -18,7 +19,7 @@ import screen.StartingScreen;
  * @version 05/06/2022
  *
  */
-public class DrawingSurface extends PApplet implements ScreenSwitcher {
+public class DrawingSurface extends PApplet implements ScreenSwitcher, JayLayerListener {
 
 	/**
 	 * Represents the width and height of the drawing surfaces.
@@ -49,7 +50,15 @@ public class DrawingSurface extends PApplet implements ScreenSwitcher {
 		EscapeScreen screen3 = new EscapeScreen(this);
 		screens.add(screen3);
 		
+		
 		current = screens.get(0);
+		
+		p = new JayLayer("sounds/", "sounds/", false);
+		p.addPlayList();
+		p.addSong(0, "backgroundMusic.mp3");
+		p.changePlayList(0);
+		p.addJayLayerListener(this);
+		p.nextSong();
 	}
 	
 	/**
@@ -111,5 +120,29 @@ public class DrawingSurface extends PApplet implements ScreenSwitcher {
 	
 	public Point actualCoordinatesToAssumed(Point actual) {
 		return new Point((int)(actual.getX()/x) , (int)(actual.getY()/y));
+	}
+
+	@Override
+	public void musicStarted() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void musicStopped() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void playlistEnded() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void songEnded() {
+		// TODO Auto-generated method stub
+		
 	}
 }
