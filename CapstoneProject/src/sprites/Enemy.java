@@ -21,8 +21,7 @@ public class Enemy extends Sprite {
 	 */
 	public void moveTo(double x, double y) {
 		
-	}
-	
+	}	
 	/**
 	 * Moves the Enemy by the given lengths.
 	 */
@@ -36,4 +35,5 @@ public class Enemy extends Sprite {
 	public void attack() {
 		
 	}
+	
 }

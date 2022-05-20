@@ -74,5 +74,6 @@ public class Sprite {
 		this.x = x;
 		this.y = y;
 	}
+
 	
 }
