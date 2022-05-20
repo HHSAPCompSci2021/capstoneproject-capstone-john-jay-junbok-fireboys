@@ -7,7 +7,7 @@ import processing.core.PApplet;
 * @author johntahk
 */
 public class Zombie extends Enemy { //give in player
-	int xo, yo; int speed = 3;
+	int xo, yo; int speed = 2;
 	Player c;
 	public Zombie(double x, double y, Player p) {
 		super(x, y);
@@ -21,14 +21,14 @@ public class Zombie extends Enemy { //give in player
 	public void move() {
 		boolean f = chase();
 		if (!f) {
-			if (speed > 0 && (getX() - xo) < 15) {
+			if (speed > 0 && (getX() - xo) < 16) {
 				moveBy(speed, 0);
 			}
-			else if (speed > 0 && (getX() - xo) >= 15) {
+			else if (speed > 0 && (getX() - xo) >= 16) {
 				speed*= -1;
 				moveBy (speed, 0);
 			}
-			else if (speed < 0 && (getX() - xo) < 15) {
+			else if (speed < 0 && (getX() - xo) < 16) {
 				moveBy(speed,0);
 			}
 			else {
@@ -44,7 +44,7 @@ public class Zombie extends Enemy { //give in player
 		double deltax = c.getX() - super.getX();
 		double deltay = c.getY() - super.getY();
 		
-		if (Math.abs(deltax) < 15 && Math.abs(deltay) < 15) {
+		if (Math.abs(deltax) < 8 && Math.abs(deltay) < 8) {
 			if (deltax < 0) deltax = -2;
 			if (deltay < 0) deltay = -2;
 			if (deltax > 0) deltax = 2;
