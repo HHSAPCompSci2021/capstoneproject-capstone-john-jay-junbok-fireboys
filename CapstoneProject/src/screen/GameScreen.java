@@ -57,7 +57,7 @@ public class GameScreen extends Screen {
 	public void draw() {
 		
 		s.background(255);
-		s.image(background, 0, 0);
+		//s.image(background, 0, 0);
 		
 		movePlayer();
 		char[][] blueprint = a.getWalls();
