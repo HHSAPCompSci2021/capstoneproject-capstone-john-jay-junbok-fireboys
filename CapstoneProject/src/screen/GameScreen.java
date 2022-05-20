@@ -51,13 +51,16 @@ public class GameScreen extends Screen {
 	 */
 	public void draw() {
 		
+		s.image(s.getImages(2), 0, 0, 800, 600);
+		
+		
 		movePlayer();
 		char[][] blueprint = a.getWalls();
 
 		
 		float boxHeight = 600 / blueprint.length;
 		float boxWidth = 800 / blueprint[0].length;
-		
+		/*
 		for (int i = 0; i < blueprint.length; i++) {
 			for (int j = 0; j < blueprint[i].length; j++) {
 				if (blueprint[i][j] == '.') {
@@ -77,6 +80,8 @@ public class GameScreen extends Screen {
 				
 			}
 		}
+		*/
+		
 		
 		
 		addStuff(a, boxWidth);
