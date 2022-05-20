@@ -40,7 +40,7 @@ public class DrawingSurface extends PApplet implements ScreenSwitcher, JayLayerL
 	 */
 	public DrawingSurface() {
 		
-		a = new FirstLevel();
+		a = new FirstLevel(this);
 		
 		keys = new ArrayList<Integer>();
 		screens = new ArrayList<Screen>();
@@ -63,7 +63,6 @@ public class DrawingSurface extends PApplet implements ScreenSwitcher, JayLayerL
 		p.changePlayList(0);
 		p.addJayLayerListener(this);
 		p.nextSong();
-		images = new ArrayList<>();
 		
 	}
 	

@@ -2,6 +2,7 @@ package level;
 
 import java.util.ArrayList;
 
+import main.DrawingSurface;
 import sprites.Enemy;
 import sprites.InvisCloak;
 import sprites.Player;
@@ -17,10 +18,10 @@ public class FirstLevel extends Level {
 	 * Constructs a First Level class by creating the obstacles and materials of the Level.
 	 * @param filename string with the filename.
 	 */
-	public FirstLevel () {
-		super("mazefiles/level1.txt", 600, 800); addInvisCloak(new InvisCloak(130,50)); 
-		addInvisCloak(new InvisCloak(185,400)); addInvisCloak(new InvisCloak(300,375)); 
-		addInvisCloak(new InvisCloak(750,375)); addInvisCloak(new InvisCloak(750, 100));
+	public FirstLevel (DrawingSurface s) {
+		super("mazefiles/level1.txt", 600, 800); addInvisCloak(new InvisCloak(s.getImages(0), 130,50)); 
+		addInvisCloak(new InvisCloak(s.getImages(0), 185,400)); addInvisCloak(new InvisCloak(s.getImages(0), 300,375)); 
+		addInvisCloak(new InvisCloak(s.getImages(0), 750,375)); addInvisCloak(new InvisCloak(s.getImages(0), 750, 100));
 		addMonster(new Enemy(275,75)); addMonster(new Enemy(175,150));
 		addMonster(new Enemy(500,75)); addMonster(new Enemy(600,160));
 		addMonster(new Enemy(750,300)); addMonster(new Enemy(50,325));
