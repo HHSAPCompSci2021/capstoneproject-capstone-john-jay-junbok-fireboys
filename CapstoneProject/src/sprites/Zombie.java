@@ -21,14 +21,14 @@ public class Zombie extends Enemy { //give in player
 	public void move() {
 		boolean f = chase();
 		if (!f) {
-			if (speed > 0 && (getX() - xo) < 16) {
+			if (speed > 0 && (getX() - xo) < 8) {
 				moveBy(speed, 0);
 			}
-			else if (speed > 0 && (getX() - xo) >= 16) {
+			else if (speed > 0 && (getX() - xo) >= 8) {
 				speed*= -1;
 				moveBy (speed, 0);
 			}
-			else if (speed < 0 && (getX() - xo) < 16) {
+			else if (speed < 0 && (getX() - xo) < 8) {
 				moveBy(speed,0);
 			}
 			else {
