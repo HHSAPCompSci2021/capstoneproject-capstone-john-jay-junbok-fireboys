@@ -12,6 +12,7 @@ import level.FirstLevel;
 import level.Level;
 import main.DrawingSurface;
 import processing.core.PGraphics;
+import processing.core.PImage;
 import sprites.Enemy;
 import sprites.InvisCloak;
 import sprites.Player;
@@ -29,6 +30,8 @@ public class GameScreen extends Screen {
 	private Rectangle screenRect;
 	private Player player;
 	private Level a;
+	private PImage background;
+	
 	
 	
 	/**
@@ -40,6 +43,12 @@ public class GameScreen extends Screen {
 		this.s = s;
 		player = new Player(700, 550, level);
 		this.a = level;
+		
+	}
+	
+	public void setup() {
+		background = s.loadImage("img/level_one.png");
+		background.resize(DRAWING_WIDTH, DRAWING_HEIGHT);
 	}
 	
 	/**
@@ -48,6 +57,7 @@ public class GameScreen extends Screen {
 	public void draw() {
 		
 		s.background(255);
+		s.image(background, 0, 0);
 		
 		movePlayer();
 		char[][] blueprint = a.getWalls();

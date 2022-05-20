@@ -2,8 +2,8 @@ package main;
 import java.awt.Point;
 import java.util.ArrayList;
 
-import jay.jaysound.JayLayer;
-import jay.jaysound.JayLayerListener;
+//import jay.jaysound.JayLayer;
+//import jay.jaysound.JayLayerListener;
 import level.FirstLevel;
 import level.Level;
 import processing.core.PApplet;
@@ -19,7 +19,7 @@ import screen.StartingScreen;
  * @version 05/06/2022
  *
  */
-public class DrawingSurface extends PApplet implements ScreenSwitcher, JayLayerListener {
+public class DrawingSurface extends PApplet implements ScreenSwitcher {
 
 	/**
 	 * Represents the width and height of the drawing surfaces.
@@ -29,7 +29,7 @@ public class DrawingSurface extends PApplet implements ScreenSwitcher, JayLayerL
 	public ArrayList<Screen> screens;
 	private Level a; 
 	private ArrayList<Integer> keys;
-	private JayLayer p;
+	//private JayLayer p;
 	
 	/**
 	 * Constructs a DrawingSurface by creating the StartingScreen, GameScreen, and EscapeScreen for this game and stroing them in an ArrayList of Screens.
@@ -52,14 +52,14 @@ public class DrawingSurface extends PApplet implements ScreenSwitcher, JayLayerL
 		
 		
 		current = screens.get(0);
-		
+		/*
 		p = new JayLayer("sounds/", null, false);
 		p.addPlayList();
 		p.addSong(0, "backgroundMusic.mp3");
 		p.changePlayList(0);
 		p.addJayLayerListener(this);
 		p.nextSong();
-		
+		*/
 		
 	}
 	
@@ -124,7 +124,7 @@ public class DrawingSurface extends PApplet implements ScreenSwitcher, JayLayerL
 	public Point actualCoordinatesToAssumed(Point actual) {
 		return new Point((int)(actual.getX()/x) , (int)(actual.getY()/y));
 	}
-
+	/*
 	@Override
 	public void musicStarted() {
 		// TODO Auto-generated method stub
@@ -148,4 +148,5 @@ public class DrawingSurface extends PApplet implements ScreenSwitcher, JayLayerL
 		// TODO Auto-generated method stub
 		
 	}
+	*/
 }
