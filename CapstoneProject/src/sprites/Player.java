@@ -130,14 +130,6 @@ public class Player extends Sprite {
 
 	}
 	
-	public double getX() {
-		return super.getX();
-	}
-	
-	public double getY() {
-		return super.getY();
-	}
-	
 	/**
 	 * Returns if the player is alive.
 	 * 
