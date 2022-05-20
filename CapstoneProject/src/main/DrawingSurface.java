@@ -53,13 +53,16 @@ public class DrawingSurface extends PApplet implements ScreenSwitcher, JayLayerL
 		
 		current = screens.get(0);
 		
-		p = new JayLayer("sounds/", "sounds/", false);
+		p = new JayLayer("sounds/", null, false);
 		p.addPlayList();
 		p.addSong(0, "backgroundMusic.mp3");
 		p.changePlayList(0);
 		p.addJayLayerListener(this);
 		p.nextSong();
+		
+		
 	}
+	
 	
 	/**
 	 * Draws the DrawingSurface by illustrating the screen and needs to be currently displayed.
@@ -73,7 +76,7 @@ public class DrawingSurface extends PApplet implements ScreenSwitcher, JayLayerL
 		scale(x, y);
 		
 		current.draw();
-		
+				
 		pop();
 	}
 

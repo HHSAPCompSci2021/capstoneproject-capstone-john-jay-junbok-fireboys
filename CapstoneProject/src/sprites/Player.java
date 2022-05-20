@@ -19,6 +19,8 @@ public class Player extends Sprite {
 	private boolean isInvis;
 	private boolean isAlive;
 	private Level a;
+	private long timer;
+	private static final long invisCloakTime = 5000000000L;
 	
 	/**
 	 * Constructs the Player with given coordinates.
@@ -39,6 +41,8 @@ public class Player extends Sprite {
 	 * @param s PApplet which the Player will be drawn on
 	 */
 	public void draw(DrawingSurface s) {
+		isInvis = invisChecker();
+		
 		if (!isInvis) {
 			s.fill(0, 0, 255);
 		} else {
@@ -47,6 +51,18 @@ public class Player extends Sprite {
 		
 		
 		s.rect((float)super.getX(), (float)super.getY(), (float)25, (float)25);
+	}
+	
+	private boolean invisChecker() {
+		if (isInvis) {
+			if ((System.nanoTime() - timer) > invisCloakTime) {
+				return false;
+			} else {
+				return true;
+			}
+		} else {
+			return false;
+		}
 	}
 	
 	/**
@@ -68,6 +84,7 @@ public class Player extends Sprite {
 		
 		if (invisCloakIndex >= 0) {
 			a.removeInvisCloak(invisCloakIndex);
+			timer = System.nanoTime();
 		}
 		
 		
