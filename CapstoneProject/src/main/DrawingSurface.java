@@ -41,7 +41,7 @@ public class DrawingSurface extends PApplet implements ScreenSwitcher {
 		keys = new ArrayList<Integer>();
 		screens = new ArrayList<Screen>();
 		
-		StartingScreen screen1 = new StartingScreen(this);
+		StartingScreen screen1 = new StartingScreen(this, false);
 		screens.add(screen1);
 		
 		GameScreen screen2 = new GameScreen(this, a);
@@ -76,6 +76,7 @@ public class DrawingSurface extends PApplet implements ScreenSwitcher {
 		scale(x, y);
 		
 		current.draw();
+		
 				
 		pop();
 	}
@@ -88,6 +89,8 @@ public class DrawingSurface extends PApplet implements ScreenSwitcher {
 	public void switchScreen(int i) {
 		current = screens.get(i);
 	}
+	
+
 	
 	/**
 	 * This method ensures that the Player doesn't when the key is released
