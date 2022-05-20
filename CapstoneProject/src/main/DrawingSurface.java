@@ -2,6 +2,8 @@ package main;
 import java.awt.Point;
 import java.util.ArrayList;
 
+import jay.jaysound.JayLayer;
+import jay.jaysound.JayLayerListener;
 //import jay.jaysound.JayLayer;
 //import jay.jaysound.JayLayerListener;
 import level.FirstLevel;
@@ -19,7 +21,7 @@ import screen.StartingScreen;
  * @version 05/06/2022
  *
  */
-public class DrawingSurface extends PApplet implements ScreenSwitcher {
+public class DrawingSurface extends PApplet implements ScreenSwitcher, JayLayerListener {
 
 	/**
 	 * Represents the width and height of the drawing surfaces.
@@ -29,7 +31,7 @@ public class DrawingSurface extends PApplet implements ScreenSwitcher {
 	public ArrayList<Screen> screens;
 	private Level a; 
 	private ArrayList<Integer> keys;
-	//private JayLayer p;
+	private JayLayer p;
 	
 	/**
 	 * Constructs a DrawingSurface by creating the StartingScreen, GameScreen, and EscapeScreen for this game and stroing them in an ArrayList of Screens.
@@ -41,7 +43,7 @@ public class DrawingSurface extends PApplet implements ScreenSwitcher {
 		keys = new ArrayList<Integer>();
 		screens = new ArrayList<Screen>();
 		
-		StartingScreen screen1 = new StartingScreen(this);
+		StartingScreen screen1 = new StartingScreen(this, false);
 		screens.add(screen1);
 		
 		GameScreen screen2 = new GameScreen(this, a);
@@ -52,14 +54,13 @@ public class DrawingSurface extends PApplet implements ScreenSwitcher {
 		
 		
 		current = screens.get(0);
-		/*
+	
 		p = new JayLayer("sounds/", null, false);
 		p.addPlayList();
 		p.addSong(0, "backgroundMusic.mp3");
 		p.changePlayList(0);
 		p.addJayLayerListener(this);
 		p.nextSong();
-		*/
 		
 	}
 	
@@ -76,6 +77,7 @@ public class DrawingSurface extends PApplet implements ScreenSwitcher {
 		scale(x, y);
 		
 		current.draw();
+		
 				
 		pop();
 	}
@@ -88,6 +90,8 @@ public class DrawingSurface extends PApplet implements ScreenSwitcher {
 	public void switchScreen(int i) {
 		current = screens.get(i);
 	}
+	
+
 	
 	/**
 	 * This method ensures that the Player doesn't when the key is released
@@ -124,12 +128,15 @@ public class DrawingSurface extends PApplet implements ScreenSwitcher {
 	public Point actualCoordinatesToAssumed(Point actual) {
 		return new Point((int)(actual.getX()/x) , (int)(actual.getY()/y));
 	}
-	/*
+
+
+
 	@Override
 	public void musicStarted() {
 		// TODO Auto-generated method stub
 		
 	}
+
 
 	@Override
 	public void musicStopped() {
@@ -137,16 +144,17 @@ public class DrawingSurface extends PApplet implements ScreenSwitcher {
 		
 	}
 
+
 	@Override
 	public void playlistEnded() {
 		// TODO Auto-generated method stub
 		
 	}
 
+
 	@Override
 	public void songEnded() {
 		// TODO Auto-generated method stub
 		
 	}
-	*/
 }

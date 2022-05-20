@@ -82,9 +82,10 @@ public class GameScreen extends Screen {
 		addStuff(a, boxWidth);
 		player.act();
 		player.draw(s);
+
 		if (!player.isAlive()) {
+			s.screens.set(0, new StartingScreen(s, true));
 			s.switchScreen(0);
-			System.out.println("Dead (This is in GameScreen class)");
 		}
 		
 		PGraphics fogMask = createFogMask( (float) player.getX(), (float) player.getY(), 300);
