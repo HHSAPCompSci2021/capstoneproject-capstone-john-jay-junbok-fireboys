@@ -23,7 +23,7 @@ public class StartingScreen extends Screen {
 	/**
 	 * Constructs a StartingScreen by setting the width to 600 and height to 800 and assigning the Drawing that uses this Screen to s.
 	 * @param s The DrawingSurface that utilizes the screen
-	 * @param wasDead wehther
+	 * @param wasDead whether the player was dead in the previous game
 	 */
 	public StartingScreen(DrawingSurface s, boolean wasDead) {
 		super(800, 600);
