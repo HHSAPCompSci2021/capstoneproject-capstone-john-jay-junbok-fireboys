@@ -8,7 +8,7 @@ import level.Level;
 import main.DrawingSurface;
 
 /**
- * This class represent the player will the user will controll.
+ * This class represent the player will the user will control.
  * 
  * @author junbok lee
  * @version 05/13/2022
@@ -130,7 +130,13 @@ public class Player extends Sprite {
 
 	}
 	
-
+	public double getX() {
+		return super.getX();
+	}
+	
+	public double getY() {
+		return super.getY();
+	}
 	
 	/**
 	 * Returns if the player is alive.
