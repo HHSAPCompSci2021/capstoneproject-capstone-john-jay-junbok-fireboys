@@ -39,7 +39,7 @@ public abstract class Screen {
 		
 	}
 	
-	/*8
+	/**
 	 * Moves the player depending on the specific key pressed (arrows)
 	 */
 	public void keyPressed() {
