@@ -9,6 +9,12 @@ import processing.core.PApplet;
 public class Zombie extends Enemy { //give in player
 	int xo, yo; int speed = 2;
 	Player c;
+	/**
+	 * Default constructor that takes in the location of the zombie as well as the player object
+	 * @param x X coordinates
+	 * @param y Y coordinates
+	 * @param p Player object
+	 */
 	public Zombie(double x, double y, Player p) {
 		super(x, y);
 		c = p;
@@ -17,7 +23,9 @@ public class Zombie extends Enemy { //give in player
 		// TODO Auto-generated constructor stub
 	}
 	//inherited methods: moveTo, moveBy, need to modify attack
-	
+	/**
+	 * This method initiates the action of the enemy, where it chases or moves.
+	 */
 	public void move() {
 		boolean f = chase();
 		if (!f) {
@@ -38,7 +46,7 @@ public class Zombie extends Enemy { //give in player
 		}
 	}
 	/**
-	 * Returns true if it chased
+	 * Returns true if it chased the player
 	 */
 	public boolean chase() {
 		double deltax = c.getX() - super.getX();
@@ -50,6 +58,7 @@ public class Zombie extends Enemy { //give in player
 			if (deltax > 0) deltax = 2;
 			if (deltay > 0) deltay = 2;
 			moveBy(deltax, deltay);
+			return true;
 		}
 	//	if (super.getIsInvis == true);
 		return false;
