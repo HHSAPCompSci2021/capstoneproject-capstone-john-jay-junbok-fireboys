@@ -21,7 +21,7 @@ import sprites.Sprite;
 /**
  * This class represents a Game Screen, which is the screen that the interactive game appears on
  * @author jaydalal
- * @version 05/13/2022
+ * @version 05/20/2022
  *
  */
 public class GameScreen extends Screen {

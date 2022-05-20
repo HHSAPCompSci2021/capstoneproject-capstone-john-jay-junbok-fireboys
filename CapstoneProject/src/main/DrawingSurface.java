@@ -19,7 +19,7 @@ import screen.StartingScreen;
 /**
  * This class represents the surface on which the screens and interactive sprites will be drawn. It retains the ability to swtich between screens since it implements ScreenSwitcher.
  * @author jaydalal
- * @version 05/06/2022
+ * @version 05/20/2022
  *
  */
 public class DrawingSurface extends PApplet implements ScreenSwitcher, JayLayerListener {
@@ -67,6 +67,9 @@ public class DrawingSurface extends PApplet implements ScreenSwitcher, JayLayerL
 		
 	}
 	
+	/**
+	 * Sets up the images for the sprites and maze in the game
+	 */
 	public void setup() {
 		images.add(super.loadImage("img/cloak.png"));
 		images.add(super.loadImage("img/enemy_1.png"));
@@ -74,6 +77,11 @@ public class DrawingSurface extends PApplet implements ScreenSwitcher, JayLayerL
 		images.add(super.loadImage("img/player.png"));
 	}
 	
+	/**
+	 * Gets the specific image at the index int index for the game
+	 * @param index The index at which the image would be in an arraylist of images
+	 * @return The image at specified index
+	 */
 	public PImage getImages(int index) {
 		return images.get(index);
 	}
@@ -134,10 +142,18 @@ public class DrawingSurface extends PApplet implements ScreenSwitcher, JayLayerL
 		return keys.contains(code);
 	}
 	
+	/**
+	 * Calls the mousePressed method on the current screen
+	 */
 	public void mousePressed() {
 		current.mousePressed();
 	}
 	
+	/**
+	 * Converts actual coordinates to assumed coordinates, which is more appropriat efor the game
+	 * @param actual The actual coordinates
+	 * @return the assumed coordinates
+	 */
 	public Point actualCoordinatesToAssumed(Point actual) {
 		return new Point((int)(actual.getX()/x) , (int)(actual.getY()/y));
 	}
@@ -145,6 +161,9 @@ public class DrawingSurface extends PApplet implements ScreenSwitcher, JayLayerL
 
 
 	@Override
+	/**
+	 * implements method of same name from JayLayerListener - doesn't have any functionality
+	 */
 	public void musicStarted() {
 		// TODO Auto-generated method stub
 		
@@ -152,6 +171,9 @@ public class DrawingSurface extends PApplet implements ScreenSwitcher, JayLayerL
 
 
 	@Override
+	/**
+	 * implements method of same name from JayLayerListener - doesn't have any functionality
+	 */
 	public void musicStopped() {
 		// TODO Auto-generated method stub
 		
@@ -159,6 +181,9 @@ public class DrawingSurface extends PApplet implements ScreenSwitcher, JayLayerL
 
 
 	@Override
+	/**
+	 * implements method of same name from JayLayerListener - doesn't have any functionality
+	 */
 	public void playlistEnded() {
 		// TODO Auto-generated method stub
 		
@@ -166,6 +191,9 @@ public class DrawingSurface extends PApplet implements ScreenSwitcher, JayLayerL
 
 
 	@Override
+	/**
+	 * implements method of same name from JayLayerListener - doesn't have any functionality
+	 */
 	public void songEnded() {
 		// TODO Auto-generated method stub
 		
