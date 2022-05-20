@@ -11,7 +11,7 @@ import processing.core.PFont;
 /**
  * This class represents the starting screen, which is the first screen that prompts the user to play the game and the screen that shows up when the player was dead/won.
  * @author jaydalal
- * @version 05/13/2022
+ * @version 05/20/2022
  *
  */
 public class StartingScreen extends Screen {

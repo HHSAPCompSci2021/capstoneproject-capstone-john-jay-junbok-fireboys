@@ -3,7 +3,7 @@ package screen;
 /**
  * Any class that implements this interface has the ability to swtich the appearance of the drawing panel to a different screen.
  * @author jaydalal
- * @version 05/13/2022
+ * @version 05/20/2022
  *
  */
 public interface ScreenSwitcher {

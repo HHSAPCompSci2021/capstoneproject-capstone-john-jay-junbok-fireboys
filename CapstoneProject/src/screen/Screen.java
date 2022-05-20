@@ -5,7 +5,7 @@ import level.Level;
 /**
  * This class represents a screen in the overall game. 
  * @author jaydalal
- * @version 05/13/2022
+ * @version 05/20/2022
  *
  */
 public abstract class Screen {
