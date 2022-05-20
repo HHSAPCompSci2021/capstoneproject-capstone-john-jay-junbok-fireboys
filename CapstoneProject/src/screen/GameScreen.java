@@ -30,7 +30,7 @@ public class GameScreen extends Screen {
 	private Rectangle screenRect;
 	private Player player;
 	private Level a;
-	private PImage background;
+
 	
 	
 	
@@ -46,18 +46,10 @@ public class GameScreen extends Screen {
 		
 	}
 	
-	public void setup() {
-		background = s.loadImage("img/level_one.png");
-		background.resize(DRAWING_WIDTH, DRAWING_HEIGHT);
-	}
-	
 	/**
 	 * Draws the game screen by displaying the blueprint (walls and pillars), the obstacles of the game (including the monster), and generating the player
 	 */
 	public void draw() {
-		
-		s.background(255);
-		//s.image(background, 0, 0);
 		
 		movePlayer();
 		char[][] blueprint = a.getWalls();
