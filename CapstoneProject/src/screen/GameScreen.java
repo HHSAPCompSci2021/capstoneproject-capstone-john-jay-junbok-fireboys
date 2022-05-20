@@ -49,7 +49,7 @@ public class GameScreen extends Screen {
 	/**
 	 * Draws the game screen by displaying the blueprint (walls and pillars), the obstacles of the game (including the monster), and generating the player
 	 */
-	public void draw(Level a) {
+	public void draw() {
 		
 		s.image(s.getImages(2), 0, 0, 800, 600);
 		
@@ -60,16 +60,31 @@ public class GameScreen extends Screen {
 		
 		float boxHeight = 600 / blueprint.length;
 		float boxWidth = 800 / blueprint[0].length;
-		
-		
-		for (InvisCloak n : a.getInvisCloaks()) {
-			n.draw(s);
+		/*
+		for (int i = 0; i < blueprint.length; i++) {
+			for (int j = 0; j < blueprint[i].length; j++) {
+				if (blueprint[i][j] == '.') {
+					s.fill(255);
+					s.stroke(255);
+					s.rect(boxWidth * j, boxHeight * i, boxWidth, boxHeight);
+				} else if (blueprint[i][j] == '#') {
+					s.fill(0);
+					s.stroke(0);
+					s.rect(boxWidth * j, boxHeight * i, boxWidth, boxHeight);
+				} else if (blueprint[i][j] == '!') {
+					s.fill(0);
+					if (blueprint[i + 1][j] == '!' && blueprint[i][j + 1] == '!' && blueprint[i + 1][j + 1] == '!') {
+						s.circle(boxWidth * (j + 1), boxHeight * (i + 1), boxWidth * 2);
+					}
+				}
+				
+			}
 		}
-		for (Enemy x : a.getMonsters()) {
-			s.fill(255, 0, 0);
-			s.rect((float) x.getX(), (float) x.getY(), 25, 25);
-		}
+		*/
 		
+		
+		
+		addStuff(a, boxWidth);
 		player.act();
 		player.draw(s);
 
@@ -119,6 +134,20 @@ public PGraphics createFogMask(float x, float y, int dim) {
 		if (s.isPressed(KeyEvent.VK_DOWN)) {
 			player.move(0, 5);
 		}	
+	}
+	
+	private void addStuff(Level a, float radius) {
+		
+		for (InvisCloak n : a.getInvisCloaks()) {
+			s.fill(0, 255, 0);
+			s.rect((float) n.getX(), (float) n.getY(), radius, radius);
+		}
+		for (Enemy x : a.getMonsters()) {
+			s.fill(255, 0, 0);
+			s.rect((float) x.getX(), (float) x.getY(), radius, radius);
+
+		}
+		
 	}
 	
 	/**
