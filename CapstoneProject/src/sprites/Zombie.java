@@ -45,10 +45,10 @@ public class Zombie extends Enemy { //give in player
 		double deltay = c.getY() - super.getY();
 		
 		if (Math.abs(deltax) < 15 && Math.abs(deltay) < 15) {
-			if (deltax < 0) deltax = -3;
-			if (deltay < 0) deltay = -3;
-			if (deltax > 0) deltax = 3;
-			if (deltay > 0) deltay = 3;
+			if (deltax < 0) deltax = -2;
+			if (deltay < 0) deltay = -2;
+			if (deltax > 0) deltax = 2;
+			if (deltay > 0) deltay = 2;
 			moveBy(deltax, deltay);
 		}
 	//	if (super.getIsInvis == true);
