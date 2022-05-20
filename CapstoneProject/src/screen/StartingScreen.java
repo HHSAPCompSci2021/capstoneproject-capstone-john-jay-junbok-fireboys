@@ -9,7 +9,7 @@ import main.DrawingSurface;
 import processing.core.PFont;
 
 /**
- * This class represents the starting screen, which is the first screen that prompts the user to play the game.
+ * This class represents the starting screen, which is the first screen that prompts the user to play the game and the screen that shows up when the player was dead/won.
  * @author jaydalal
  * @version 05/13/2022
  *
@@ -23,6 +23,7 @@ public class StartingScreen extends Screen {
 	/**
 	 * Constructs a StartingScreen by setting the width to 600 and height to 800 and assigning the Drawing that uses this Screen to s.
 	 * @param s The DrawingSurface that utilizes the screen
+	 * @param wasDead whether the player was dead in the previous game
 	 */
 	public StartingScreen(DrawingSurface s, boolean wasDead) {
 		super(800, 600);
@@ -33,7 +34,7 @@ public class StartingScreen extends Screen {
 	}
 	
 	/**
-	 * Illustrates the Screen by setting the background to sky blue and noting that this is the staritng screen.
+	 * Illustrates the Screen by setting the background to sky blue and noting that this is the starting screen. Additionally, it notes if the player was dead in the previous GameScreen
 	 */
 	public void draw() {
 		
