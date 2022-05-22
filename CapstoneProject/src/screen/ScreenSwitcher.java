@@ -21,6 +21,8 @@ public interface ScreenSwitcher {
 	 */
 	public static final int ESCAPE_SCREEN = 2;
 	
+	public static final int WINNING_SCREEN = 3;
+	
 	/**
 	 * Switches the drawing panel to the new desired screen, represented by i
 	 * @param i the integer value that represent the desired type of screen.

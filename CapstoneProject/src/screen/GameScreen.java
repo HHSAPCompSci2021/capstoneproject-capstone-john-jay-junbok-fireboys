@@ -1,9 +1,11 @@
 package screen;
 
+import java.awt.Point;
 import java.awt.Rectangle;
 
 
 import java.awt.event.*;
+import java.awt.geom.Point2D;
 import java.util.ArrayList;
 import java.util.List;
 import jdalal464.shapes.*;
@@ -30,6 +32,7 @@ public class GameScreen extends Screen {
 	private Rectangle screenRect;
 	private Player player;
 	private Level a;
+	private boolean wonGame;
 
 	
 	
@@ -43,6 +46,7 @@ public class GameScreen extends Screen {
 		this.s = s;
 		player = new Player(700, 550, level);
 		this.a = level;
+		wonGame = false;
 		
 	}
 	
@@ -50,6 +54,12 @@ public class GameScreen extends Screen {
 	 * Draws the game screen by displaying the blueprint (walls and pillars), the obstacles of the game (including the monster), and generating the player
 	 */
 	public void draw() {
+		
+		hasWon();
+		if (wonGame) {
+			s.screens.set(3, new WinningScreen(s, a));
+			s.switchScreen(ScreenSwitcher.WINNING_SCREEN);
+		}
 		
 		
 		s.image(s.getImages(2), 0, 0, 800, 600);
@@ -161,6 +171,14 @@ public PGraphics createFogMask(float x, float y, int dim) {
 	 */
 	public Level getLevel() {
 		return a;
+	}
+	
+	private void hasWon() {
+		if (a.getClass().getName().equals("level.FirstLevel")) {
+			if (new Rectangle(0, 0, 100, 100).contains(new Point((int)player.getX(), (int) player.getY()))) {
+				wonGame = true;
+			}
+		}
 	}
 
 }

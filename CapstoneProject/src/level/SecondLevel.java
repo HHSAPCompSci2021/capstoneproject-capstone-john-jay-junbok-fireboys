@@ -12,7 +12,7 @@ import sprites.Player;
 public class SecondLevel extends Level {
 	
 	public SecondLevel() {
-		super("mazefiles/level1.txt", 600, 800);
+		super("mazefiles/level2.txt", 600, 800);
 	
 	}
 }

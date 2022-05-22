@@ -15,6 +15,7 @@ import screen.GameScreen;
 import screen.Screen;
 import screen.ScreenSwitcher;
 import screen.StartingScreen;
+import screen.WinningScreen;
 
 /**
  * This class represents the surface on which the screens and interactive sprites will be drawn. It retains the ability to swtich between screens since it implements ScreenSwitcher.
@@ -53,6 +54,9 @@ public class DrawingSurface extends PApplet implements ScreenSwitcher, JayLayerL
 		
 		EscapeScreen screen3 = new EscapeScreen(this);
 		screens.add(screen3);
+		
+		WinningScreen screen4 = new WinningScreen(this, null);
+		screens.add(screen4);
 		
 		
 		current = screens.get(0);
