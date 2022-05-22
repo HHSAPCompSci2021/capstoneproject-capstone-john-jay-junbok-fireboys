@@ -72,7 +72,7 @@ public class Zombie extends Enemy { //give in player
 	}
 	
 	public void randomMove() {
-		
+		//
 	}
 	/**
 	 * Returns true if it chased the player
