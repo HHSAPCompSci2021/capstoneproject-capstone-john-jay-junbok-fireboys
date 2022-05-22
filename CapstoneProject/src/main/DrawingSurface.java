@@ -62,7 +62,7 @@ public class DrawingSurface extends PApplet implements ScreenSwitcher, JayLayerL
 		
 		current = screens.get(0);
 	
-		p = new JayLayer("audio/", "audio/", false);
+		p = new JayLayer("sound/", "sound/", false);
 		p.addPlayList();
 		p.addSongs(0, new String[] {"mysterbackgroundMusic.mp3"});
 		p.changePlayList(0);
