@@ -67,6 +67,8 @@ public class DrawingSurface extends PApplet implements ScreenSwitcher, JayLayerL
 		
 	}
 	
+	
+	
 	/**
 	 * Sets up the images for the sprites and maze in the game
 	 */
@@ -90,6 +92,13 @@ public class DrawingSurface extends PApplet implements ScreenSwitcher, JayLayerL
 	 * Draws the DrawingSurface by illustrating the screen and needs to be currently displayed.
 	 */
 	public void draw() {
+		
+		if (!((GameScreen) (screens.get(ScreenSwitcher.GAME_SCREEN))).getPlayer().isAlive()) {
+			screens.set(0, new StartingScreen(this, true));
+			screens.set(1, new GameScreen(this, a));
+			switchScreen(0);
+		}
+		
 		x = (float) width / current.DRAWING_WIDTH;
 		y = (float) height / current.DRAWING_HEIGHT;
 		
@@ -175,7 +184,6 @@ public class DrawingSurface extends PApplet implements ScreenSwitcher, JayLayerL
 	 * implements method of same name from JayLayerListener - doesn't have any functionality
 	 */
 	public void musicStopped() {
-		// TODO Auto-generated method stub
 		
 	}
 
