@@ -8,6 +8,7 @@ import jay.jaysound.JayLayerListener;
 //import jay.jaysound.JayLayerListener;
 import level.FirstLevel;
 import level.Level;
+import level.SecondLevel;
 import processing.core.PApplet;
 import processing.core.PImage;
 import screen.EscapeScreen;
@@ -171,6 +172,11 @@ public class DrawingSurface extends PApplet implements ScreenSwitcher, JayLayerL
 		return new Point((int)(actual.getX()/x) , (int)(actual.getY()/y));
 	}
 
+	public void levelUp() {
+		a = new SecondLevel();
+		screens.set(1, new GameScreen(this, a));
+		switchScreen(ScreenSwitcher.GAME_SCREEN);
+	}
 
 
 	@Override
@@ -200,6 +206,7 @@ public class DrawingSurface extends PApplet implements ScreenSwitcher, JayLayerL
 		// TODO Auto-generated method stub
 		
 	}
+	
 
 
 	@Override

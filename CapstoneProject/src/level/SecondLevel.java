@@ -13,6 +13,6 @@ public class SecondLevel extends Level {
 	
 	public SecondLevel() {
 		super("mazefiles/level2.txt", 600, 800);
-	
+		System.out.println("hello");
 	}
 }

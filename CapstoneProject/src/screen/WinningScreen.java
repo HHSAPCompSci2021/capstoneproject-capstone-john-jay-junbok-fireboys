@@ -53,8 +53,7 @@ public class WinningScreen extends Screen {
 		public void mousePressed() {
 			Point p = s.actualCoordinatesToAssumed(new Point(s.mouseX,s.mouseY));
 			if (button.contains(p.x, p.y)) {
-				s.screens.set(0, new GameScreen(s, new SecondLevel()));
-				s.switchScreen(ScreenSwitcher.GAME_SCREEN);
+				s.levelUp();
 			}
 				
 		}
