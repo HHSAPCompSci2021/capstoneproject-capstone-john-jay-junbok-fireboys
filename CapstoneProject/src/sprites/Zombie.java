@@ -9,16 +9,18 @@ import screen.GameScreen;
 */
 public class Zombie extends Enemy { //give in player
 	int xo, yo; int speed = 2;
-	Player c;
+	boolean sentry;
+	boolean leftright;
 	/**
 	 * Default constructor that takes in the location of the zombie as well as the player object
 	 * @param x X coordinates
 	 * @param y Y coordinates
 	 * @param p Player object
 	 */
-	public Zombie(double x, double y, Player c) {
+	public Zombie(double x, double y, boolean sentry, boolean horizontal) {
 		super(x, y);
-		
+		this.sentry = sentry;
+		this.leftright = horizontal;
 		move();
 		// TODO Auto-generated constructor stub
 	}
@@ -27,28 +29,55 @@ public class Zombie extends Enemy { //give in player
 	 * This method initiates the action of the enemy, where it chases or moves.
 	 */
 	public void move() {
-		boolean f = chase();
-		if (!f) {
-			if (speed > 0 && (getX() - xo) < 8) {
-				moveBy(speed, 0);
+		if (sentry) {
+			sentryMove();
+		}
+		else {
+			randomMove();
+		}
+	}
+	public void sentrymove() {
+		if (leftright) {
+				if (speed > 0 && (getX() - xo) < 8) {
+					moveBy(speed, 0);
+				}
+				else if (speed > 0 && (getX() - xo) >= 8) {
+					speed*= -1;
+					moveBy (speed, 0);
+				}
+				else if (speed < 0 && (getX() - xo) < 8) {
+					moveBy(speed,0);
+				}
+				else {
+					speed *= -1;
+					moveBy(speed,0);
+				}
+		}
+		else {
+			if (speed > 0 && (getY() - yo) < 8) {
+				moveBy(0, speed);
 			}
-			else if (speed > 0 && (getX() - xo) >= 8) {
+			else if (speed > 0 && (getY() - yo) >= 8) {
 				speed*= -1;
-				moveBy (speed, 0);
+				moveBy (0, speed);
 			}
-			else if (speed < 0 && (getX() - xo) < 8) {
-				moveBy(speed,0);
+			else if (speed < 0 && (getY() - yo) < 8) {
+				moveBy(0, speed);
 			}
 			else {
 				speed *= -1;
-				moveBy(speed,0);
+				moveBy(0, speed);
 			}
 		}
+	}
+	
+	public void randomMove() {
+		
 	}
 	/**
 	 * Returns true if it chased the player
 	 */
-	public boolean chase() {
+/*	public boolean chase() {
 		double deltax = c.getX() - super.getX();
 		double deltay = c.getY() - super.getY();
 		
@@ -63,4 +92,5 @@ public class Zombie extends Enemy { //give in player
 	//	if (super.getIsInvis == true);
 		return false;
 	}
+	*/
 }
