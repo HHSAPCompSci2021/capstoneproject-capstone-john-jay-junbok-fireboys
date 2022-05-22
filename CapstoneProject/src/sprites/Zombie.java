@@ -1,5 +1,7 @@
 package sprites;
 
+import java.util.ArrayList;
+
 import processing.core.PApplet;
 import screen.GameScreen;
 
@@ -8,7 +10,7 @@ import screen.GameScreen;
 * @author johntahk
 */
 public class Zombie extends Enemy { //give in player
-	int xo, yo; int speed = 2;
+	int xo, yo; int speed = 3;
 	boolean sentry;
 	boolean leftright;
 	/**
@@ -72,7 +74,10 @@ public class Zombie extends Enemy { //give in player
 	}
 	
 	public void randomMove() {
-		//
+		int[] arr = {-2,2, 0, -1 , 1};
+		int xd = (int) (Math.random() * 5);
+		int yd = (int) (Math.random() * 5);
+		moveBy (arr[xd], arr[yd]);
 	}
 	/**
 	 * Returns true if it chased the player
