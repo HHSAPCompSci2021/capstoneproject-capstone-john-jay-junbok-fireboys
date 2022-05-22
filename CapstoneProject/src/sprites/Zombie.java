@@ -36,7 +36,7 @@ public class Zombie extends Enemy { //give in player
 			randomMove();
 		}
 	}
-	public void sentrymove() {
+	public void sentryMove() {
 		if (leftright) {
 				if (speed > 0 && (getX() - xo) < 8) {
 					moveBy(speed, 0);
