@@ -1,4 +1,8 @@
 package sprites;
+
+import level.Level;
+import screen.GameScreen;
+
 /**
  * This class extends Sprite and represents an enemy which will attack the player until specific circumstances.
  * 
@@ -6,6 +10,8 @@ package sprites;
  * @version 05/13/2022
  */
 public class Enemy extends Sprite {
+	
+    
 	/**
 	 * Constructs an Enemy with given x and y coordinates.
 	 * 

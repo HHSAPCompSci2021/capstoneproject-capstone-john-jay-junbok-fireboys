@@ -2,6 +2,7 @@ package level;
 
 import java.util.ArrayList;
 
+import screen.GameScreen;
 import sprites.Enemy;
 import sprites.InvisCloak;
 import sprites.Player;
@@ -12,6 +13,7 @@ import sprites.Player;
  * @version 05/06/2022
  */
 public class FirstLevel extends Level {
+	
 	
 	/**
 	 * Constructs a First Level class by creating the obstacles and materials of the Level.

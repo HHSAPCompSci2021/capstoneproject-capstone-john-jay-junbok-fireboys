@@ -29,7 +29,6 @@ import sprites.Sprite;
 public class GameScreen extends Screen {
 
 	private DrawingSurface s;
-	private Rectangle screenRect;
 	private Player player;
 	private Level a;
 	private boolean wonGame;

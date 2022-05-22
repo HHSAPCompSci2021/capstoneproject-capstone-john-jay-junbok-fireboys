@@ -1,6 +1,7 @@
 package sprites;
 
 import processing.core.PApplet;
+import screen.GameScreen;
 
 /**
 * This class represents a new monster that follows the main character
@@ -15,9 +16,8 @@ public class Zombie extends Enemy { //give in player
 	 * @param y Y coordinates
 	 * @param p Player object
 	 */
-	public Zombie(double x, double y, Player p) {
+	public Zombie(double x, double y, Player c) {
 		super(x, y);
-		c = p;
 		
 		move();
 		// TODO Auto-generated constructor stub
