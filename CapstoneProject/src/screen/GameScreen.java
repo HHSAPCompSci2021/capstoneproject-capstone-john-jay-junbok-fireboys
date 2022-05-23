@@ -19,6 +19,7 @@ import sprites.Enemy;
 import sprites.InvisCloak;
 import sprites.Player;
 import sprites.Sprite;
+import sprites.Zombie;
 
 /**
  * This class represents a Game Screen, which is the screen that the interactive game appears on
@@ -105,7 +106,7 @@ public class GameScreen extends Screen {
 		}
 		*/
 		
-		
+	
 		
 		addStuff(a, boxWidth);
 		player.act();
@@ -158,10 +159,13 @@ public PGraphics createFogMask(float x, float y, int dim) {
 	private void addStuff(Level a, float radius) {
 		
 		for (InvisCloak n : a.getInvisCloaks()) {
-			new InvisCloak(invisCloakImage, n.x, n.y).draw(s);
+			new InvisCloak(invisCloakImage, n.getX(), n.getY()).draw(s);
 		}
 		for (Enemy x : a.getMonsters()) {
-			new Enemy(enemyImage, x.x, x.y).draw(s);
+			new Enemy(enemyImage, x.getX(), x.getY()).draw(s);
+			if (x.getClass().getName().equals("sprites.Zombie")) {
+				((Zombie) x).move();
+			}
 
 		}
 		

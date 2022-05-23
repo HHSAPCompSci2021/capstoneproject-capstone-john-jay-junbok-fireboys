@@ -129,12 +129,13 @@ public class Player extends Sprite {
 	
 	
 	public void draw(PApplet g) {
-		
+		double x = getX();
+		double y = getY();
 		isInvis = invisChecker();
-		if (image != null && isInvis == false) {
-			g.image(image,(float)x, (float)y,(float)width ,(float)height);
+		if (image != null && !isInvis) {
+			g.image(image,(float)x, (float)y,(float)(width * 1.25) ,(float)(height * 1.25));
 		} else if (image != null && isInvis) {
-			g.image(invisImage, (float)x,(float)y,(float)width,(float)height);
+			g.image(invisImage, (float)x,(float)y,(float)(width * 1.25),(float)(height * 1.25));
 		} else {
 			g.fill(100);
 			g.rect((float)x,(float)y,(float)width,(float)height);

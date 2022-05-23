@@ -7,6 +7,7 @@ import screen.GameScreen;
 import sprites.Enemy;
 import sprites.InvisCloak;
 import sprites.Player;
+import sprites.Zombie;
 
 /**
  * This class represents the first level the the player must undergo in the game
@@ -28,6 +29,8 @@ public class FirstLevel extends Level {
 		addMonster(new Enemy(null, 500,75)); addMonster(new Enemy(null, 600,160));
 		addMonster(new Enemy(null, 750,300)); addMonster(new Enemy(null, 50,325));
 		addMonster(new Enemy (null, 150,350)); addMonster(new Enemy(null, 300,130));
+		
+		addMonster(new Zombie(null, 700, 500, true));
 		
 	}	
 

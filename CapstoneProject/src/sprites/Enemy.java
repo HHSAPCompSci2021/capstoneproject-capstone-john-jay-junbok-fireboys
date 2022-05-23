@@ -23,24 +23,5 @@ public class Enemy extends Sprite {
 		super(image, x, y, 25, 25);
 	}
 	
-	/**
-	 * Moves the Enemy to the given coordinates.
-	 */
-	public void moveTo(double x, double y) {
-		
-	}	
-	/**
-	 * Moves the Enemy by the given lengths.
-	 */
-	public void moveBy(double x, double y) {
-		
-	}
-	
-	/**
-	 * Attacks the player under specific circumstances.
-	 */
-	public void attack() {
-		
-	}
 	
 }
