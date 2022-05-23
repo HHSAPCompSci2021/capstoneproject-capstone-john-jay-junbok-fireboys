@@ -32,7 +32,8 @@ public class GameScreen extends Screen {
 	private Player player;
 	private Level a;
 	private boolean wonGame;
-	private PImage background;
+	private PImage backgroundLevelOne;
+	private PImage backgroundLevelTwo;
 	private PImage enemyImage;
 	private PImage invisCloakImage;
 
@@ -69,7 +70,12 @@ public class GameScreen extends Screen {
 			s.switchScreen(ScreenSwitcher.WINNING_SCREEN);
 		}	
 		
-		s.image(background, 0, 0, 800, 600);
+		if (a.getClass().getName().equals("level.FirstLevel")) {
+			s.image(backgroundLevelOne, 0, 0, 800, 600);
+		} else {
+			s.image(backgroundLevelTwo, 0, 0, 800, 600);
+		}
+		
 		
 		movePlayer();
 		char[][] blueprint = a.getWalls();
@@ -188,7 +194,8 @@ public PGraphics createFogMask(float x, float y, int dim) {
 	@Override
 	public void setup() {
 		player = new Player(s.loadImage("img/player.png"), s.loadImage("img/player_invis.png"), 700, 550, a);
-		background = s.loadImage("img/level_one.png");
+		backgroundLevelOne = s.loadImage("img/level_one.png");
+		backgroundLevelTwo = s.loadImage("img/level_two.png");
 		enemyImage = s.loadImage("img/enemy_1.png");
 		invisCloakImage = s.loadImage("img/cloak.png");
 		
