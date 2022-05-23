@@ -33,8 +33,8 @@ public class GameScreen extends Screen {
 	private Level a;
 	private boolean wonGame;
 	private PImage background;
-	private PImage enemy;
-	private PImage invisCloak;
+	private PImage enemyImage;
+	private PImage invisCloakImage;
 
 	
 	
@@ -145,10 +145,10 @@ public PGraphics createFogMask(float x, float y, int dim) {
 	private void addStuff(Level a, float radius) {
 		
 		for (InvisCloak n : a.getInvisCloaks()) {
-			n.draw(s);
+			new InvisCloak(invisCloakImage, n.x, n.y).draw(s);
 		}
 		for (Enemy x : a.getMonsters()) {
-			x.draw(s);
+			new Enemy(enemyImage, x.x, x.y).draw(s);
 
 		}
 		
@@ -180,10 +180,10 @@ public PGraphics createFogMask(float x, float y, int dim) {
 
 	@Override
 	public void setup() {
-		player = new Player(s.loadImage("img/player.png"), 700, 550, a);
+		player = new Player(s.loadImage("img/player.png"), s.loadImage("img/player_invis.png"), 700, 550, a);
 		background = s.loadImage("img/level_one.png");
-		enemy = s.loadImage("img/enemy_1.png");
-		invisCloak = s.loadImage("img/enemy_1.png");
+		enemyImage = s.loadImage("img/enemy_1.png");
+		invisCloakImage = s.loadImage("img/cloak.png");
 		
 	}
 

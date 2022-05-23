@@ -1,6 +1,7 @@
 package sprites;
 
 import processing.core.PApplet;
+import processing.core.PImage;
 
 /**
  * This class extends Sprite and represents a stationary object which the player can pick up to turn invisible.
@@ -18,24 +19,11 @@ public class InvisCloak extends Sprite {
 	 * @param x x coordinate of the InvisCloak
 	 * @param y y coordinate of the InvisCloak
 	 */
-	public InvisCloak(double x, double y) {
-		super(null, x, y, SIDE_LENGTH, SIDE_LENGTH);
+	public InvisCloak(PImage image, double x, double y) {
+		super(image, x, y, SIDE_LENGTH, SIDE_LENGTH);
 		isPickedUp = false;
 	}
-	
-	/**
-	 * Draws the InvisCloak to the screen.
-	 * 
-	 * @param s PApplet which the InvisCloak will be drawn on
-	 */
-	public void draw(PApplet s) {
-		if (isPickedUp == false) {
-			s.fill(52, 168, 50);
-		} else {
-			s.fill(255);
-		}
-		s.ellipse(SIDE_LENGTH, SIDE_LENGTH, SIDE_LENGTH, SIDE_LENGTH);
-	}
+
 	
 	/**
 	 * Picks up the InvisCloak and sets isPickedUp to true.

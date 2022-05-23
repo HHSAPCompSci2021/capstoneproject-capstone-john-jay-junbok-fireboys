@@ -23,6 +23,7 @@ public class Player extends Sprite {
 	private Level a;
 	private long timer;
 	private static final long invisCloakTime = 5000000000L;
+	PImage invisImage;
 	
 	/**
 	 * Constructs the Player with given coordinates.
@@ -30,11 +31,12 @@ public class Player extends Sprite {
 	 * @param x x coordinate of the player
 	 * @param y y coordinate of the player
 	 */
-	public Player(PImage image, double x, double y, Level a) {
+	public Player(PImage image, PImage invisImage, double x, double y, Level a) {
 		super(image, x, y, 25, 25);
 		isInvis = false;
 		isAlive = true;
 		this.a = a;
+		this.invisImage = invisImage;
 	}
 	
 	
@@ -128,9 +130,11 @@ public class Player extends Sprite {
 	
 	public void draw(PApplet g) {
 		isInvis = invisChecker();
-		if (image != null && isInvis == false)
+		if (image != null && isInvis == false) {
 			g.image(image,(float)x,(float)y,(float)width,(float)height);
-		else {
+		} else if (image != null && isInvis) {
+			g.image(invisImage, (float)x,(float)y,(float)width,(float)height);
+		} else {
 			g.fill(100);
 			g.rect((float)x,(float)y,(float)width,(float)height);
 		}
