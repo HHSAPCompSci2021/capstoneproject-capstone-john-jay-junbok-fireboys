@@ -22,15 +22,22 @@ public class FirstLevel extends Level {
 	 * @param filename string with the filename.
 	 */
 	public FirstLevel () {
-		super("mazefiles/level1.txt", 600, 800); addInvisCloak(new InvisCloak(null, 130,50)); 
-		addInvisCloak(new InvisCloak(null, 185,400)); addInvisCloak(new InvisCloak(null, 300,375)); 
-		addInvisCloak(new InvisCloak(null, 750,375)); addInvisCloak(new InvisCloak(null, 750, 100));
-		addMonster(new Enemy(null, 275,75)); addMonster( new Enemy(null, 175,150));
-		addMonster(new Enemy(null, 500,75)); addMonster(new Enemy(null, 600,160));
-		addMonster(new Enemy(null, 750,300)); addMonster(new Enemy(null, 50,325));
-		addMonster(new Enemy (null, 150,350)); addMonster(new Enemy(null, 300,130));
+		super("mazefiles/level1.txt", 600, 800); 
+		addInvisCloak(new InvisCloak(null, 130,50)); 
+		addInvisCloak(new InvisCloak(null, 185,400)); 
+		addInvisCloak(new InvisCloak(null, 300,375)); 
+		addInvisCloak(new InvisCloak(null, 750,375)); 
+		addInvisCloak(new InvisCloak(null, 750, 100));
+		addMonster(new Enemy(null, 275,75)); 
+		addMonster( new Enemy(null, 175,150));
+		addMonster(new Enemy(null, 500,75)); 
+		addMonster(new Enemy(null, 600,160));
+		addMonster(new Enemy(null, 750,300)); 
+		addMonster(new Enemy(null, 50,325));
+		addMonster(new Enemy (null, 150,350)); 
+		addMonster(new Enemy(null, 300,130));
 		
-		addMonster(new Zombie(null, 700, 500, true));
+		addMonster(new Zombie(null, 700, 500));
 		
 	}	
 

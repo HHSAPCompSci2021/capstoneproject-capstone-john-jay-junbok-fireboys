@@ -14,7 +14,6 @@ import screen.GameScreen;
 public class Zombie extends Enemy { // give in player
 	private double xo, yo;
 	int speed = 3;
-	private boolean sentry;
 	private boolean isForward;
 
 	/**
@@ -25,10 +24,9 @@ public class Zombie extends Enemy { // give in player
 	 * @param y Y coordinates
 	 * @param p Player object
 	 */
-	public Zombie(PImage image, double x, double y, boolean sentry) {
+	public Zombie(PImage image, double x, double y) {
 		super(image, x, y);
 		xo  = x;
-		this.sentry = sentry;
 		isForward = true;
 		move();
 		// TODO Auto-generated constructor stub
@@ -39,15 +37,10 @@ public class Zombie extends Enemy { // give in player
 	 * This method initiates the action of the enemy, where it chases or moves.
 	 */
 	public void move() {
-		if (sentry) {
 			sentryMove();
-		} else {
-			randomMove();
-		}
 	}
 
-	public void sentryMove() {
-		System.out.println(getX() + " " + getY());
+	private void sentryMove() {
 		if (getX() <= xo) {
 			setCoords(getX() + 3, getY());
 			isForward = true;
@@ -60,12 +53,12 @@ public class Zombie extends Enemy { // give in player
 
 	}
 
-	public void randomMove() {
-		int[] arr = { -2, 2, 0, -1, 1 };
-		int xd = (int) (Math.random() * 5);
-		int yd = (int) (Math.random() * 5);
-//		moveBy(arr[xd], arr[yd]);
-	}
+//	public void randomMove() {
+//		int[] arr = { -2, 2, 0, -1, 1 };
+//		int xd = (int) (Math.random() * 5);
+//		int yd = (int) (Math.random() * 5);
+////		moveBy(arr[xd], arr[yd]);
+//	}
 	/**
 	 * Returns true if it chased the player
 	 */
