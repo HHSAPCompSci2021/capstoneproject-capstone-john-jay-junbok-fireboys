@@ -89,12 +89,6 @@ public class DrawingSurface extends PApplet implements ScreenSwitcher, JayLayerL
 	 */
 	public void draw() {
 		
-		if (!((GameScreen) (screens.get(ScreenSwitcher.GAME_SCREEN))).getPlayer().isAlive()) {
-			screens.set(0, new StartingScreen(this, true));
-			screens.set(1, new GameScreen(this, a));
-			switchScreen(0);
-		}
-		
 		x = (float) width / current.DRAWING_WIDTH;
 		y = (float) height / current.DRAWING_HEIGHT;
 		
@@ -166,6 +160,7 @@ public class DrawingSurface extends PApplet implements ScreenSwitcher, JayLayerL
 	public void levelUp() {
 		a = new SecondLevel();
 		screens.set(1, new GameScreen(this, a));
+		screens.get(ScreenSwitcher.GAME_SCREEN).setup();
 		switchScreen(ScreenSwitcher.GAME_SCREEN);
 	}
 

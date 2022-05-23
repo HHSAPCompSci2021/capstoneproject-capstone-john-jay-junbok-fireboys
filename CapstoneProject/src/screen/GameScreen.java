@@ -56,6 +56,13 @@ public class GameScreen extends Screen {
 	 */
 	public void draw() {
 		
+		if (!player.isAlive()) {
+			s.screens.set(0, new StartingScreen(s, true));
+			s.screens.set(1, new GameScreen(s, a));
+			s.setup();
+			s.switchScreen(0);
+		}
+		
 		hasWon();
 		if (wonGame) {
 			s.screens.set(3, new WinningScreen(s, a));
