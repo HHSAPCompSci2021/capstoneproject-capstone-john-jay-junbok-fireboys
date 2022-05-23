@@ -12,17 +12,17 @@ import sprites.Zombie;
 /**
  * This class represents the first level the the player must undergo in the game
  * @author John Tahk
- * @version 05/06/2022
+ * @version 05/20/2022
  */
 public class FirstLevel extends Level {
 	
 	
 	/**
-	 * Constructs a First Level class by creating the obstacles and materials of the Level.
+	 * Constructs a First Level class by creating the obstacles and materials of the Level, including enemies and invisibility cloaks.
 	 * @param filename string with the filename.
 	 */
 	public FirstLevel () {
-		super("mazefiles/level1.txt", 600, 800); 
+		super("mazefiles/level1.txt"); 
 		addInvisCloak(new InvisCloak(null, 130,50)); 
 		addInvisCloak(new InvisCloak(null, 185,400)); 
 		addInvisCloak(new InvisCloak(null, 300,375)); 

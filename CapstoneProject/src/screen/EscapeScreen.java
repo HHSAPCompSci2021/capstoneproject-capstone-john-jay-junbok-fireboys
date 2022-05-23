@@ -71,7 +71,7 @@ public class EscapeScreen extends Screen {
 	}
 	
 	/**
-	 * Switches the screen depending on which button is pressed.
+	 * Switches the screen depending on which button is pressed: either resumes the game, restarts back to level one, or returns to the starting screen
 	 */
 	public void mousePressed() {
 		Point p = s.actualCoordinatesToAssumed(new Point(s.mouseX,s.mouseY));
@@ -79,6 +79,7 @@ public class EscapeScreen extends Screen {
 			s.switchScreen(ScreenSwitcher.GAME_SCREEN);
 		} else if (buttonRestart.contains(p.x, p.y)) {
 			s.screens.set(1, new GameScreen(s, new FirstLevel()));
+			s.screens.get(1).setup();
 			s.switchScreen(ScreenSwitcher.GAME_SCREEN);
 		} else if (buttonStart.contains(p.x, p.y)) {
 			s.switchScreen(ScreenSwitcher.STARTING_SCREEN);
@@ -87,6 +88,9 @@ public class EscapeScreen extends Screen {
 	}
 
 	@Override
+	/**
+	 * Implements setup as it was an abstract method of Level -- doesn't have any functionality for this class
+	 */
 	public void setup() {
 		// TODO Auto-generated method stub
 		

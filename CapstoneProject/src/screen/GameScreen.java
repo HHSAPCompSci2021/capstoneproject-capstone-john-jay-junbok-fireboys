@@ -124,6 +124,13 @@ public class GameScreen extends Screen {
 		
 	}
 	
+/**
+ * Creates a fog mask for the player, reducing visiblity in the game, thus making it more challenging -- copied from fogMask demonstration
+ * @param x The x coordinate of the center of the fog mask
+ * @param y The y coordinate of the center of the fog mask
+ * @param dim The diameter of the fog mask
+ * @return A PGraphics that, when represented as an image, draws a fog mask around the player.
+ */
 public PGraphics createFogMask(float x, float y, int dim) {
 		
 		PGraphics visionMask = s.createGraphics(DRAWING_WIDTH, DRAWING_HEIGHT);
@@ -160,6 +167,7 @@ public PGraphics createFogMask(float x, float y, int dim) {
 			player.move(0, 5);
 		}	
 	}
+	
 	
 	private void addStuff(Level a, float radius) {
 		
@@ -205,6 +213,9 @@ public PGraphics createFogMask(float x, float y, int dim) {
 	}
 
 	@Override
+	/**
+	 * Sets up the game by providing images for the player, backgrounds for both levels, enemy, and invisibility cloak and storing that data in PImage objects.. Constructs the player object as it sets up the image for player as well.
+	 */
 	public void setup() {
 		player = new Player(s.loadImage("img/player.png"), s.loadImage("img/player_invis.png"), 700, 550, a);
 		backgroundLevelOne = s.loadImage("img/level_one.png");

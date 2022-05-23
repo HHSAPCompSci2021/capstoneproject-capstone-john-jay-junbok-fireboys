@@ -15,7 +15,7 @@ import sprites.InvisCloak;
 /**
  * This class represents a Level in the game
  * @author John Tahk
- * @version 05/06/2022
+ * @version 05/20/2022
  *
  */
 public abstract class Level {
@@ -27,7 +27,11 @@ public abstract class Level {
 	private char[][] walls;
 
 	
-	public Level(String filename, int width, int height) {
+	/**
+	 * Constructs a level by processing a txt file of walls.
+	 * @param filename The name of the txt file with data about the maze.
+	 */
+	public Level(String filename) {
 		walls = new char[24][32];
 		readData(filename, walls);
 		inviscloak = new ArrayList<InvisCloak>();
@@ -100,7 +104,7 @@ public abstract class Level {
 		monsters.remove(i);
 	}
 	/**
-	 * Add an Enemy object to the monster list in the level
+	 * Add an Enemy or Zombie (subclass of enemy) object to the monster list in the level
 	 * @param a Enemy to add to the level
 	 */
 	public void addMonster(Enemy a) {
@@ -109,7 +113,7 @@ public abstract class Level {
 	
 	
 	/**
-	 * Method that reads in data in order to build the level
+	 * Method that reads in data in order to build the level - method is copied from previous labs. 
 	 * @param filename name of the file
 	 * @param gameData Char array that represents the aspects of the level
 	 */

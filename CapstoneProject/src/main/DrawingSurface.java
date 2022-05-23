@@ -37,7 +37,7 @@ public class DrawingSurface extends PApplet implements ScreenSwitcher, JayLayerL
 	private JayLayer p;
 	
 	/**
-	 * Constructs a DrawingSurface by creating the StartingScreen, GameScreen, and EscapeScreen for this game and stroing them in an ArrayList of Screens.
+	 * Constructs a DrawingSurface by creating the StartingScreen, GameScreen, and EscapeScreen for this game and storing them in an ArrayList of Screens.
 	 */
 	public DrawingSurface() {
 		
@@ -74,10 +74,6 @@ public class DrawingSurface extends PApplet implements ScreenSwitcher, JayLayerL
 	 * Sets up the images for the sprites and maze in the game
 	 */
 	public void setup() {
-//		images.add(super.loadImage("img/cloak.png"));
-//		images.add(super.loadImage("img/enemy_1.png"));
-//		images.add(super.loadImage("img/level_one.png"));
-//		images.add(super.loadImage("img/player.png"));
 		for (Screen s : screens) {
 			s.setup();
 		}

@@ -8,12 +8,17 @@ import sprites.Zombie;
 /**
  * This class represents the second level of the game
  * @author johntahk
+ * @version 05/20/22
  *
  */
 public class SecondLevel extends Level {
 	
+	/**
+	 * Constructs a Second Level class by creating the obstacles and materials of the Level, including enemies, zombies, and invisbility cloaks.
+	 * @param filename string with the filename.
+	 */
 	public SecondLevel() {
-		super("mazefiles/level2.txt", 600, 800);
+		super("mazefiles/level2.txt");
 		addMonster(new Enemy(null, 700, 600));
 		
 		addMonster(new Enemy(null, 750, 100));

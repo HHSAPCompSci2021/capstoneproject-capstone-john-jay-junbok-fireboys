@@ -72,6 +72,9 @@ public class StartingScreen extends Screen {
 	}
 
 	@Override
+	/**
+	 * Sets up the starting screen by providing images for the title, player, and enemy (all of which are for decorative purposes on the title screen) and storing those imagesi n PImage objects for further use.
+	 */
 	public void setup() {
 		title = s.loadImage("img/title.png");	
 		player = s.loadImage("img/player.png");
