@@ -127,7 +127,11 @@ public class Player extends Sprite {
 		return isAlive;
 	}
 	
-	
+	/**
+	 * Draws the Player to the screen.
+	 * 
+	 * @param the PApplet on which the player is drawn on
+	 */
 	public void draw(PApplet g) {
 		double x = getX();
 		double y = getY();

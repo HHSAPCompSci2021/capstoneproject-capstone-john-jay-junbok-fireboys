@@ -80,7 +80,11 @@ public class Sprite {
 		this.y = y;
 	}
 	
-	
+	/**
+	 * Draws the sprite to the screen.
+	 * 
+	 * @param g the PApplet on which the sprite is drawn
+	 */
 	public void draw(PApplet g) {
 		if (image != null)
 			g.image(image,(float)x,(float)y,(float)width,(float)height);
