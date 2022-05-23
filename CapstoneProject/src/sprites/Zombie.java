@@ -3,6 +3,7 @@ package sprites;
 import java.util.ArrayList;
 
 import processing.core.PApplet;
+import processing.core.PImage;
 import screen.GameScreen;
 
 /**
@@ -10,19 +11,22 @@ import screen.GameScreen;
 * @author johntahk
 */
 public class Zombie extends Enemy { //give in player
-	int xo, yo; int speed = 3;
-	boolean sentry;
-	boolean leftright;
+	private int xo, yo; int speed = 3;
+	private boolean sentry;
+	private boolean leftright;
+	private PImage image;
+	
 	/**
 	 * Default constructor that takes in the location of the zombie as well as the player object
 	 * @param x X coordinates
 	 * @param y Y coordinates
 	 * @param p Player object
 	 */
-	public Zombie(double x, double y, boolean sentry, boolean horizontal) {
+	public Zombie(double x, double y, boolean sentry, boolean horizontal, PImage image) {
 		super(x, y);
 		this.sentry = sentry;
 		this.leftright = horizontal;
+		this.image = image;
 		move();
 		// TODO Auto-generated constructor stub
 	}
@@ -98,4 +102,12 @@ public class Zombie extends Enemy { //give in player
 		return false;
 	}
 	*/
+	public void draw(PApplet g) {
+		g.image(image, (float) super.getX(), (float) super.getY(), 25, 25);
+	}
+
+
 }
+
+
+

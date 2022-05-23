@@ -1,6 +1,8 @@
 package sprites;
 
 import level.Level;
+import processing.core.PApplet;
+import processing.core.PImage;
 import screen.GameScreen;
 
 /**
@@ -9,9 +11,7 @@ import screen.GameScreen;
  * @author junbok lee
  * @version 05/13/2022
  */
-public class Enemy extends Sprite {
-	
-    
+public class Enemy extends Sprite {    
 	/**
 	 * Constructs an Enemy with given x and y coordinates.
 	 * 
@@ -20,6 +20,7 @@ public class Enemy extends Sprite {
 	 */
 	public Enemy (double x, double y) {
 		super(x, y, 25, 25);
+
 	}
 	
 	/**
@@ -41,5 +42,7 @@ public class Enemy extends Sprite {
 	public void attack() {
 		
 	}
+	
+	
 	
 }

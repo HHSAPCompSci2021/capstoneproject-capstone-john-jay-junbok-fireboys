@@ -12,6 +12,7 @@ import level.SecondLevel;
 import processing.core.PApplet;
 import processing.core.PImage;
 import screen.EscapeScreen;
+import screen.FirstLevelScreen;
 import screen.GameScreen;
 import screen.Screen;
 import screen.ScreenSwitcher;
@@ -42,7 +43,7 @@ public class DrawingSurface extends PApplet implements ScreenSwitcher, JayLayerL
 	 */
 	public DrawingSurface() {
 		
-		a = new FirstLevel();
+		a = new FirstLevel(this);
 		
 		keys = new ArrayList<Integer>();
 		screens = new ArrayList<Screen>();
@@ -50,7 +51,7 @@ public class DrawingSurface extends PApplet implements ScreenSwitcher, JayLayerL
 		StartingScreen screen1 = new StartingScreen(this, false);
 		screens.add(screen1);
 		
-		GameScreen screen2 = new GameScreen(this, a);
+		FirstLevelScreen screen2 = new FirstLevelScreen(this);
 		screens.add(screen2);
 		
 		EscapeScreen screen3 = new EscapeScreen(this);
@@ -60,7 +61,7 @@ public class DrawingSurface extends PApplet implements ScreenSwitcher, JayLayerL
 		screens.add(screen4);
 		
 		
-		current = screens.get(0);
+		current = screens.get(1);
 	
 		p = new JayLayer("sounds/", "sounds/", false);
 		p.addPlayList();
