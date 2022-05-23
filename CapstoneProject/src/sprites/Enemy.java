@@ -1,6 +1,7 @@
 package sprites;
 
 import level.Level;
+import processing.core.PImage;
 import screen.GameScreen;
 
 /**
@@ -18,8 +19,8 @@ public class Enemy extends Sprite {
 	 * @param x x coordinate of the Enemy
 	 * @param y y coordinate of the Enemy
 	 */
-	public Enemy (double x, double y) {
-		super(x, y, 25, 25);
+	public Enemy (PImage image, double x, double y) {
+		super(image, x, y, 25, 25);
 	}
 	
 	/**

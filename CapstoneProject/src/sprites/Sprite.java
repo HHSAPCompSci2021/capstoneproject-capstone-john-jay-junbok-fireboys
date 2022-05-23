@@ -1,6 +1,8 @@
 package sprites;
 
 import jdalal464.shapes.*;
+import processing.core.PApplet;
+import processing.core.PImage;
 /**
  * This class represents the objects which will have interactions while the game is running. 
  * 
@@ -9,8 +11,9 @@ import jdalal464.shapes.*;
  */
 public class Sprite {
 	
-	double x, y;
-	double width, height;
+	public double x, y;
+	public double width, height;
+	protected PImage image;
 	
 	/**
 	 * Constructs a Sprite with all fields as 0.
@@ -20,6 +23,7 @@ public class Sprite {
 		y = 0;
 		width = 0;
 		height = 0;
+		image = null;
 	}
 	
 	/**
@@ -30,11 +34,12 @@ public class Sprite {
 	 * @param width width of the hitbox
 	 * @param height height of the hitbox
 	 */
-	public Sprite(double x, double y, double width, double height) {
+	public Sprite(PImage image, double x, double y, double width, double height) {
 		this.x = x;
 		this.y = y;
 		this.width = width;
 		this.height = height;
+		this.image = image;
 	}
 	
 	/**
@@ -73,6 +78,16 @@ public class Sprite {
 	public void setCoords(double x, double y) {
 		this.x = x;
 		this.y = y;
+	}
+	
+	
+	public void draw(PApplet g) {
+		if (image != null)
+			g.image(image,(float)x,(float)y,(float)width,(float)height);
+		else {
+			g.fill(100);
+			g.rect((float)x,(float)y,(float)width,(float)height);
+		}
 	}
 
 	

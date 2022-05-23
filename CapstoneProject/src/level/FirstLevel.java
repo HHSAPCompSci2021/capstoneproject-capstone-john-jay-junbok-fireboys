@@ -2,6 +2,7 @@ package level;
 
 import java.util.ArrayList;
 
+import processing.core.PImage;
 import screen.GameScreen;
 import sprites.Enemy;
 import sprites.InvisCloak;
@@ -23,10 +24,10 @@ public class FirstLevel extends Level {
 		super("mazefiles/level1.txt", 600, 800); addInvisCloak(new InvisCloak(130,50)); 
 		addInvisCloak(new InvisCloak(185,400)); addInvisCloak(new InvisCloak(300,375)); 
 		addInvisCloak(new InvisCloak(750,375)); addInvisCloak(new InvisCloak(750, 100));
-		addMonster(new Enemy(275,75)); addMonster(new Enemy(175,150));
-		addMonster(new Enemy(500,75)); addMonster(new Enemy(600,160));
-		addMonster(new Enemy(750,300)); addMonster(new Enemy(50,325));
-		addMonster(new Enemy (150,350)); addMonster(new Enemy(300,130));
+		addMonster(new Enemy(null, 275,75)); addMonster( new Enemy(null, 175,150));
+		addMonster(new Enemy(null, 500,75)); addMonster(new Enemy(null, 600,160));
+		addMonster(new Enemy(null, 750,300)); addMonster(new Enemy(null, 50,325));
+		addMonster(new Enemy (null, 150,350)); addMonster(new Enemy(null, 300,130));
 		
 	}	
 	

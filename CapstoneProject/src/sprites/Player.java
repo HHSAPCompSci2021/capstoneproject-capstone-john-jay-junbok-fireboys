@@ -6,6 +6,8 @@ import java.util.ArrayList;
 import jdalal464.shapes.*;
 import level.Level;
 import main.DrawingSurface;
+import processing.core.PApplet;
+import processing.core.PImage;
 
 /**
  * This class represent the player will the user will control.
@@ -28,30 +30,14 @@ public class Player extends Sprite {
 	 * @param x x coordinate of the player
 	 * @param y y coordinate of the player
 	 */
-	public Player(double x, double y, Level a) {
-		super(x, y, 25, 25);
+	public Player(PImage image, double x, double y, Level a) {
+		super(image, x, y, 25, 25);
 		isInvis = false;
 		isAlive = true;
 		this.a = a;
 	}
 	
-	/**
-	 * Draws the player on the screen.
-	 * 
-	 * @param s PApplet which the Player will be drawn on
-	 */
-	public void draw(DrawingSurface s) {
-		isInvis = invisChecker();
-		
-		if (!isInvis) {
-			s.fill(0, 0, 255);
-		} else {
-			s.fill(255, 0, 255);
-		}
-		
-		
-		s.rect((float)super.getX(), (float)super.getY(), (float)25, (float)25);
-	}
+	
 	
 	private boolean invisChecker() {
 		if (isInvis) {
@@ -137,6 +123,17 @@ public class Player extends Sprite {
 	 */
 	public boolean isAlive() {
 		return isAlive;
+	}
+	
+	
+	public void draw(PApplet g) {
+		isInvis = invisChecker();
+		if (image != null && isInvis == false)
+			g.image(image,(float)x,(float)y,(float)width,(float)height);
+		else {
+			g.fill(100);
+			g.rect((float)x,(float)y,(float)width,(float)height);
+		}
 	}
 	
 	

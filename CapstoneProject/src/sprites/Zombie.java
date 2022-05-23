@@ -20,7 +20,7 @@ public class Zombie extends Enemy { //give in player
 	 * @param p Player object
 	 */
 	public Zombie(double x, double y, boolean sentry, boolean horizontal) {
-		super(x, y);
+		super(null, x, y);
 		this.sentry = sentry;
 		this.leftright = horizontal;
 		move();

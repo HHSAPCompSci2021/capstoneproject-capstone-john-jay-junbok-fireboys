@@ -66,4 +66,12 @@ public class StartingScreen extends Screen {
 			
 	}
 
+	@Override
+	public void setup() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	
+
 }

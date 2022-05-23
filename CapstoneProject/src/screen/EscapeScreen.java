@@ -86,4 +86,11 @@ public class EscapeScreen extends Screen {
 			
 	}
 
+	@Override
+	public void setup() {
+		// TODO Auto-generated method stub
+		
+	}
+
+
 }

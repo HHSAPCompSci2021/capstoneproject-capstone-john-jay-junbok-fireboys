@@ -45,5 +45,7 @@ public abstract class Screen {
 	public void keyPressed() {
 		
 	}
+	
+	public abstract void setup();
 
 }

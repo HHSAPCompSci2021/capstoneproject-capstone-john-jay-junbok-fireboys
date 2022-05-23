@@ -32,6 +32,9 @@ public class GameScreen extends Screen {
 	private Player player;
 	private Level a;
 	private boolean wonGame;
+	private PImage background;
+	private PImage enemy;
+	private PImage invisCloak;
 
 	
 	
@@ -43,7 +46,6 @@ public class GameScreen extends Screen {
 	public GameScreen(DrawingSurface s, Level level) {
 		super(800,600);
 		this.s = s;
-		player = new Player(700, 550, level);
 		this.a = level;
 		wonGame = false;
 		
@@ -58,11 +60,9 @@ public class GameScreen extends Screen {
 		if (wonGame) {
 			s.screens.set(3, new WinningScreen(s, a));
 			s.switchScreen(ScreenSwitcher.WINNING_SCREEN);
-		}
+		}	
 		
-		
-		s.image(s.getImages(2), 0, 0, 800, 600);
-		
+		s.image(background, 0, 0, 800, 600);
 		
 		movePlayer();
 		char[][] blueprint = a.getWalls();
@@ -145,12 +145,10 @@ public PGraphics createFogMask(float x, float y, int dim) {
 	private void addStuff(Level a, float radius) {
 		
 		for (InvisCloak n : a.getInvisCloaks()) {
-			s.fill(0, 255, 0);
-			s.rect((float) n.getX(), (float) n.getY(), radius, radius);
+			n.draw(s);
 		}
 		for (Enemy x : a.getMonsters()) {
-			s.fill(255, 0, 0);
-			s.rect((float) x.getX(), (float) x.getY(), radius, radius);
+			x.draw(s);
 
 		}
 		
@@ -179,5 +177,15 @@ public PGraphics createFogMask(float x, float y, int dim) {
 			}
 		}
 	}
+
+	@Override
+	public void setup() {
+		player = new Player(s.loadImage("img/player.png"), 700, 550, a);
+		background = s.loadImage("img/level_one.png");
+		enemy = s.loadImage("img/enemy_1.png");
+		invisCloak = s.loadImage("img/enemy_1.png");
+		
+	}
+
 
 }

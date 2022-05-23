@@ -19,7 +19,7 @@ public class InvisCloak extends Sprite {
 	 * @param y y coordinate of the InvisCloak
 	 */
 	public InvisCloak(double x, double y) {
-		super(x, y, SIDE_LENGTH, SIDE_LENGTH);
+		super(null, x, y, SIDE_LENGTH, SIDE_LENGTH);
 		isPickedUp = false;
 	}
 	

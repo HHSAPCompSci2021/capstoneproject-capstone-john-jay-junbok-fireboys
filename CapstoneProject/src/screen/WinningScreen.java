@@ -58,4 +58,10 @@ public class WinningScreen extends Screen {
 				
 		}
 
+		@Override
+		public void setup() {
+			// TODO Auto-generated method stub
+			
+		}
+
 }
