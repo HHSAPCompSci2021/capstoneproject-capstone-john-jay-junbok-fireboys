@@ -107,6 +107,7 @@ public abstract class Level {
 		monsters.add(a);
 	}
 	
+	
 	/**
 	 * Method that reads in data in order to build the level
 	 * @param filename name of the file

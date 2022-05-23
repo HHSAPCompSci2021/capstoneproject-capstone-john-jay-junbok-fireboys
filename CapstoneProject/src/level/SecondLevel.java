@@ -27,15 +27,14 @@ public class SecondLevel extends Level {
 		addMonster(new Zombie(null, 325, 125));
 		addMonster(new Zombie(null, 330, 450));
 		addMonster(new Zombie(null, 100, 200));
-		addMonster(new Zombie(null, 300, 525));
 
 		
 		
 		addInvisCloak(new InvisCloak(null, 630, 500));
 		addInvisCloak(new InvisCloak(null, 500, 475));
 		addInvisCloak(new InvisCloak(null, 350, 250));
-		addInvisCloak(new InvisCloak(null, 700, 50));
-		addInvisCloak(new InvisCloak(null, 50, 50));
+		addInvisCloak(new InvisCloak(null, 600, 50));
+		addInvisCloak(new InvisCloak(null, 50, 150));
 		
 	}
 }

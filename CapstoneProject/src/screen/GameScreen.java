@@ -12,6 +12,7 @@ import jdalal464.shapes.*;
 
 import level.FirstLevel;
 import level.Level;
+import level.SecondLevel;
 import main.DrawingSurface;
 import processing.core.PGraphics;
 import processing.core.PImage;
@@ -60,7 +61,11 @@ public class GameScreen extends Screen {
 		
 		if (!player.isAlive()) {
 			s.screens.set(0, new StartingScreen(s, true));
-			s.screens.set(1, new GameScreen(s, a));
+			if (a.getClass().getName().equals("level.FirstLevel")) {
+				s.screens.set(1, new GameScreen(s, new FirstLevel()));
+			} else {
+				s.screens.set(1,  new GameScreen(s, new SecondLevel()));
+			}
 			s.setup();
 			s.switchScreen(0);
 		}
@@ -189,7 +194,11 @@ public PGraphics createFogMask(float x, float y, int dim) {
 	
 	private void hasWon() {
 		if (a.getClass().getName().equals("level.FirstLevel")) {
-			if (new Rectangle(0, 0, 100, 100).contains(new Point((int)player.getX(), (int) player.getY()))) {
+			if (new Rectangle(0, 0, 100, 50).contains(new Point((int)player.getX(), (int) player.getY()))) {
+				wonGame = true;
+			}
+		} else {
+			if (new Rectangle(300, 0, 100, 50).contains(new Point((int)player.getX(), (int) player.getY()))) {
 				wonGame = true;
 			}
 		}
