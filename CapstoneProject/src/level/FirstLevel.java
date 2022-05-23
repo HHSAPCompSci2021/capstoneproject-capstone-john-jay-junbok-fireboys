@@ -36,9 +36,7 @@ public class FirstLevel extends Level {
 		addMonster(new Enemy(null, 50,325));
 		addMonster(new Enemy (null, 150,350)); 
 		addMonster(new Enemy(null, 300,130));
-		
-		addMonster(new Zombie(null, 700, 500));
-		
+			
 	}	
 
 }
