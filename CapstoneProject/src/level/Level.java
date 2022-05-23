@@ -9,12 +9,8 @@ import java.util.Scanner;
 import jdalal464.shapes.Circle;
 import jdalal464.shapes.Rectangle;
 import jdalal464.shapes.Shape;
-import main.DrawingSurface;
-import processing.core.PImage;
-import processing.core.PApplet;
 import sprites.Enemy;
 import sprites.InvisCloak;
-import sprites.Zombie;
 
 /**
  * This class represents a Level in the game
@@ -22,38 +18,22 @@ import sprites.Zombie;
  * @version 05/06/2022
  *
  */
-public class Level {
+public abstract class Level {
 	
-	private ArrayList<Zombie> zombies;
-	private ArrayList<InvisCloak> cloaks;
+	private ArrayList<Enemy> monsters;
+	
+	private ArrayList<InvisCloak> inviscloak;
 	private ArrayList<Rectangle> obstacles;
 	private char[][] walls;
-	
-	private PImage background;
 
 	
-	public Level(String filename, int width, int height, ArrayList<Zombie> enemies, ArrayList<InvisCloak> cloaks, PImage background) {
+	public Level(String filename, int width, int height) {
 		walls = new char[24][32];
 		readData(filename, walls);
-		this.cloaks = cloaks;
-		this.zombies = enemies; 
+		inviscloak = new ArrayList<InvisCloak>();
+		monsters = new ArrayList<Enemy>(); 
 		obstacles = new ArrayList<Rectangle>();
 		makeObstacles();
-		this.background = background;
-	}
-	
-	public void setup() {
-		
-	}
-	
-	public void draw(PApplet g) {
-		g.image(background, 0, 0, 800, 600);
-		for (Zombie a : zombies) {
-			a.draw(g);
-		}
-		for (InvisCloak a : cloaks) {
-			a.draw(g);
-		}
 	}
 	
 	private void makeObstacles() {
@@ -80,7 +60,7 @@ public class Level {
 	 * @return inviscloak ArrayList of invisCloaks
 	 */
 	public ArrayList<InvisCloak> getInvisCloaks() {
-		return cloaks;
+		return inviscloak;
 	}
 	
 	/**
@@ -88,14 +68,14 @@ public class Level {
 	 * @param a InvisCloak to be added
 	 */
 	public void addInvisCloak(InvisCloak a) {
-		cloaks.add(a);
+		inviscloak.add(a);
 	}
 	/**
 	 * Removes invisCloak from the level
 	 * @param i the index of the invisCloak to be removed
 	 */
 	public void removeInvisCloak(int i) {
-		cloaks.remove(i);
+		inviscloak.remove(i);
 	}
 	
 	/**
@@ -109,22 +89,22 @@ public class Level {
 	 * This returns the monsters arraylist
 	 * @return monsters ArrayList of type enemy
 	 */
-	public ArrayList<Zombie> getMonsters() {
-		return zombies;
+	public ArrayList<Enemy> getMonsters() {
+		return monsters;
 	}
 	/**
 	 * Method to remove monsters in the level
 	 * @param i index of the object to remove within the monster arraylist
 	 */
 	public void removeMonster(int i) {
-		zombies.remove(i);
+		monsters.remove(i);
 	}
 	/**
 	 * Add an Enemy object to the monster list in the level
 	 * @param a Enemy to add to the level
 	 */
-	public void addMonster(Zombie a) {
-		zombies.add(a);
+	public void addMonster(Enemy a) {
+		monsters.add(a);
 	}
 	
 	/**

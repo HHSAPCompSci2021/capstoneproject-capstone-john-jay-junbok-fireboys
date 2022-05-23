@@ -53,7 +53,7 @@ public class GameScreen extends Screen {
 	 * Draws the game screen by displaying the blueprint (walls and pillars), the obstacles of the game (including the monster), and generating the player
 	 */
 	public void draw() {
-		/*
+		
 		hasWon();
 		if (wonGame) {
 			s.screens.set(3, new WinningScreen(s, a));
@@ -90,7 +90,7 @@ public class GameScreen extends Screen {
 				
 			}
 		}
-		
+		*/
 		
 		
 		
@@ -101,8 +101,7 @@ public class GameScreen extends Screen {
 		
 		PGraphics fogMask = createFogMask( (float) player.getX(), (float) player.getY(), 300);
 		s.image(fogMask,0,0);
-		*/
-		a.draw(s);
+
 		
 	}
 	
