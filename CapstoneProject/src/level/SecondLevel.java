@@ -33,8 +33,8 @@ public class SecondLevel extends Level {
 		addInvisCloak(new InvisCloak(null, 630, 500));
 		addInvisCloak(new InvisCloak(null, 500, 475));
 		addInvisCloak(new InvisCloak(null, 350, 250));
-		addInvisCloak(new InvisCloak(null, 600, 50));
-		addInvisCloak(new InvisCloak(null, 50, 150));
+		addInvisCloak(new InvisCloak(null, 500, 50));
+		addInvisCloak(new InvisCloak(null, 50, 250));
 		
 	}
 }

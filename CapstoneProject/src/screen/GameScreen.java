@@ -198,7 +198,7 @@ public PGraphics createFogMask(float x, float y, int dim) {
 				wonGame = true;
 			}
 		} else {
-			if (new Rectangle(300, 0, 100, 50).contains(new Point((int)player.getX(), (int) player.getY()))) {
+			if (new Rectangle(250, 0, 100, 50).contains(new Point((int)player.getX(), (int) player.getY()))) {
 				wonGame = true;
 			}
 		}
