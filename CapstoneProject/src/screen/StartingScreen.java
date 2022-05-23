@@ -21,7 +21,7 @@ public class StartingScreen extends Screen {
 	private DrawingSurface s;
 	private Rectangle button;
 	private boolean wasDead;
-	private PImage title;
+	private PImage title, player, enemy;
 	
 	/**
 	 * Constructs a StartingScreen by setting the width to 600 and height to 800 and assigning the Drawing that uses this Screen to s.
@@ -45,6 +45,8 @@ public class StartingScreen extends Screen {
 		
 		
 		s.image(title, 0, 50, 800, 533);
+		s.image(player, 150, 150, 70, 80);
+		s.image(enemy, 575, 150, 70, 80);
 		
 		if (wasDead == true) {
 			s.text("YOU DIED: WANNA TRY AGAIN?", 300, 225);
@@ -71,7 +73,9 @@ public class StartingScreen extends Screen {
 
 	@Override
 	public void setup() {
-		title = s.loadImage("img/title.png");		
+		title = s.loadImage("img/title.png");	
+		player = s.loadImage("img/player.png");
+		enemy = s.loadImage("img/enemy_1.png");
 	}
 
 	
