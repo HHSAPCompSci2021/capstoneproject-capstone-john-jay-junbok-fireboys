@@ -2,6 +2,8 @@ package screen;
 
 import java.awt.Point;
 import processing.core.PFont;
+import processing.core.PImage;
+
 import java.awt.Rectangle;
 
 import level.Level;
@@ -19,6 +21,7 @@ public class StartingScreen extends Screen {
 	private DrawingSurface s;
 	private Rectangle button;
 	private boolean wasDead;
+	private PImage title;
 	
 	/**
 	 * Constructs a StartingScreen by setting the width to 600 and height to 800 and assigning the Drawing that uses this Screen to s.
@@ -41,10 +44,10 @@ public class StartingScreen extends Screen {
 		s.background(0, 126, 107);
 		
 		
-		s.text("MONSTERS and MAZES", 300, 150);
+		s.image(title, 0, 50, 800, 533);
 		
 		if (wasDead == true) {
-			s.text("YOU DIED: WANNA TRY AGAIN?", 300, 200);
+			s.text("YOU DIED: WANNA TRY AGAIN?", 300, 225);
 		}
 		
 		s.fill(0, 126, 107);
@@ -68,8 +71,7 @@ public class StartingScreen extends Screen {
 
 	@Override
 	public void setup() {
-		// TODO Auto-generated method stub
-		
+		title = s.loadImage("img/title.png");		
 	}
 
 	
