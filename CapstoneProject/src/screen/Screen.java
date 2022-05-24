@@ -28,9 +28,7 @@ public abstract class Screen {
 	/** 
 	 * Illustrates the screen to desired graphical properties of the game
 	 */
-	public void draw() {
-		
-	}
+	public abstract void draw();
 	
 	/**
 	 * Switches screen depending on specific location of mousePressed (in graphically displayed buttons)
